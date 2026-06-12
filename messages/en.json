@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "siteName": "Daley Brennan",
+    "home": {
+      "title": "US Market Strategy for Premium Wine & Spirits Brands",
+      "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on US market entry, distribution strategy, and pricing. Bilingual EN/FR."
+    },
+    "diagnostic": {
+      "title": "Commercial Diagnostic — US Market Readiness for Wine Brands",
+      "description": "A focused diagnostic of how ready your wine or spirits brand is for the US market: pricing architecture, distribution fit, and the sequencing errors that quietly stall growth."
+    },
+    "advisory": {
+      "title": "Advisory — Distribution, Pricing & Channel Strategy",
+      "description": "Ongoing commercial advisory for premium wine and spirits brands: importer and distributor strategy, pricing architecture, channel and account targeting across the US and selected markets."
+    },
+    "about": {
+      "title": "About — A Current Practitioner, Not a Former One",
+      "description": "A bilingual commercial leader active in premium wine since 2008, advising a limited number of brands alongside a senior commercial role. US market access, distribution, pricing, and cross-cultural EN/FR work."
+    },
+    "speaking": {
+      "title": "Speaking & Education — Cultural Adaptation for Wine & Spirits",
+      "description": "Available for one-off seminars, keynotes, and team education on cross-cultural commercial strategy across the US, France, the UK, and beyond. Delivered in English or French."
+    },
+    "contact": {
+      "title": "Request an Introduction",
+      "description": "Tell me about your brand. I take on a limited number of engagements at a time and will come back to you if it's a fit."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "diagnostic": "Diagnostic",
+    "advisory": "Advisory",
+    "speaking": "Speaking & Education",
+    "about": "About",
+    "contact": "Request an introduction",
+    "skipToContent": "Skip to content"
+  },
+  "common": {
+    "requestIntro": "Request an introduction",
+    "readMore": "Read more",
+    "languageName": "English",
+    "switchTo": "Français",
+    "selective": "I take on a limited number of engagements at a time.",
+    "noObligation": "Without obligation"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Premium wine & spirits — commercial strategy",
+      "title": "The US market rewards precision. Most brands arrive with a guess.",
+      "lede": "I help a small number of premium wine and spirits brands enter and grow in the United States — pricing, distribution, and the order you do things in. Quietly, and from inside the industry.",
+      "cta": "Request an introduction",
+      "secondary": "See the diagnostic"
+    },
+    "positioning": {
+      "title": "A practitioner, not a consultant on the outside looking in.",
+      "body": "I hold a senior commercial role in the premium wine industry and advise a limited number of brands alongside it. That means current market knowledge — what importers are actually buying, what distributors are dropping, where the shelf and the by-the-glass list are moving — not a playbook from five years ago."
+    },
+    "pillars": {
+      "title": "Where brands lose time and margin",
+      "items": {
+        "pricing": {
+          "title": "Pricing architecture",
+          "body": "The number on the shelf is decided three margins earlier. Get the ladder wrong and no amount of selling fixes it."
+        },
+        "distribution": {
+          "title": "Distribution fit",
+          "body": "The right importer for a 2,000-case brand is the wrong one for a 200-case brand. Most introductions are made backwards."
+        },
+        "sequencing": {
+          "title": "Market sequencing",
+          "body": "Which states, which channels, in which order. The wrong sequence burns capital and goodwill you don't get back."
+        }
+      }
+    },
+    "diagnosticTeaser": {
+      "eyebrow": "Start here",
+      "title": "A commercial diagnostic, before anyone signs anything",
+      "body": "Tell me about your brand and I'll send you a written diagnostic of where you stand in the US market — the risks worth naming and the questions worth answering before you commit budget. It costs you a few minutes.",
+      "cta": "See how the diagnostic works"
+    },
+    "selectiveBlock": {
+      "title": "Deliberately small",
+      "body": "I take on a limited number of engagements at a time, because the work is hands-on and because I'm doing it alongside a full-time commercial role. If the timing isn't right, I'll say so."
+    },
+    "speakingCallout": {
+      "eyebrow": "Speaking & education",
+      "title": "Also available for seminars and speaking.",
+      "body": "Adapting the product to the market is one thing; adapting the approach is another. I teach and speak on cross-cultural commercial strategy across the US, France, and the UK — for trade audiences, teams, and universities.",
+      "cta": "Speaking & education"
+    }
+  },
+  "diagnostic": {
+    "hero": {
+      "eyebrow": "The commercial diagnostic",
+      "title": "Where does your brand actually stand in the US market?",
+      "lede": "A focused, written diagnostic of your brand's commercial readiness for the United States — pricing, distribution fit, and market sequencing — built from your situation and current market conditions."
+    },
+    "what": {
+      "title": "What it is",
+      "body": "Not a sales deck and not a generic market report. It's a short, specific written assessment: where the pressure points are for a brand like yours, in the markets you're targeting, given how the trade is buying right now.",
+      "points": {
+        "pricing": "The pricing-ladder risks hiding between your ex-cellars price and the shelf.",
+        "distribution": "Whether the distribution path you're on fits your volume and ambition.",
+        "sequencing": "The market-sequencing decisions that quietly determine the next two years."
+      }
+    },
+    "how": {
+      "title": "How it works",
+      "steps": {
+        "one": {
+          "title": "You tell me about your brand",
+          "body": "A short application — category, where you sell today, where you want to go, and what's not working. A few minutes."
+        },
+        "two": {
+          "title": "I research and write",
+          "body": "I assess your situation against current market conditions and competitive set, and write a diagnostic specific to your brand."
+        },
+        "three": {
+          "title": "You receive a written diagnostic",
+          "body": "A concise document naming the real risks and the questions worth answering — yours to keep, whether or not we work together."
+        },
+        "four": {
+          "title": "If it's a fit, we talk",
+          "body": "If the diagnostic points to work worth doing, we book a call to go deeper. No obligation either way."
+        }
+      }
+    },
+    "cta": {
+      "title": "Get your diagnostic",
+      "body": "Tell me about your brand. If it's a fit, I'll come back to you — and the diagnostic itself is entirely without obligation.",
+      "button": "Request an introduction"
+    }
+  },
+  "advisory": {
+    "hero": {
+      "eyebrow": "Advisory",
+      "title": "Commercial strategy for brands that are past the guesswork.",
+      "lede": "Ongoing advisory for premium wine and spirits brands building real presence in the US and selected international markets — distribution, pricing, channel, and the commercial discipline to make them hold together."
+    },
+    "services": {
+      "title": "What I work on",
+      "items": {
+        "marketEntry": {
+          "title": "US market access",
+          "body": "Entry strategy and execution — the realistic path from where you are to shelves and lists that actually move volume."
+        },
+        "distribution": {
+          "title": "Importer & distributor strategy",
+          "body": "Choosing, winning, and managing the right distribution partners — and knowing when a relationship has stopped working."
+        },
+        "pricing": {
+          "title": "Pricing architecture",
+          "body": "Building the price ladder backwards from the shelf so margin survives every hand it passes through."
+        },
+        "channel": {
+          "title": "Channel & account targeting",
+          "body": "On- and off-premise, chains and independents, e-commerce — which channels, which accounts, and in what order."
+        },
+        "data": {
+          "title": "Commercial data analysis",
+          "body": "Depletion trends, account performance, and the numbers that tell you where to push and where to stop."
+        },
+        "positioning": {
+          "title": "Premium positioning",
+          "body": "Holding a brand's premium position through the commercial decisions that usually erode it."
+        }
+      }
+    },
+    "markets": {
+      "title": "Where I work",
+      "body": "Primary focus on the United States, with bilingual EN/FR work across the UK, the UAE, and Northern Europe. The cross-cultural piece is not a footnote — most commercial relationships in this industry fail at the cultural seam, not the spreadsheet."
+    },
+    "cta": {
+      "title": "Start with a diagnostic",
+      "body": "Advisory engagements usually begin with the commercial diagnostic — it's how we both find out whether there's work worth doing.",
+      "button": "Request an introduction"
+    }
+  },
+  "speaking": {
+    "hero": {
+      "eyebrow": "Speaking & education",
+      "title": "Available for seminars, keynotes, and team education.",
+      "lede": "I take on one-off speaking engagements and educational sessions alongside my advisory work — on the commercial side of wine and spirits, and on the cultural fluency the trade quietly runs on. In English or French."
+    },
+    "education": {
+      "eyebrow": "Cultural adaptation",
+      "title": "Adapting the product to the market is one thing. Adapting the approach is another.",
+      "body": "A wine that sells itself in Paris can stall in New York for reasons that have nothing to do with the wine. How a deal is opened, how a relationship is built, how a price is discussed, what a buyer expects left unsaid — these differ across the US, France, the UK, and beyond, and they decide outcomes more often than the liquid in the bottle. I help teams and audiences read those differences and work with them rather than against them.",
+      "points": {
+        "0": { "title": "Market culture", "body": "How the US, French, and British trades actually behave — what's normal in one room and a misstep in the next." },
+        "1": { "title": "Negotiation & relationship norms", "body": "Where directness reads as confidence and where it reads as rudeness; how trust is built in each market." },
+        "2": { "title": "Trade expectations", "body": "What importers, distributors, and buyers assume you already know — the unwritten rules that gate access." },
+        "3": { "title": "Language & register", "body": "Working credibly in English and French, and knowing which register a given room expects." }
+      }
+    },
+    "formats": {
+      "eyebrow": "Formats",
+      "title": "How I can help",
+      "body": "Available for one-off engagements — I'll tailor the session to your audience.",
+      "items": {
+        "0": { "title": "Keynotes & talks", "body": "Trade events, conferences, and consumer-facing evenings." },
+        "1": { "title": "Seminars & workshops", "body": "In-house sessions for sales teams, importers, and producers." },
+        "2": { "title": "Panels & moderation", "body": "Contributing to or chairing trade and cultural discussions." },
+        "3": { "title": "Tastings with context", "body": "Guided tastings framed around market and cultural strategy." }
+      },
+      "languages": "Delivered in English or French."
+    },
+    "academic": {
+      "eyebrow": "Academic & university",
+      "title": "Equally at home in a lecture hall.",
+      "body": "Before wine, my background was academic, and I remain comfortable in a teaching setting — so I'm also open to university and educational work. I hold an MSc in Language Sciences and Neuroscience from University College London, held a research post at the École Normale Supérieure in Paris, and spent a short period as a PhD candidate. I mention it not as a headline, but so it's clear the door is open if a teaching or lecturing brief would be a fit.",
+      "credentials": {
+        "0": "MSc, Language Sciences & Neuroscience — UCL",
+        "1": "Research post — École Normale Supérieure, Paris",
+        "2": "Former PhD candidate"
+      }
+    },
+    "cta": {
+      "title": "Request Daley for an event",
+      "body": "Tell me about your audience or brief and I'll come back to you. Speaking enquiries are welcome in English or French.",
+      "button": "Request an introduction"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About",
+      "title": "A current practitioner, advising a few brands on the side.",
+      "lede": "I hold a senior commercial role in the premium wine industry and take on a limited number of advisory engagements alongside it."
+    },
+    "body": {
+      "p1": "I've been in premium wine since 2008, and now lead US commercial efforts for a fine-wine estate — the day-to-day of importer relationships, distributor management, pricing, and the slow work of building real presence in a market that doesn't hand it to you. Before that, I owned and ran two wine retail businesses in Paris.",
+      "p2": "That combination — operator and merchant, US and Europe — is the point. I've sat on both sides of the table: the brand trying to get in, and the buyer deciding whether to let it. I work in English and French, and most of what I do lives in the gap between how the two commercial cultures actually behave.",
+      "p3": "I advise a small number of brands because the work is hands-on and because I'm doing it alongside a full-time role. I'm not a former-industry consultant selling a playbook; I'm in the market now, and what I know is current.",
+      "linkedin": "The full professional record is on LinkedIn",
+      "linkedinCta": "View LinkedIn profile"
+    },
+    "skills": {
+      "title": "What I bring",
+      "items": {
+        "0": "US market access",
+        "1": "Distributor & importer strategy",
+        "2": "Pricing architecture",
+        "3": "Channel strategy",
+        "4": "Account targeting",
+        "5": "Commercial data analysis",
+        "6": "Premium positioning",
+        "7": "Bilingual EN/FR commercial work"
+      }
+    },
+    "cta": {
+      "title": "Request an introduction",
+      "body": "If you're building a premium wine or spirits brand in the US, start with a diagnostic.",
+      "button": "Request an introduction"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Request an introduction",
+      "title": "Tell me about your brand.",
+      "lede": "This is an application, not a contact form. I take on a limited number of engagements at a time and will come back to you if it's a fit."
+    },
+    "form": {
+      "contactName": "Your name",
+      "contactEmail": "Email",
+      "contactRole": "Your role",
+      "contactRolePlaceholder": "Founder, export director, importer, investor…",
+      "companyName": "Brand / company name",
+      "brandCategory": "Category",
+      "brandCategoryOptions": {
+        "wine": "Wine",
+        "spirits": "Spirits",
+        "na_beverage": "Non-alcoholic beverage",
+        "specialty_food": "Specialty food",
+        "other": "Other"
+      },
+      "brandWebsite": "Website",
+      "brandWebsiteOptional": "optional",
+      "currentMarkets": "Where you sell today",
+      "currentMarketsPlaceholder": "e.g. France, UK, domestic only…",
+      "targetMarkets": "Where you want to go",
+      "targetMarketsPlaceholder": "e.g. US — New York, California…",
+      "stage": "Stage",
+      "stageOptions": {
+        "pre_entry": "Not yet in the US",
+        "expanding": "In the US, expanding",
+        "underperforming": "In the US, underperforming"
+      },
+      "currentDistribution": "Current distribution",
+      "currentDistributionPlaceholder": "Importer / distributor status, or none yet…",
+      "pricePositioning": "Price positioning",
+      "pricePositioningPlaceholder": "Approx. shelf price or band — optional",
+      "scaleNote": "Volume or scale",
+      "scaleNotePlaceholder": "Cases/year or revenue, roughly — optional",
+      "freeText": "Tell me what's actually going on",
+      "freeTextPlaceholder": "What are you trying to do, and what isn't working? The more specific you are, the more useful the diagnostic.",
+      "consent": "I'd like to receive a written diagnostic by email.",
+      "submit": "Request an introduction",
+      "submitting": "Sending…",
+      "required": "required",
+      "optional": "optional"
+    },
+    "success": {
+      "title": "Thank you — it's with me.",
+      "body": "I read every application personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too."
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again, or email me directly.",
+      "name": "Please tell me your name.",
+      "email": "Please enter a valid email address.",
+      "company": "Please tell me your brand or company name.",
+      "category": "Please choose a category.",
+      "stage": "Please choose a stage.",
+      "freeText": "A sentence or two here makes all the difference.",
+      "consent": "Please confirm you'd like to receive the diagnostic.",
+      "rateLimited": "That's a few submissions in quick succession — please wait a moment and try again.",
+      "captcha": "Please complete the verification."
+    }
+  },
+  "footer": {
+    "tagline": "Commercial strategy for premium wine & spirits brands. US-focused, bilingual EN/FR.",
+    "linksTitle": "Navigate",
+    "contactTitle": "Get in touch",
+    "linkedin": "LinkedIn",
+    "rights": "All rights reserved.",
+    "selective": "A limited number of engagements at a time."
+  }
+}

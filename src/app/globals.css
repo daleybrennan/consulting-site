@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — shared with the PDF template.
+   Modern, light & crisp: white + near-black + one burgundy accent.
+   ============================================================ */
+:root {
+  --ink: #141414;          /* near-black: text + dramatic sections */
+  --ink-soft: #3a3a3a;     /* secondary text on light */
+  --surface: #ffffff;      /* page background / light text on dark */
+  --surface-2: #f7f7f5;    /* soft-white alternating panel */
+  --paper: #ffffff;
+  --accent: #7b1e3b;       /* modern burgundy */
+  --accent-soft: #9a2a47;
+  --line: #e6e6e3;         /* thin neutral hairline on light */
+  --line-dark: #2c2c2e;    /* hairline rules on dark */
+  --muted: #6b6b6b;        /* neutral muted body on light */
+  --muted-dark: #b8b6b2;   /* muted body on dark */
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
+  --color-muted: var(--muted);
+  --color-muted-dark: var(--muted-dark);
+
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  --container-prose: 65ch;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;        /* ~17px */
+  line-height: 1.6;
+  letter-spacing: -0.003em;
+}
+
+/* Display type: serif, tight tracking on large sizes */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+/* Base element styling lives in @layer base so Tailwind utility classes
+   (text-white, leading-tight, …) always win over it. An unlayered rule here
+   would beat the utilities layer and override per-element colours. */
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--surface);
+}
+
+/* Visible keyboard focus everywhere (WCAG) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Soft section reveal on scroll — disabled for reduced motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Thin uppercase eyebrow label */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Constrained reading measure */
+.prose-measure { max-width: var(--container-prose); }

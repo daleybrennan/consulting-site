@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "siteName": "Daley Brennan",
+    "home": {
+      "title": "Stratégie du marché américain pour les marques de vins et spiritueux premium",
+      "description": "Praticien commercial senior, actif dans le vin premium, qui conseille un nombre limité de marques sur l'entrée sur le marché américain, la distribution et le positionnement tarifaire. Bilingue FR/EN."
+    },
+    "diagnostic": {
+      "title": "Diagnostic commercial — préparation au marché américain pour les marques de vin",
+      "description": "Un diagnostic ciblé de la préparation de votre marque de vins ou spiritueux au marché américain : architecture tarifaire, adéquation de la distribution et erreurs de séquençage qui freinent silencieusement la croissance."
+    },
+    "advisory": {
+      "title": "Conseil — distribution, prix et stratégie de circuits",
+      "description": "Conseil commercial continu pour les marques de vins et spiritueux premium : stratégie d'importateurs et de distributeurs, architecture tarifaire, ciblage des circuits et des comptes aux États-Unis et sur des marchés sélectionnés."
+    },
+    "about": {
+      "title": "À propos — un praticien actuel, pas un ancien",
+      "description": "Dirigeant commercial bilingue, actif dans le vin premium depuis 2008, qui conseille un nombre limité de marques en parallèle d'un poste commercial senior. Accès au marché américain, distribution, prix et travail interculturel FR/EN."
+    },
+    "speaking": {
+      "title": "Conférences & enseignement — adaptation culturelle, vins & spiritueux",
+      "description": "Disponible pour des séminaires ponctuels, des conférences et la formation d'équipes sur la stratégie commerciale interculturelle aux États-Unis, en France, au Royaume-Uni et au-delà. En français ou en anglais."
+    },
+    "contact": {
+      "title": "Demander une mise en relation",
+      "description": "Parlez-moi de votre marque. Je n'accepte qu'un nombre limité de missions à la fois et je reviendrai vers vous si c'est pertinent."
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "diagnostic": "Diagnostic",
+    "advisory": "Conseil",
+    "speaking": "Conférences & enseignement",
+    "about": "À propos",
+    "contact": "Demander une mise en relation",
+    "skipToContent": "Aller au contenu"
+  },
+  "common": {
+    "requestIntro": "Demander une mise en relation",
+    "readMore": "En savoir plus",
+    "languageName": "Français",
+    "switchTo": "English",
+    "selective": "Je n'accepte qu'un nombre limité de missions à la fois.",
+    "noObligation": "Sans engagement"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Vins & spiritueux premium — stratégie commerciale",
+      "title": "Le marché américain récompense la précision. La plupart des marques y arrivent à l'estime.",
+      "lede": "J'accompagne un petit nombre de marques de vins et spiritueux premium dans leur entrée et leur croissance aux États-Unis — prix, distribution, et l'ordre dans lequel on agit. Discrètement, et de l'intérieur du métier.",
+      "cta": "Demander une mise en relation",
+      "secondary": "Voir le diagnostic"
+    },
+    "positioning": {
+      "title": "Un praticien, pas un consultant qui observe de l'extérieur.",
+      "body": "J'occupe un poste commercial senior dans le vin premium et je conseille un nombre limité de marques en parallèle. Cela signifie une connaissance actuelle du marché — ce que les importateurs achètent réellement, ce que les distributeurs abandonnent, où bougent le linéaire et la carte au verre — pas un manuel vieux de cinq ans."
+    },
+    "pillars": {
+      "title": "Là où les marques perdent du temps et de la marge",
+      "items": {
+        "pricing": {
+          "title": "Architecture tarifaire",
+          "body": "Le prix en rayon se décide trois marges plus tôt. Une mauvaise échelle de prix, et aucune force de vente ne la rattrape."
+        },
+        "distribution": {
+          "title": "Adéquation de la distribution",
+          "body": "Le bon importateur pour 2 000 caisses est le mauvais pour 200. La plupart des mises en relation se font à l'envers."
+        },
+        "sequencing": {
+          "title": "Séquençage du marché",
+          "body": "Quels États, quels circuits, dans quel ordre. Le mauvais séquençage brûle un capital et une bonne volonté qu'on ne récupère pas."
+        }
+      }
+    },
+    "diagnosticTeaser": {
+      "eyebrow": "Commencez ici",
+      "title": "Un diagnostic commercial, avant toute signature",
+      "body": "Parlez-moi de votre marque et je vous enverrai un diagnostic écrit de votre position sur le marché américain — les risques à nommer et les questions à trancher avant d'engager un budget. Cela ne vous coûte que quelques minutes.",
+      "cta": "Voir comment fonctionne le diagnostic"
+    },
+    "selectiveBlock": {
+      "title": "Volontairement restreint",
+      "body": "Je n'accepte qu'un nombre limité de missions à la fois, parce que le travail est concret et parce que je le mène en parallèle d'un poste commercial à temps plein. Si le moment n'est pas le bon, je vous le dirai."
+    },
+    "speakingCallout": {
+      "eyebrow": "Conférences & enseignement",
+      "title": "Également disponible pour des séminaires et des conférences.",
+      "body": "Adapter le produit au marché est une chose ; adapter l'approche en est une autre. J'enseigne et j'interviens sur la stratégie commerciale interculturelle aux États-Unis, en France et au Royaume-Uni — pour le négoce, les équipes et les universités.",
+      "cta": "Conférences & enseignement"
+    }
+  },
+  "diagnostic": {
+    "hero": {
+      "eyebrow": "Le diagnostic commercial",
+      "title": "Où se situe vraiment votre marque sur le marché américain ?",
+      "lede": "Un diagnostic écrit et ciblé de la préparation commerciale de votre marque pour les États-Unis — prix, adéquation de la distribution et séquençage du marché — construit à partir de votre situation et des conditions actuelles du marché."
+    },
+    "what": {
+      "title": "Ce que c'est",
+      "body": "Ni un argumentaire de vente, ni un rapport de marché générique. C'est une évaluation écrite, courte et précise : où sont les points de tension pour une marque comme la vôtre, sur les marchés que vous visez, compte tenu de la façon dont le négoce achète en ce moment.",
+      "points": {
+        "pricing": "Les risques d'échelle de prix cachés entre votre prix départ-cave et le rayon.",
+        "distribution": "Si la voie de distribution que vous suivez correspond à votre volume et à votre ambition.",
+        "sequencing": "Les décisions de séquençage qui déterminent silencieusement les deux prochaines années."
+      }
+    },
+    "how": {
+      "title": "Comment ça marche",
+      "steps": {
+        "one": {
+          "title": "Vous me parlez de votre marque",
+          "body": "Une courte candidature — catégorie, où vous vendez aujourd'hui, où vous voulez aller, et ce qui ne fonctionne pas. Quelques minutes."
+        },
+        "two": {
+          "title": "Je recherche et je rédige",
+          "body": "J'évalue votre situation au regard des conditions actuelles du marché et de votre univers concurrentiel, et je rédige un diagnostic propre à votre marque."
+        },
+        "three": {
+          "title": "Vous recevez un diagnostic écrit",
+          "body": "Un document concis qui nomme les vrais risques et les questions à trancher — il est à vous, que nous travaillions ensemble ou non."
+        },
+        "four": {
+          "title": "Si c'est pertinent, nous échangeons",
+          "body": "Si le diagnostic révèle un travail qui en vaut la peine, nous planifions un appel pour approfondir. Sans engagement, dans un sens comme dans l'autre."
+        }
+      }
+    },
+    "cta": {
+      "title": "Obtenez votre diagnostic",
+      "body": "Parlez-moi de votre marque. Si c'est pertinent, je reviendrai vers vous — et le diagnostic lui-même est entièrement sans engagement.",
+      "button": "Demander une mise en relation"
+    }
+  },
+  "advisory": {
+    "hero": {
+      "eyebrow": "Conseil",
+      "title": "Une stratégie commerciale pour les marques qui ont dépassé l'à-peu-près.",
+      "lede": "Conseil continu pour les marques de vins et spiritueux premium qui construisent une présence réelle aux États-Unis et sur des marchés internationaux sélectionnés — distribution, prix, circuits, et la discipline commerciale pour les faire tenir ensemble."
+    },
+    "services": {
+      "title": "Ce sur quoi je travaille",
+      "items": {
+        "marketEntry": {
+          "title": "Accès au marché américain",
+          "body": "Stratégie d'entrée et exécution — le chemin réaliste entre votre point de départ et des rayons et cartes qui font vraiment du volume."
+        },
+        "distribution": {
+          "title": "Stratégie importateurs & distributeurs",
+          "body": "Choisir, convaincre et piloter les bons partenaires de distribution — et savoir quand une relation a cessé de fonctionner."
+        },
+        "pricing": {
+          "title": "Architecture tarifaire",
+          "body": "Construire l'échelle de prix à rebours depuis le rayon, pour que la marge survive à chaque main qu'elle traverse."
+        },
+        "channel": {
+          "title": "Ciblage circuits & comptes",
+          "body": "CHR et distribution, chaînes et indépendants, e-commerce — quels circuits, quels comptes, et dans quel ordre."
+        },
+        "data": {
+          "title": "Analyse de données commerciales",
+          "body": "Tendances de sorties de stock, performance des comptes, et les chiffres qui disent où pousser et où s'arrêter."
+        },
+        "positioning": {
+          "title": "Positionnement premium",
+          "body": "Préserver la position premium d'une marque à travers les décisions commerciales qui, d'habitude, l'érodent."
+        }
+      }
+    },
+    "markets": {
+      "title": "Où j'interviens",
+      "body": "Concentration principale sur les États-Unis, avec un travail bilingue FR/EN au Royaume-Uni, aux Émirats arabes unis et en Europe du Nord. La dimension interculturelle n'est pas un détail : dans ce métier, la plupart des relations commerciales se brisent sur la couture culturelle, pas sur le tableur."
+    },
+    "cta": {
+      "title": "Commencez par un diagnostic",
+      "body": "Les missions de conseil commencent généralement par le diagnostic commercial — c'est ainsi que nous découvrons tous les deux s'il y a un travail qui en vaut la peine.",
+      "button": "Demander une mise en relation"
+    }
+  },
+  "speaking": {
+    "hero": {
+      "eyebrow": "Conférences & enseignement",
+      "title": "Disponible pour des séminaires, des conférences et la formation d'équipes.",
+      "lede": "J'accepte des interventions ponctuelles et des sessions de formation en parallèle de mon activité de conseil — sur le versant commercial des vins et spiritueux, et sur la fluidité culturelle dont le négoce dépend en silence. En français ou en anglais."
+    },
+    "education": {
+      "eyebrow": "Adaptation culturelle",
+      "title": "Adapter le produit au marché est une chose. Adapter l'approche en est une autre.",
+      "body": "Un vin qui se vend tout seul à Paris peut caler à New York pour des raisons qui n'ont rien à voir avec le vin. La manière d'ouvrir une négociation, de construire une relation, de parler prix, ce qu'un acheteur attend sans le dire — tout cela diffère entre les États-Unis, la France, le Royaume-Uni et au-delà, et décide des résultats plus souvent que le liquide dans la bouteille. J'aide les équipes et les publics à lire ces différences et à composer avec elles plutôt que contre elles.",
+      "points": {
+        "0": { "title": "Culture de marché", "body": "Comment se comportent réellement les négoces américain, français et britannique — ce qui est normal dans une pièce et un faux pas dans la suivante." },
+        "1": { "title": "Codes de négociation & de relation", "body": "Où la franchise inspire confiance et où elle passe pour de la rudesse ; comment se construit la confiance sur chaque marché." },
+        "2": { "title": "Attentes du négoce", "body": "Ce que les importateurs, distributeurs et acheteurs supposent que vous savez déjà — les règles tacites qui conditionnent l'accès." },
+        "3": { "title": "Langue & registre", "body": "Travailler avec crédibilité en français et en anglais, et savoir quel registre attend chaque auditoire." }
+      }
+    },
+    "formats": {
+      "eyebrow": "Formats",
+      "title": "Comment je peux aider",
+      "body": "Disponible pour des interventions ponctuelles — j'adapte la session à votre public.",
+      "items": {
+        "0": { "title": "Conférences & prises de parole", "body": "Événements professionnels, salons, et soirées grand public." },
+        "1": { "title": "Séminaires & ateliers", "body": "Sessions en interne pour les forces de vente, importateurs et producteurs." },
+        "2": { "title": "Tables rondes & animation", "body": "Participation ou modération de discussions professionnelles et culturelles." },
+        "3": { "title": "Dégustations commentées", "body": "Dégustations guidées articulées autour de la stratégie de marché et culturelle." }
+      },
+      "languages": "En français ou en anglais."
+    },
+    "academic": {
+      "eyebrow": "Universitaire & académique",
+      "title": "Tout aussi à l'aise dans un amphithéâtre.",
+      "body": "Avant le vin, mon parcours était académique, et je reste à l'aise dans un cadre d'enseignement — je suis donc également ouvert à un travail universitaire ou pédagogique. Je suis titulaire d'un master en sciences du langage et neurosciences de l'University College London, j'ai occupé un poste de recherche à l'École Normale Supérieure à Paris, et j'ai été brièvement doctorant. Je le mentionne non comme une vitrine, mais pour que la porte reste clairement ouverte si une mission d'enseignement convenait.",
+      "credentials": {
+        "0": "Master, sciences du langage & neurosciences — UCL",
+        "1": "Poste de recherche — École Normale Supérieure, Paris",
+        "2": "Ancien doctorant"
+      }
+    },
+    "cta": {
+      "title": "Sollicitez Daley pour un événement",
+      "body": "Parlez-moi de votre public ou de votre cahier des charges et je reviendrai vers vous. Les demandes d'intervention sont bienvenues en français ou en anglais.",
+      "button": "Demander une mise en relation"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "À propos",
+      "title": "Un praticien actuel, qui conseille quelques marques en parallèle.",
+      "lede": "J'occupe un poste commercial senior dans le vin premium et j'accepte un nombre limité de missions de conseil en parallèle."
+    },
+    "body": {
+      "p1": "Je travaille dans le vin premium depuis 2008, et je dirige aujourd'hui les efforts commerciaux américains d'un domaine de grands vins — le quotidien des relations avec les importateurs, le pilotage des distributeurs, les prix, et le travail patient de construction d'une présence réelle sur un marché qui ne l'offre pas. Auparavant, j'ai possédé et dirigé deux commerces de vins à Paris.",
+      "p2": "Cette combinaison — opérateur et marchand, États-Unis et Europe — est l'essentiel. J'ai été des deux côtés de la table : la marque qui cherche à entrer, et l'acheteur qui décide de la laisser entrer. Je travaille en anglais et en français, et l'essentiel de ce que je fais vit dans l'écart entre la façon dont les deux cultures commerciales se comportent réellement.",
+      "p3": "Je conseille un petit nombre de marques parce que le travail est concret et parce que je le mène en parallèle d'un poste à temps plein. Je ne suis pas un ancien du métier qui vend un manuel ; je suis sur le marché aujourd'hui, et ce que je sais est actuel.",
+      "linkedin": "Le parcours professionnel complet est sur LinkedIn",
+      "linkedinCta": "Voir le profil LinkedIn"
+    },
+    "skills": {
+      "title": "Ce que j'apporte",
+      "items": {
+        "0": "Accès au marché américain",
+        "1": "Stratégie distributeurs & importateurs",
+        "2": "Architecture tarifaire",
+        "3": "Stratégie de circuits",
+        "4": "Ciblage des comptes",
+        "5": "Analyse de données commerciales",
+        "6": "Positionnement premium",
+        "7": "Travail commercial bilingue FR/EN"
+      }
+    },
+    "cta": {
+      "title": "Demander une mise en relation",
+      "body": "Si vous construisez une marque de vins ou spiritueux premium aux États-Unis, commencez par un diagnostic.",
+      "button": "Demander une mise en relation"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Demander une mise en relation",
+      "title": "Parlez-moi de votre marque.",
+      "lede": "Ceci est une candidature, pas un formulaire de contact. Je n'accepte qu'un nombre limité de missions à la fois et je reviendrai vers vous si c'est pertinent."
+    },
+    "form": {
+      "contactName": "Votre nom",
+      "contactEmail": "E-mail",
+      "contactRole": "Votre fonction",
+      "contactRolePlaceholder": "Fondateur, directeur export, importateur, investisseur…",
+      "companyName": "Nom de la marque / société",
+      "brandCategory": "Catégorie",
+      "brandCategoryOptions": {
+        "wine": "Vin",
+        "spirits": "Spiritueux",
+        "na_beverage": "Boisson sans alcool",
+        "specialty_food": "Épicerie fine",
+        "other": "Autre"
+      },
+      "brandWebsite": "Site web",
+      "brandWebsiteOptional": "facultatif",
+      "currentMarkets": "Où vous vendez aujourd'hui",
+      "currentMarketsPlaceholder": "ex. France, Royaume-Uni, marché national uniquement…",
+      "targetMarkets": "Où vous voulez aller",
+      "targetMarketsPlaceholder": "ex. États-Unis — New York, Californie…",
+      "stage": "Étape",
+      "stageOptions": {
+        "pre_entry": "Pas encore aux États-Unis",
+        "expanding": "Aux États-Unis, en expansion",
+        "underperforming": "Aux États-Unis, en sous-performance"
+      },
+      "currentDistribution": "Distribution actuelle",
+      "currentDistributionPlaceholder": "Statut importateur / distributeur, ou aucun pour l'instant…",
+      "pricePositioning": "Positionnement prix",
+      "pricePositioningPlaceholder": "Prix de rayon approximatif ou fourchette — facultatif",
+      "scaleNote": "Volume ou taille",
+      "scaleNotePlaceholder": "Caisses/an ou chiffre d'affaires, en gros — facultatif",
+      "freeText": "Dites-moi ce qui se passe vraiment",
+      "freeTextPlaceholder": "Qu'essayez-vous de faire, et qu'est-ce qui ne fonctionne pas ? Plus vous êtes précis, plus le diagnostic sera utile.",
+      "consent": "Je souhaite recevoir un diagnostic écrit par e-mail.",
+      "submit": "Demander une mise en relation",
+      "submitting": "Envoi…",
+      "required": "obligatoire",
+      "optional": "facultatif"
+    },
+    "success": {
+      "title": "Merci — c'est bien arrivé.",
+      "body": "Je lis chaque candidature personnellement. Si votre marque correspond à ma façon de travailler, je reviendrai vers vous avec un diagnostic. Si le moment n'est pas le bon, je vous le dirai aussi."
+    },
+    "errors": {
+      "generic": "Une erreur s'est produite. Veuillez réessayer, ou m'écrire directement.",
+      "name": "Merci d'indiquer votre nom.",
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "company": "Merci d'indiquer le nom de votre marque ou société.",
+      "category": "Veuillez choisir une catégorie.",
+      "stage": "Veuillez choisir une étape.",
+      "freeText": "Une phrase ou deux ici font toute la différence.",
+      "consent": "Merci de confirmer que vous souhaitez recevoir le diagnostic.",
+      "rateLimited": "Cela fait plusieurs envois coup sur coup — patientez un instant et réessayez.",
+      "captcha": "Veuillez compléter la vérification."
+    }
+  },
+  "footer": {
+    "tagline": "Stratégie commerciale pour les marques de vins & spiritueux premium. Centrée sur les États-Unis, bilingue FR/EN.",
+    "linksTitle": "Naviguer",
+    "contactTitle": "Contact",
+    "linkedin": "LinkedIn",
+    "rights": "Tous droits réservés.",
+    "selective": "Un nombre limité de missions à la fois."
+  }
+}
