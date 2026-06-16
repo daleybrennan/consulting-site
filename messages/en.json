@@ -310,7 +310,37 @@
       "submit": "Request an introduction",
       "submitting": "Sending…",
       "required": "required",
-      "optional": "optional"
+      "optional": "optional",
+      "pricingSection": "Pricing details — optional, but helps us model the numbers",
+      "wineNames": "Wine / spirit name(s)",
+      "wineNamesPlaceholder": "e.g. Château Margaux 2021, Chablis Premier Cru…",
+      "wineStyle": "Style / varietal",
+      "wineStylePlaceholder": "e.g. Red Bordeaux blend, Chablis, Single malt…",
+      "originCountry": "Country of origin",
+      "originCountryPlaceholder": "e.g. France",
+      "originRegion": "Region / appellation",
+      "originRegionPlaceholder": "e.g. Bordeaux, Burgundy…",
+      "targetCountry": "Target market",
+      "targetCountryOptions": {
+        "US": "United States",
+        "UK": "United Kingdom",
+        "FR": "France",
+        "CA": "Canada"
+      },
+      "targetRegion": "Target state / region",
+      "targetRegionPlaceholder": "e.g. New York, California…",
+      "exwPrice": "EXW price per bottle",
+      "volumeCases": "Annual volume (cases)",
+      "volumeCasesPlaceholder": "e.g. 500",
+      "channel": "Channel intent",
+      "channelOptions": {
+        "on": "On-premise (restaurants, bars)",
+        "off": "Off-premise (retail)",
+        "both": "Both"
+      },
+      "vintage": "Vintage",
+      "vintagePlaceholder": "e.g. 2021",
+      "techSheetUrl": "Tech sheet / product page"
     },
     "success": {
       "title": "Thank you. It's with me.",

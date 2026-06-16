@@ -41,6 +41,19 @@ export interface Lead {
   source: string | null;
   consent: boolean;
   status: LeadStatus;
+  // Structured pricing fields (migration 0002)
+  origin_country: string | null;
+  origin_region: string | null;
+  target_country: string | null;
+  target_region: string | null;
+  wine_names: string | null;
+  wine_style: string | null;
+  vintage: number | null;
+  volume_cases: number | null;
+  exw_price: number | null;
+  exw_currency: string | null;
+  channel: string | null;
+  tech_sheet_url: string | null;
 }
 
 export type ReportType = 'pitch' | 'product';

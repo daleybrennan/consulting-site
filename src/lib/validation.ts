@@ -40,6 +40,19 @@ export const leadSubmitSchema = z.object({
   // Honeypot — must be empty.
   company_url_hp: z.string().optional().default(''),
   turnstileToken: z.string().optional().default(''),
+  // Structured pricing fields (optional — shown for wine/spirits only)
+  origin_country:  z.string().trim().max(100).optional().default(''),
+  origin_region:   z.string().trim().max(100).optional().default(''),
+  target_country:  z.enum(['US', 'UK', 'FR', 'CA', '']).optional().default(''),
+  target_region:   z.string().trim().max(100).optional().default(''),
+  wine_names:      z.string().trim().max(500).optional().default(''),
+  wine_style:      z.string().trim().max(200).optional().default(''),
+  vintage:         z.coerce.number().int().min(1900).max(2100).optional(),
+  volume_cases:    z.coerce.number().int().min(1).optional(),
+  exw_price:       z.coerce.number().positive().optional(),
+  exw_currency:    z.enum(['EUR', 'USD', 'GBP', 'CAD', '']).optional().default(''),
+  channel:         z.enum(['on', 'off', 'both', '']).optional().default(''),
+  tech_sheet_url:  z.string().trim().max(500).optional().default(''),
 });
 
 export type LeadSubmitInput = z.infer<typeof leadSubmitSchema>;
@@ -63,6 +76,19 @@ export function toLeadRow(input: LeadSubmitInput) {
     free_text: input.free_text,
     consent: input.consent,
     status: 'new' as const,
+    // Structured pricing fields
+    origin_country:  input.origin_country  || null,
+    origin_region:   input.origin_region   || null,
+    target_country:  input.target_country  || null,
+    target_region:   input.target_region   || null,
+    wine_names:      input.wine_names      || null,
+    wine_style:      input.wine_style      || null,
+    vintage:         input.vintage         ?? null,
+    volume_cases:    input.volume_cases    ?? null,
+    exw_price:       input.exw_price       ?? null,
+    exw_currency:    input.exw_currency    || null,
+    channel:         input.channel         || null,
+    tech_sheet_url:  input.tech_sheet_url  || null,
   };
 }
 

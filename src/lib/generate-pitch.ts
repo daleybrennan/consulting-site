@@ -3,6 +3,7 @@ import { getAnthropic, PITCH_MODEL } from '@/lib/anthropic';
 import { pitchHtml } from '@/lib/pdf-template';
 import { htmlToPdf } from '@/lib/render-pdf';
 import { notifyOwner } from '@/lib/notify';
+import { computePricing, money } from '@/lib/pricing-model';
 import type { Lead, PitchContent, Locale } from '@/types/db';
 
 // ---- Prompts ----------------------------------------------------
@@ -21,9 +22,44 @@ function brandBrief(lead: Lead): string {
       : '',
     lead.price_positioning ? `Price positioning: ${lead.price_positioning}` : '',
     lead.scale_note ? `Scale: ${lead.scale_note}` : '',
+    // Structured pricing fields
+    lead.origin_country
+      ? `Origin: ${[lead.origin_region, lead.origin_country].filter(Boolean).join(', ')}`
+      : '',
+    lead.target_country
+      ? `Target market (structured): ${lead.target_country}${lead.target_region ? ' / ' + lead.target_region : ''}`
+      : '',
+    lead.wine_names ? `Wines: ${lead.wine_names}` : '',
+    lead.wine_style ? `Style: ${lead.wine_style}` : '',
+    lead.vintage ? `Vintage: ${lead.vintage}` : '',
+    lead.exw_price != null
+      ? `EXW price: ${lead.exw_currency || 'EUR'} ${lead.exw_price.toFixed(2)} per bottle`
+      : '',
+    lead.volume_cases ? `Annual volume: ${lead.volume_cases} cases` : '',
+    lead.channel ? `Channel intent: ${lead.channel}` : '',
+    lead.tech_sheet_url ? `Tech sheet: ${lead.tech_sheet_url}` : '',
     '',
     'In their own words:',
     lead.free_text,
+  ];
+  return lines.filter(Boolean).join('\n');
+}
+
+function formatPricingForContext(
+  pricing: ReturnType<typeof computePricing>
+): string {
+  const cur = pricing.market.currency;
+  const pb = pricing.expected.perBottle;
+  const b = pricing.band;
+  const lines = [
+    `Market: ${pricing.market.label} (${pricing.market.model})`,
+    `EXW converted: ${money(pb.exw, cur)} | CIF: ${money(pb.cif, cur)} | Landed: ${money(pb.landed, cur)}`,
+    `Importer-out: ${money(pb.importerOut, cur)} | Front line (trade): ${money(pb.frontline, cur)}`,
+    `On-premise list: ${money(pb.onPremiseList, cur)} | Off-premise shelf (incl. tax): ${money(pb.offPremiseShelfInclTax, cur)}`,
+    `Band (off-premise shelf): ${money(b.offPremiseShelf.low, cur)} – ${money(b.offPremiseShelf.high, cur)} (expected ${money(b.offPremiseShelf.expected, cur)})`,
+    `Quantity discount: ${String(pricing.quantityDiscount.legal).toUpperCase()} — ${pricing.quantityDiscount.note || ''}`,
+    pricing.warnings.length ? `Warnings: ${pricing.warnings.join(' | ')}` : '',
+    pricing.disclaimer,
   ];
   return lines.filter(Boolean).join('\n');
 }
@@ -223,7 +259,25 @@ export async function generatePitchReport(leadId: string): Promise<void> {
 
   try {
     const { findings, sources } = await research(lead);
-    const content = await structure(lead, findings);
+
+    // Enrich research findings with computed price walk when pricing data is present.
+    let enrichedFindings = findings;
+    if (lead.exw_price != null && lead.target_country) {
+      try {
+        const pricing = computePricing({
+          exwPrice: lead.exw_price,
+          exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
+          targetMarket: lead.target_country as 'US' | 'UK' | 'FR' | 'CA',
+          targetRegion: lead.target_region || undefined,
+          volumeCases: lead.volume_cases || undefined,
+        });
+        enrichedFindings += '\n\n## COMPUTED PRICE WALK\n' + formatPricingForContext(pricing);
+      } catch {
+        // Non-fatal — continue with research findings only.
+      }
+    }
+
+    const content = await structure(lead, enrichedFindings);
 
     const html = pitchHtml(content, lead, lead.locale);
     const pdf = await htmlToPdf(html);
@@ -325,7 +379,24 @@ export async function regeneratePitchReport(
 
   try {
     const { findings, sources } = await research(lead);
-    const content = await structure(lead, findings, instructions);
+
+    let enrichedFindings = findings;
+    if (lead.exw_price != null && lead.target_country) {
+      try {
+        const pricing = computePricing({
+          exwPrice: lead.exw_price,
+          exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
+          targetMarket: lead.target_country as 'US' | 'UK' | 'FR' | 'CA',
+          targetRegion: lead.target_region || undefined,
+          volumeCases: lead.volume_cases || undefined,
+        });
+        enrichedFindings += '\n\n## COMPUTED PRICE WALK\n' + formatPricingForContext(pricing);
+      } catch {
+        // Non-fatal.
+      }
+    }
+
+    const content = await structure(lead, enrichedFindings, instructions);
     const html = pitchHtml(content, lead, lead.locale);
     const pdf = await htmlToPdf(html);
     const path = `pitch/${lead.id}/${created.id}.pdf`;

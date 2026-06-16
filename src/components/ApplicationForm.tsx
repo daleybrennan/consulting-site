@@ -19,8 +19,11 @@ export function ApplicationForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [errorKey, setErrorKey] = useState<string>('generic');
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
+  const [category, setCategory] = useState('');
   const turnstileToken = useRef<string>('');
   const widgetMounted = useRef(false);
+
+  const showPricing = category === 'wine' || category === 'spirits';
 
   // Load Cloudflare Turnstile only when a site key is configured.
   useEffect(() => {
@@ -65,6 +68,19 @@ export function ApplicationForm() {
       free_text: get('free_text'),
       consent: fd.get('consent') === 'on',
       turnstileToken: turnstileToken.current,
+      // Structured pricing fields
+      origin_country:  get('origin_country'),
+      origin_region:   get('origin_region'),
+      target_country:  get('target_country'),
+      target_region:   get('target_region'),
+      wine_names:      get('wine_names'),
+      wine_style:      get('wine_style'),
+      vintage:         get('vintage'),
+      volume_cases:    get('volume_cases'),
+      exw_price:       get('exw_price'),
+      exw_currency:    get('exw_currency'),
+      channel:         get('channel'),
+      tech_sheet_url:  get('tech_sheet_url'),
     };
 
     // Client-side validation (server re-validates with zod).
@@ -90,6 +106,7 @@ export function ApplicationForm() {
       if (res.ok) {
         setStatus('success');
         form.reset();
+        setCategory('');
         return;
       }
       const data = await res.json().catch(() => ({}));
@@ -160,7 +177,8 @@ export function ApplicationForm() {
         <Field label={t('brandCategory')} required>
           <select
             name="brand_category"
-            defaultValue=""
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             className={`${FIELD_BASE} ${errClass('brand_category')}`}
             aria-invalid={!!fieldErrors.brand_category}
           >
@@ -250,6 +268,133 @@ export function ApplicationForm() {
           className={FIELD_BASE}
         />
       </Field>
+
+      {/* Structured pricing section — wine and spirits only */}
+      {showPricing && (
+        <div className="space-y-6 rounded-lg border border-line/60 p-5">
+          <p className="text-xs uppercase tracking-[0.12em] text-muted">
+            {t('pricingSection')}
+          </p>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('wineNames')} hint={t('optional')}>
+              <input
+                name="wine_names"
+                placeholder={t('wineNamesPlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+            <Field label={t('wineStyle')} hint={t('optional')}>
+              <input
+                name="wine_style"
+                placeholder={t('wineStylePlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('originCountry')} hint={t('optional')}>
+              <input
+                name="origin_country"
+                placeholder={t('originCountryPlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+            <Field label={t('originRegion')} hint={t('optional')}>
+              <input
+                name="origin_region"
+                placeholder={t('originRegionPlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('targetCountry')} hint={t('optional')}>
+              <select name="target_country" defaultValue="" className={FIELD_BASE}>
+                <option value="">{t('select')}</option>
+                <option value="US">{t('targetCountryOptions.US')}</option>
+                <option value="UK">{t('targetCountryOptions.UK')}</option>
+                <option value="FR">{t('targetCountryOptions.FR')}</option>
+                <option value="CA">{t('targetCountryOptions.CA')}</option>
+              </select>
+            </Field>
+            <Field label={t('targetRegion')} hint={t('optional')}>
+              <input
+                name="target_region"
+                placeholder={t('targetRegionPlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('exwPrice')} hint={t('optional')}>
+              <div className="flex gap-2">
+                <select
+                  name="exw_currency"
+                  defaultValue="EUR"
+                  className="rounded-md border border-line bg-paper px-3 py-3 text-ink outline-none transition-colors focus:border-accent"
+                >
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                  <option value="CAD">CAD</option>
+                </select>
+                <input
+                  name="exw_price"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
+                  className={`${FIELD_BASE} flex-1`}
+                />
+              </div>
+            </Field>
+            <Field label={t('volumeCases')} hint={t('optional')}>
+              <input
+                name="volume_cases"
+                type="number"
+                min="1"
+                placeholder={t('volumeCasesPlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('channel')} hint={t('optional')}>
+              <select name="channel" defaultValue="" className={FIELD_BASE}>
+                <option value="">{t('select')}</option>
+                <option value="on">{t('channelOptions.on')}</option>
+                <option value="off">{t('channelOptions.off')}</option>
+                <option value="both">{t('channelOptions.both')}</option>
+              </select>
+            </Field>
+            <Field label={t('vintage')} hint={t('optional')}>
+              <input
+                name="vintage"
+                type="number"
+                min="1900"
+                max="2100"
+                placeholder={t('vintagePlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <Field label={t('techSheetUrl')} hint={t('optional')}>
+            <input
+              name="tech_sheet_url"
+              type="url"
+              inputMode="url"
+              placeholder="https://"
+              className={FIELD_BASE}
+            />
+          </Field>
+        </div>
+      )}
 
       <Field label={t('freeText')} required>
         <textarea

@@ -310,7 +310,37 @@
       "submit": "Demander une mise en relation",
       "submitting": "Envoi…",
       "required": "obligatoire",
-      "optional": "facultatif"
+      "optional": "facultatif",
+      "pricingSection": "Données tarifaires — facultatif, mais utile pour modéliser les chiffres",
+      "wineNames": "Nom(s) du vin / spiritueux",
+      "wineNamesPlaceholder": "ex. Château Margaux 2021, Chablis Premier Cru…",
+      "wineStyle": "Style / cépage",
+      "wineStylePlaceholder": "ex. Bordeaux rouge, Chablis, Single malt…",
+      "originCountry": "Pays d'origine",
+      "originCountryPlaceholder": "ex. France",
+      "originRegion": "Région / appellation",
+      "originRegionPlaceholder": "ex. Bordeaux, Bourgogne…",
+      "targetCountry": "Marché cible",
+      "targetCountryOptions": {
+        "US": "États-Unis",
+        "UK": "Royaume-Uni",
+        "FR": "France",
+        "CA": "Canada"
+      },
+      "targetRegion": "État / région cible",
+      "targetRegionPlaceholder": "ex. New York, Californie…",
+      "exwPrice": "Prix départ cave (par bouteille)",
+      "volumeCases": "Volume annuel (caisses)",
+      "volumeCasesPlaceholder": "ex. 500",
+      "channel": "Circuit de distribution visé",
+      "channelOptions": {
+        "on": "On-trade (restaurants, bars)",
+        "off": "Off-trade (distribution détail)",
+        "both": "Les deux"
+      },
+      "vintage": "Millésime",
+      "vintagePlaceholder": "ex. 2021",
+      "techSheetUrl": "Fiche technique / page produit"
     },
     "success": {
       "title": "Merci. C'est bien arrivé.",
