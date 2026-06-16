@@ -108,11 +108,11 @@ function Skills() {
   return (
     <Section tone="panel">
       <h2 className="reveal text-3xl md:text-4xl">{t('title')}</h2>
-      <ul className="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-10 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
           <li
             key={item}
-            className="reveal bg-surface px-6 py-7 text-sm leading-snug text-ink-soft"
+            className="reveal border-b border-r border-line bg-surface px-6 py-7 text-sm leading-snug text-ink-soft"
           >
             {item}
           </li>

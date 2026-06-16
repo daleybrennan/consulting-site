@@ -165,7 +165,7 @@ export function ApplicationForm() {
             aria-invalid={!!fieldErrors.brand_category}
           >
             <option value="" disabled>
-              —
+              {t('select')}
             </option>
             <option value="wine">{t('brandCategoryOptions.wine')}</option>
             <option value="spirits">{t('brandCategoryOptions.spirits')}</option>
@@ -215,7 +215,7 @@ export function ApplicationForm() {
           aria-invalid={!!fieldErrors.stage}
         >
           <option value="" disabled>
-            —
+            {t('select')}
           </option>
           <option value="pre_entry">{t('stageOptions.pre_entry')}</option>
           <option value="expanding">{t('stageOptions.expanding')}</option>

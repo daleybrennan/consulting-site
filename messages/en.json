@@ -6,19 +6,19 @@
       "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on US market entry, distribution strategy, and pricing. Bilingual EN/FR."
     },
     "diagnostic": {
-      "title": "Commercial Diagnostic — US Market Readiness for Wine Brands",
-      "description": "A focused diagnostic of how ready your wine or spirits brand is for the US market: pricing architecture, distribution fit, and the sequencing errors that quietly stall growth."
+      "title": "Commercial Diagnostic: US Market Readiness for Wine Brands",
+      "description": "A focused diagnostic of how ready your wine or spirits brand is for the US market: pricing architecture, distribution fit, and the sequencing errors that stall growth."
     },
     "advisory": {
-      "title": "Advisory — Distribution, Pricing & Channel Strategy",
+      "title": "Advisory: Distribution, Pricing & Channel Strategy",
       "description": "Ongoing commercial advisory for premium wine and spirits brands: importer and distributor strategy, pricing architecture, channel and account targeting across the US and selected markets."
     },
     "about": {
-      "title": "About — A Current Practitioner, Not a Former One",
+      "title": "About: A Current Practitioner, Still in the Market",
       "description": "A bilingual commercial leader active in premium wine since 2008, advising a limited number of brands alongside a senior commercial role. US market access, distribution, pricing, and cross-cultural EN/FR work."
     },
     "speaking": {
-      "title": "Speaking & Education — Cultural Adaptation for Wine & Spirits",
+      "title": "Speaking & Education: Cultural Adaptation for Wine & Spirits",
       "description": "Available for one-off seminars, keynotes, and team education on cross-cultural commercial strategy across the US, France, the UK, and beyond. Delivered in English or French."
     },
     "contact": {
@@ -45,37 +45,49 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Premium wine & spirits — commercial strategy",
-      "title": "The US market rewards precision. Most brands arrive with a guess.",
-      "lede": "I help a small number of premium wine and spirits brands enter and grow in the United States — pricing, distribution, and the order you do things in. Quietly, and from inside the industry.",
+      "eyebrow": "Premium wine & spirits · commercial strategy",
+      "title": "The US market rewards precision, and it's an easy one to misread.",
+      "lede": "I help a small number of premium wine and spirits brands enter and grow in the United States: pricing, distribution, and the order you do things in. From inside the industry.",
       "cta": "Request an introduction",
       "secondary": "See the diagnostic"
     },
     "positioning": {
-      "title": "A practitioner, not a consultant on the outside looking in.",
-      "body": "I hold a senior commercial role in the premium wine industry and advise a limited number of brands alongside it. That means current market knowledge — what importers are actually buying, what distributors are dropping, where the shelf and the by-the-glass list are moving — not a playbook from five years ago."
+      "title": "A practitioner, in the market every day.",
+      "body": "I hold a senior commercial role in the premium wine industry and advise a limited number of brands alongside it. That means current market knowledge: what importers are actually buying, what distributors are dropping, and where the shelf and the by-the-glass list are moving. Not a playbook from a few years ago, but what's happening right now."
     },
     "pillars": {
       "title": "Where brands lose time and margin",
       "items": {
         "pricing": {
           "title": "Pricing architecture",
-          "body": "The number on the shelf is decided three margins earlier. Get the ladder wrong and no amount of selling fixes it."
+          "body": "The number on the shelf is decided three margins earlier. Get the ladder wrong, and even great selling struggles to recover it."
         },
         "distribution": {
           "title": "Distribution fit",
-          "body": "The right importer for a 2,000-case brand is the wrong one for a 200-case brand. Most introductions are made backwards."
+          "body": "The right importer for a 2,000-case brand is the wrong one for a 200-case brand. It's an easy introduction to get backwards."
         },
         "sequencing": {
           "title": "Market sequencing",
-          "body": "Which states, which channels, in which order. The wrong sequence burns capital and goodwill you don't get back."
+          "body": "Which states, which channels, in which order. The wrong sequence burns capital and goodwill that's hard to win back."
         }
       }
+    },
+    "results": {
+      "eyebrow": "Selected results",
+      "title": "A few things I've helped make happen.",
+      "items": {
+        "0": "Opened a major US state market from zero. Within a year, it was one of the brand's three largest US territories.",
+        "1": "Helped a premium winery roughly double its US revenue in a single year.",
+        "2": "Grew one national retail-chain account around sevenfold year on year.",
+        "3": "Lifted a European wine group's turnover 1.9× and its gross margin by eleven points.",
+        "4": "Took a struggling Paris wine shop from 9% to 34% gross margin, then sold the business."
+      },
+      "note": "Brands and clients kept anonymous out of respect for their confidentiality."
     },
     "diagnosticTeaser": {
       "eyebrow": "Start here",
       "title": "A commercial diagnostic, before anyone signs anything",
-      "body": "Tell me about your brand and I'll send you a written diagnostic of where you stand in the US market — the risks worth naming and the questions worth answering before you commit budget. It costs you a few minutes.",
+      "body": "Tell me about your brand and I'll send you a written diagnostic of where you stand in the US market: the risks worth naming and the questions worth answering before you commit budget. It only takes you a few minutes.",
       "cta": "See how the diagnostic works"
     },
     "selectiveBlock": {
@@ -85,7 +97,7 @@
     "speakingCallout": {
       "eyebrow": "Speaking & education",
       "title": "Also available for seminars and speaking.",
-      "body": "Adapting the product to the market is one thing; adapting the approach is another. I teach and speak on cross-cultural commercial strategy across the US, France, and the UK — for trade audiences, teams, and universities.",
+      "body": "Adapting the product to the market is one thing; adapting the approach is another. I teach and speak on cross-cultural commercial strategy across the US, France, and the UK, for trade audiences, teams, and universities.",
       "cta": "Speaking & education"
     }
   },
@@ -93,7 +105,7 @@
     "hero": {
       "eyebrow": "The commercial diagnostic",
       "title": "Where does your brand actually stand in the US market?",
-      "lede": "A focused, written diagnostic of your brand's commercial readiness for the United States — pricing, distribution fit, and market sequencing — built from your situation and current market conditions."
+      "lede": "A focused, written diagnostic of your brand's commercial readiness for the United States: pricing, distribution fit, and market sequencing, built from your situation and current market conditions."
     },
     "what": {
       "title": "What it is",
@@ -101,7 +113,7 @@
       "points": {
         "pricing": "The pricing-ladder risks hiding between your ex-cellars price and the shelf.",
         "distribution": "Whether the distribution path you're on fits your volume and ambition.",
-        "sequencing": "The market-sequencing decisions that quietly determine the next two years."
+        "sequencing": "The market-sequencing decisions that shape the next two years."
       }
     },
     "how": {
@@ -109,7 +121,7 @@
       "steps": {
         "one": {
           "title": "You tell me about your brand",
-          "body": "A short application — category, where you sell today, where you want to go, and what's not working. A few minutes."
+          "body": "A short form: category, where you sell today, where you want to go, and what's not working. Just a few minutes."
         },
         "two": {
           "title": "I research and write",
@@ -117,7 +129,7 @@
         },
         "three": {
           "title": "You receive a written diagnostic",
-          "body": "A concise document naming the real risks and the questions worth answering — yours to keep, whether or not we work together."
+          "body": "A concise document naming the real risks and the questions worth answering, yours to keep whether or not we work together."
         },
         "four": {
           "title": "If it's a fit, we talk",
@@ -127,7 +139,7 @@
     },
     "cta": {
       "title": "Get your diagnostic",
-      "body": "Tell me about your brand. If it's a fit, I'll come back to you — and the diagnostic itself is entirely without obligation.",
+      "body": "Tell me about your brand. If it's a fit, I'll come back to you, and the diagnostic itself comes with no obligation at all.",
       "button": "Request an introduction"
     }
   },
@@ -135,18 +147,18 @@
     "hero": {
       "eyebrow": "Advisory",
       "title": "Commercial strategy for brands that are past the guesswork.",
-      "lede": "Ongoing advisory for premium wine and spirits brands building real presence in the US and selected international markets — distribution, pricing, channel, and the commercial discipline to make them hold together."
+      "lede": "Ongoing advisory for premium wine and spirits brands building real presence in the US and selected international markets: distribution, pricing, channel, and the commercial discipline to make them hold together."
     },
     "services": {
       "title": "What I work on",
       "items": {
         "marketEntry": {
           "title": "US market access",
-          "body": "Entry strategy and execution — the realistic path from where you are to shelves and lists that actually move volume."
+          "body": "Entry strategy and execution: the realistic path from where you are to shelves and lists that actually move volume."
         },
         "distribution": {
           "title": "Importer & distributor strategy",
-          "body": "Choosing, winning, and managing the right distribution partners — and knowing when a relationship has stopped working."
+          "body": "Choosing, winning, and managing the right distribution partners, and knowing when a relationship has stopped working."
         },
         "pricing": {
           "title": "Pricing architecture",
@@ -154,7 +166,7 @@
         },
         "channel": {
           "title": "Channel & account targeting",
-          "body": "On- and off-premise, chains and independents, e-commerce — which channels, which accounts, and in what order."
+          "body": "On- and off-premise, chains and independents, e-commerce: which channels, which accounts, and in what order."
         },
         "data": {
           "title": "Commercial data analysis",
@@ -168,11 +180,11 @@
     },
     "markets": {
       "title": "Where I work",
-      "body": "Primary focus on the United States, with bilingual EN/FR work across the UK, the UAE, and Northern Europe. The cross-cultural piece is not a footnote — most commercial relationships in this industry fail at the cultural seam, not the spreadsheet."
+      "body": "Primary focus on the United States, with bilingual EN/FR work across the UK, the UAE, and Northern Europe. The cross-cultural piece is not a footnote. Most commercial relationships in this industry fail at the cultural seam, not on the spreadsheet."
     },
     "cta": {
       "title": "Start with a diagnostic",
-      "body": "Advisory engagements usually begin with the commercial diagnostic — it's how we both find out whether there's work worth doing.",
+      "body": "Advisory engagements usually begin with the commercial diagnostic. It's how we both find out whether there's work worth doing together.",
       "button": "Request an introduction"
     }
   },
@@ -180,23 +192,23 @@
     "hero": {
       "eyebrow": "Speaking & education",
       "title": "Available for seminars, keynotes, and team education.",
-      "lede": "I take on one-off speaking engagements and educational sessions alongside my advisory work — on the commercial side of wine and spirits, and on the cultural fluency the trade quietly runs on. In English or French."
+      "lede": "I take on one-off speaking engagements and educational sessions alongside my advisory work, on the commercial side of wine and spirits, and on the cultural fluency the trade runs on. In English or French."
     },
     "education": {
       "eyebrow": "Cultural adaptation",
       "title": "Adapting the product to the market is one thing. Adapting the approach is another.",
-      "body": "A wine that sells itself in Paris can stall in New York for reasons that have nothing to do with the wine. How a deal is opened, how a relationship is built, how a price is discussed, what a buyer expects left unsaid — these differ across the US, France, the UK, and beyond, and they decide outcomes more often than the liquid in the bottle. I help teams and audiences read those differences and work with them rather than against them.",
+      "body": "A wine that sells itself in Paris can stall in New York for reasons that have nothing to do with the wine. How a deal is opened, how a relationship is built, how a price is discussed, what a buyer expects left unsaid: these differ across the US, France, the UK, and beyond, and they decide outcomes more often than the liquid in the bottle. I help teams and audiences read those differences and work with them rather than against them.",
       "points": {
-        "0": { "title": "Market culture", "body": "How the US, French, and British trades actually behave — what's normal in one room and a misstep in the next." },
-        "1": { "title": "Negotiation & relationship norms", "body": "Where directness reads as confidence and where it reads as rudeness; how trust is built in each market." },
-        "2": { "title": "Trade expectations", "body": "What importers, distributors, and buyers assume you already know — the unwritten rules that gate access." },
+        "0": { "title": "Market culture", "body": "How the US, French, and British trades actually behave, and what's normal in one room but a misstep in the next." },
+        "1": { "title": "Negotiation & relationship norms", "body": "Where directness reads as confidence and where it reads as rudeness, and how trust is built in each market." },
+        "2": { "title": "Trade expectations", "body": "What importers, distributors, and buyers assume you already know: the unwritten rules that gate access." },
         "3": { "title": "Language & register", "body": "Working credibly in English and French, and knowing which register a given room expects." }
       }
     },
     "formats": {
       "eyebrow": "Formats",
       "title": "How I can help",
-      "body": "Available for one-off engagements — I'll tailor the session to your audience.",
+      "body": "Available for one-off engagements, and I'll tailor each session to your audience.",
       "items": {
         "0": { "title": "Keynotes & talks", "body": "Trade events, conferences, and consumer-facing evenings." },
         "1": { "title": "Seminars & workshops", "body": "In-house sessions for sales teams, importers, and producers." },
@@ -208,10 +220,10 @@
     "academic": {
       "eyebrow": "Academic & university",
       "title": "Equally at home in a lecture hall.",
-      "body": "Before wine, my background was academic, and I remain comfortable in a teaching setting — so I'm also open to university and educational work. I hold an MSc in Language Sciences and Neuroscience from University College London, held a research post at the École Normale Supérieure in Paris, and spent a short period as a PhD candidate. I mention it not as a headline, but so it's clear the door is open if a teaching or lecturing brief would be a fit.",
+      "body": "Before wine, my background was academic, and I remain comfortable in a teaching setting, so I'm also open to university and educational work. I hold an MSc in Language Sciences and Neuroscience from University College London, held a research post at the École Normale Supérieure in Paris, and spent a short period as a PhD candidate. I mention it not as a headline, but so it's clear the door is open if a teaching or lecturing brief would be a fit.",
       "credentials": {
-        "0": "MSc, Language Sciences & Neuroscience — UCL",
-        "1": "Research post — École Normale Supérieure, Paris",
+        "0": "MSc, Language Sciences & Neuroscience, UCL",
+        "1": "Research post, École Normale Supérieure, Paris",
         "2": "Former PhD candidate"
       }
     },
@@ -224,13 +236,13 @@
   "about": {
     "hero": {
       "eyebrow": "About",
-      "title": "A current practitioner, advising a few brands on the side.",
+      "title": "A current practitioner, advising a handful of brands alongside the day job.",
       "lede": "I hold a senior commercial role in the premium wine industry and take on a limited number of advisory engagements alongside it."
     },
     "body": {
-      "p1": "I've been in premium wine since 2008, and now lead US commercial efforts for a fine-wine estate — the day-to-day of importer relationships, distributor management, pricing, and the slow work of building real presence in a market that doesn't hand it to you. Before that, I owned and ran two wine retail businesses in Paris.",
-      "p2": "That combination — operator and merchant, US and Europe — is the point. I've sat on both sides of the table: the brand trying to get in, and the buyer deciding whether to let it. I work in English and French, and most of what I do lives in the gap between how the two commercial cultures actually behave.",
-      "p3": "I advise a small number of brands because the work is hands-on and because I'm doing it alongside a full-time role. I'm not a former-industry consultant selling a playbook; I'm in the market now, and what I know is current.",
+      "p1": "I've been in premium wine since 2008, and now lead US commercial efforts for a fine-wine estate: the day-to-day of importer relationships, distributor management, pricing, and the slow work of building real presence in a market that doesn't hand it to you. Before that, I owned and ran two wine retail businesses in Paris.",
+      "p2": "That combination, operator and merchant, US and Europe, is really the point. I've sat on both sides of the table: the brand trying to get in, and the buyer deciding whether to let it. I work in English and French, and most of what I do lives in the gap between how the two commercial cultures actually behave.",
+      "p3": "I advise a small number of brands because the work is hands-on, and because I'm doing it alongside a full-time role. Being in the market every day is the whole point: what I bring to your brand is current, not remembered.",
       "linkedin": "The full professional record is on LinkedIn",
       "linkedinCta": "View LinkedIn profile"
     },
@@ -257,7 +269,7 @@
     "hero": {
       "eyebrow": "Request an introduction",
       "title": "Tell me about your brand.",
-      "lede": "This is an application, not a contact form. I take on a limited number of engagements at a time and will come back to you if it's a fit."
+      "lede": "Tell me a little about your brand and where you're trying to take it. I only work with a handful of brands at a time, so I read every message myself and I'll come back to you if I think I can genuinely help."
     },
     "form": {
       "contactName": "Your name",
@@ -278,7 +290,7 @@
       "currentMarkets": "Where you sell today",
       "currentMarketsPlaceholder": "e.g. France, UK, domestic only…",
       "targetMarkets": "Where you want to go",
-      "targetMarketsPlaceholder": "e.g. US — New York, California…",
+      "targetMarketsPlaceholder": "e.g. US: New York, California…",
       "stage": "Stage",
       "stageOptions": {
         "pre_entry": "Not yet in the US",
@@ -288,20 +300,21 @@
       "currentDistribution": "Current distribution",
       "currentDistributionPlaceholder": "Importer / distributor status, or none yet…",
       "pricePositioning": "Price positioning",
-      "pricePositioningPlaceholder": "Approx. shelf price or band — optional",
+      "pricePositioningPlaceholder": "Approx. shelf price or band (optional)",
       "scaleNote": "Volume or scale",
-      "scaleNotePlaceholder": "Cases/year or revenue, roughly — optional",
+      "scaleNotePlaceholder": "Cases/year or revenue, roughly (optional)",
       "freeText": "Tell me what's actually going on",
       "freeTextPlaceholder": "What are you trying to do, and what isn't working? The more specific you are, the more useful the diagnostic.",
       "consent": "I'd like to receive a written diagnostic by email.",
+      "select": "Select…",
       "submit": "Request an introduction",
       "submitting": "Sending…",
       "required": "required",
       "optional": "optional"
     },
     "success": {
-      "title": "Thank you — it's with me.",
-      "body": "I read every application personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too."
+      "title": "Thank you. It's with me.",
+      "body": "I read every message personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too."
     },
     "errors": {
       "generic": "Something went wrong. Please try again, or email me directly.",
@@ -312,7 +325,7 @@
       "stage": "Please choose a stage.",
       "freeText": "A sentence or two here makes all the difference.",
       "consent": "Please confirm you'd like to receive the diagnostic.",
-      "rateLimited": "That's a few submissions in quick succession — please wait a moment and try again.",
+      "rateLimited": "That's a few submissions in quick succession. Please wait a moment and try again.",
       "captcha": "Please complete the verification."
     }
   },

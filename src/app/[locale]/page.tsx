@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Section, ButtonLink, Eyebrow, NoObligationPill } from '@/components/ui';
 import portrait from '../../../public/daley-brennan.jpg';
+import vineyard from '../../../public/vineyard-vista.png';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 
@@ -36,6 +37,7 @@ export default async function HomePage({
       <ProfessionalServiceJsonLd locale={locale} />
       <Hero />
       <Positioning />
+      <Results />
       <Pillars />
       <DiagnosticTeaser />
       <SpeakingCallout />
@@ -47,20 +49,35 @@ export default async function HomePage({
 function Hero() {
   const t = useTranslations('home.hero');
   return (
-    <section className="bg-surface">
+    <section className="relative isolate overflow-hidden bg-ink text-surface">
+      <Image
+        src={vineyard}
+        alt=""
+        aria-hidden="true"
+        placeholder="blur"
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30"
+      />
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
         <Eyebrow>{t('eyebrow')}</Eyebrow>
         <h1 className="reveal mt-6 max-w-4xl text-balance text-5xl leading-[1.05] md:text-7xl">
           {t('title')}
         </h1>
-        <p className="reveal prose-measure mt-8 text-lg text-muted md:text-xl">
+        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
           {t('lede')}
         </p>
         <div className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <ButtonLink href="/contact">{t('cta')}</ButtonLink>
+          <ButtonLink href="/contact" variant="accent">
+            {t('cta')}
+          </ButtonLink>
           <a
             href="#diagnostic"
-            className="text-sm text-ink-soft underline-offset-4 transition-colors hover:text-accent hover:underline"
+            className="text-sm text-muted-dark underline-offset-4 transition-colors hover:text-white hover:underline"
           >
             {t('secondary')} →
           </a>
@@ -104,9 +121,9 @@ function Pillars() {
   return (
     <Section tone="light">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-3">
+      <div className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line md:grid-cols-3">
         {keys.map((k, i) => (
-          <div key={k} className="reveal bg-surface p-8 md:p-10">
+          <div key={k} className="reveal border-b border-r border-line bg-surface p-8 md:p-10">
             <span className="font-display text-3xl text-accent">
               0{i + 1}
             </span>
@@ -114,6 +131,37 @@ function Pillars() {
             <p className="mt-3 text-muted">{t(`items.${k}.body`)}</p>
           </div>
         ))}
+      </div>
+    </Section>
+  );
+}
+
+function Results() {
+  const t = useTranslations('home.results');
+  const items = ['0', '1', '2', '3', '4'] as const;
+  return (
+    <Section tone="light">
+      <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+        <div>
+          <Eyebrow>{t('eyebrow')}</Eyebrow>
+          <h2 className="reveal mt-5 text-balance text-3xl md:text-4xl">
+            {t('title')}
+          </h2>
+          <p className="reveal mt-6 max-w-xs text-sm text-muted">{t('note')}</p>
+        </div>
+        <ul className="space-y-5">
+          {items.map((i) => (
+            <li key={i} className="reveal flex gap-4 border-b border-line pb-5 last:border-b-0">
+              <span
+                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                aria-hidden="true"
+              />
+              <span className="text-lg leading-relaxed text-ink-soft">
+                {t(`items.${i}`)}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </Section>
   );
@@ -178,7 +226,7 @@ function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
   const json = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Daley Brennan — Commercial Strategy for Premium Wine & Spirits',
+    name: 'Daley Brennan, Commercial Strategy for Premium Wine & Spirits',
     url: `${SITE_URL}/${locale}`,
     areaServed: ['United States', 'United Kingdom', 'United Arab Emirates', 'Northern Europe'],
     knowsLanguage: ['en', 'fr'],

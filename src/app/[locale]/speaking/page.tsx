@@ -70,9 +70,9 @@ function Education() {
         {t('title')}
       </h2>
       <p className="reveal prose-measure mt-6 text-lg text-muted">{t('body')}</p>
-      <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
+      <div className="mt-12 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2">
         {points.map((p) => (
-          <div key={p} className="reveal bg-paper p-8">
+          <div key={p} className="reveal border-b border-r border-line bg-paper p-8">
             <h3 className="text-xl">{t(`points.${p}.title`)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               {t(`points.${p}.body`)}
@@ -92,9 +92,9 @@ function Formats() {
       <Eyebrow>{t('eyebrow')}</Eyebrow>
       <h2 className="reveal mt-5 text-3xl md:text-4xl">{t('title')}</h2>
       <p className="reveal mt-5 max-w-xl text-lg text-muted">{t('body')}</p>
-      <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
         {items.map((i) => (
-          <div key={i} className="reveal bg-surface p-7">
+          <div key={i} className="reveal border-b border-r border-line bg-surface p-7">
             <h3 className="text-lg">{t(`items.${i}.title`)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               {t(`items.${i}.body`)}
@@ -128,7 +128,7 @@ function Academic() {
             {creds.map((c) => (
               <li key={c} className="reveal flex gap-3 text-ink-soft">
                 <span
-                  className="mt-2 h-px w-6 shrink-0 bg-accent"
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                   aria-hidden="true"
                 />
                 <span>{t(`credentials.${c}`)}</span>
@@ -150,7 +150,7 @@ function ServiceJsonLd({ locale }: { locale: string }) {
   const json = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Speaking & Education — Cross-Cultural Commercial Strategy',
+    name: 'Speaking & Education: Cross-Cultural Commercial Strategy',
     serviceType:
       'Seminars, keynotes, and cultural-adaptation education for wine & spirits',
     url: `${SITE_URL}/${locale}/speaking`,

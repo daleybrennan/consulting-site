@@ -71,8 +71,8 @@ function What() {
           <p className="reveal max-w-xl text-lg text-muted">{t('body')}</p>
           <ul className="mt-8 space-y-4">
             {points.map((p) => (
-              <li key={p} className="reveal flex gap-4">
-                <span className="mt-2 h-px w-6 shrink-0 bg-accent" aria-hidden="true" />
+              <li key={p} className="reveal flex gap-3">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                 <span className="text-ink-soft">{t(`points.${p}`)}</span>
               </li>
             ))}
@@ -89,9 +89,9 @@ function How() {
   return (
     <Section tone="panel">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <ol className="mt-14 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+      <ol className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line md:grid-cols-2">
         {steps.map((s, i) => (
-          <li key={s} className="reveal bg-surface p-8 md:p-10">
+          <li key={s} className="reveal border-b border-r border-line bg-surface p-8 md:p-10">
             <span className="font-display text-3xl text-accent">0{i + 1}</span>
             <h3 className="mt-3 text-2xl">{t(`steps.${s}.title`)}</h3>
             <p className="mt-3 text-muted">{t(`steps.${s}.body`)}</p>
@@ -111,7 +111,7 @@ function ServiceJsonLd({ locale }: { locale: string }) {
   const json = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Commercial Diagnostic — US Market Readiness',
+    name: 'Commercial Diagnostic: US Market Readiness',
     serviceType: 'Commercial diagnostic for premium wine and spirits brands',
     url: `${SITE_URL}/${locale}/diagnostic`,
     provider: {

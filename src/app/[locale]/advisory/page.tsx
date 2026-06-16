@@ -73,9 +73,9 @@ function Services() {
   return (
     <Section tone="light">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
         {SERVICE_KEYS.map((k, i) => (
-          <div key={k} className="reveal bg-surface p-8 md:p-9">
+          <div key={k} className="reveal border-b border-r border-line bg-surface p-8 md:p-9">
             <span className="font-display text-2xl text-accent">0{i + 1}</span>
             <h3 className="mt-3 text-xl">{t(`items.${k}.title`)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
