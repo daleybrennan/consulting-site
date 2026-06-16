@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Diagnostic — {{CLIENT}}</title>
+  <link rel="stylesheet" href="../templates/print.css">
+</head>
+<body>
+
+<!-- ============================================================
+     DIAGNOSTIC TEMPLATE (free deliverable)
+     The orchestrator replaces SLOT regions + {{tokens}} with real
+     content from the submission + pricing-model + research.
+     RULE: this document NAMES the problem and shows the numbers.
+     It must NOT contain the recommended strategy — that is the
+     paid product. Keep the closing as an invitation, not advice.
+     Sample content below = demo (Château Demo 2021 -> US/NY).
+     ============================================================ -->
+
+<!-- ── PAGE 1 — COVER ─────────────────────────────────────────── -->
+<section class="page page--cover">
+  <div class="cover__top">
+    <div class="brandmark__name">The Place &amp; Market</div>
+    <div class="brandmark__sub">Daley Brennan Consulting</div>
+  </div>
+  <div class="cover__mid">
+    <div class="cover__rule"></div>
+    <div class="cover__eyebrow">Complimentary Pricing Diagnostic</div>
+    <!-- SLOT:cover-title — wine / producer headline -->
+    <h1 class="cover__title">From the cellar door<br>to the American shelf.</h1>
+    <div class="cover__client">{{CLIENT}}</div>
+    <div class="cover__meta">
+      <strong>{{WINE}}</strong><br>
+      Origin: {{ORIGIN}} &nbsp;·&nbsp; Target: <strong>{{TARGET}}</strong><br>
+      Prepared {{DATE}}
+    </div>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__meta" style="margin:0">Complimentary analysis · Not for distribution</div>
+  </div>
+</section>
+
+<!-- ── PAGE 2 — THE SITUATION + BRIEF ─────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Situation</div>
+    <!-- SLOT:situation-lead — one-paragraph read of where they stand -->
+    <p class="lead">At an EXW of €8.00, your wine reaches the New York shelf at roughly <strong>$31</strong> a bottle — and that single number decides which shelf, which list, and which buyer you are talking to.</p>
+    <!-- SLOT:situation-body — 1-2 short paragraphs of context, no recommendation -->
+    <p>This diagnostic models every step between your cellar door and the consumer: freight and insurance, US duty and excise, the importer and distributor margins that the three-tier system requires, and the final markups on- and off-premise. It then sets the result against the wines you would actually sit beside in market.</p>
+    <p>The purpose is simple: to show you, in real numbers, where your price lands today — and where the margin works and where it breaks — before a single case ships.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Your Wine &amp; The Brief</div>
+    <table>
+      <tbody>
+        <tr><td class="muted" style="width:42%">Producer</td><td><strong>{{CLIENT}}</strong></td></tr>
+        <tr><td class="muted">Wine</td><td>{{WINE}}</td></tr>
+        <tr><td class="muted">Origin</td><td>{{ORIGIN}}</td></tr>
+        <tr><td class="muted">Target market</td><td><strong>{{TARGET}}</strong></td></tr>
+        <tr><td class="muted">Current EXW</td><td>{{EXW}} per bottle</td></tr>
+        <tr><td class="muted">Volume available</td><td>{{VOLUME}} cases / year</td></tr>
+        <tr><td class="muted">Intended channel</td><td>{{CHANNEL}}</td></tr>
+        <tr><td class="muted">Packaging</td><td>{{PACKAGING}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page__footer">
+    <span>The Place &amp; Market — Daley Brennan Consulting</span>
+    <span class="conf">Complimentary diagnostic</span>
+  </div>
+</section>
+
+<!-- ── PAGE 3 — THE PRICE WALK ────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Price Walk</div>
+    <h2 class="doc-h">Every stop from EXW to the shelf.</h2>
+    <p class="small muted">Per 750ml bottle, in {{CURRENCY}}. Three-tier route: importer → distributor → retailer. Figures are planning estimates on stated assumptions; verify duty, excise and live FX before committing.</p>
+
+    <table class="walk">
+      <thead><tr><th>Stop</th><th class="num">Per bottle</th><th class="num">Per case</th><th>What it adds</th></tr></thead>
+      <tbody>
+        <!-- SLOT:walk-rows — one row per stop from pricing-model output -->
+        <tr class="stop"><td>EXW (converted)</td><td class="num">$8.64</td><td class="num">$103.68</td><td class="muted small">Ex-cellar, at FX</td></tr>
+        <tr><td>+ freight &amp; insurance → CIF</td><td class="num">$9.10</td><td class="num">$109.20</td><td class="muted small">Ocean LCL + 1% cover</td></tr>
+        <tr><td>+ duty</td><td class="num">$0.05</td><td class="num">$0.60</td><td class="muted small">HTS 2204, still wine</td></tr>
+        <tr><td>+ excise (federal + NY)</td><td class="num">$0.27</td><td class="num">$3.24</td><td class="muted small">$1.07/gal + state</td></tr>
+        <tr class="stop is-key"><td>= LANDED</td><td class="num">$9.42</td><td class="num">$113.04</td><td class="small">Cost in market</td></tr>
+        <tr><td>importer margin (30%)</td><td class="num">$13.46</td><td class="num">$161.52</td><td class="muted small">to distributor</td></tr>
+        <tr class="stop is-key"><td>= FRONT LINE</td><td class="num">$19.22</td><td class="num">$230.64</td><td class="small">Wholesale to trade</td></tr>
+        <tr class="stop"><td>On-premise list (×3.5)</td><td class="num">$67.29</td><td class="num">—</td><td class="muted small">Restaurant by-the-bottle</td></tr>
+        <tr class="stop"><td>Off-premise shelf (incl. tax)</td><td class="num">$31.24</td><td class="num">—</td><td class="muted small">Retail, +8.9% sales tax</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3 class="doc-h">Where it realistically lands</h3>
+    <div class="band">
+      <!-- SLOT:band — low / expected / high from pricing-model band -->
+      <div class="band__item"><div class="lbl">Off-premise — low</div><div class="val">$25.12</div><div class="sub">tighter margins, lower freight</div></div>
+      <div class="band__item band__item--key"><div class="lbl">Expected shelf</div><div class="val">$31.24</div><div class="sub">on stated assumptions</div></div>
+      <div class="band__item"><div class="lbl">Off-premise — high</div><div class="val">$39.46</div><div class="sub">fuller margins, higher freight</div></div>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span>The Place &amp; Market — Daley Brennan Consulting</span>
+    <span class="conf">Complimentary diagnostic</span>
+  </div>
+</section>
+
+<!-- ── PAGE 4 — COMPETITIVE SET + THE GAP ─────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Competitive Set</div>
+    <h2 class="doc-h">The shelf you would join.</h2>
+    <!-- SLOT:competitive-intro — one line on how the set was chosen -->
+    <p class="small muted">Comparable wines currently in {{TARGET}} at a similar style and quality tier, with observed retail prices. Sources noted in the appendix.</p>
+    <table>
+      <thead><tr><th>Wine</th><th>Style / origin</th><th class="num">Observed retail</th><th>Channel</th></tr></thead>
+      <tbody>
+        <!-- SLOT:competitive-rows — researched comparables -->
+        <tr><td>Comparable A</td><td>Bordeaux red</td><td class="num">$24.99</td><td class="muted small">Off-premise</td></tr>
+        <tr><td>Comparable B</td><td>Bordeaux red</td><td class="num">$28.00</td><td class="muted small">Off-premise</td></tr>
+        <tr><td>Comparable C</td><td>Bordeaux red</td><td class="num">$34.00</td><td class="muted small">On-premise list $58</td></tr>
+        <tr class="is-key"><td><strong>{{WINE}}</strong> (modelled)</td><td>{{ORIGIN}}</td><td class="num"><strong>$31.24</strong></td><td class="muted small">Expected</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="callout">
+      <div class="section-label">What The Numbers Say</div>
+      <!-- SLOT:the-gap — NAME the problem. State the gap factually.
+           DO NOT prescribe the fix. e.g. "lands N% above the band",
+           "margin compresses below X at the front line". -->
+      <p class="mt-0">At the expected shelf of <strong>$31.24</strong>, your wine sits at the <strong>top of the observed band</strong> ($25–$34) — credible, but with little room above the comparables that already own the placement. Hold the EXW and the shelf is set; move the EXW and every stop downstream moves with it.</p>
+      <p class="small muted mt-0">There is a clear question of where the price <em>should</em> sit to win the placement you want, and how to get there without eroding the margin each tier needs. That is the work of the strategy that follows — it is not answered here.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Quantity Discounts &amp; Regulation</div>
+    <!-- SLOT:regulation — from quantity-discount-rules.json for the market/state -->
+    <p class="small">In <strong>{{TARGET}}</strong>, volume discounts to retailers are <strong>{{QD_STATUS}}</strong>. {{QD_NOTE}}</p>
+    <p class="small muted">General guidance only, not legal advice. Confirm against the current state regulation before structuring any deal.</p>
+  </div>
+
+  <div class="page__footer">
+    <span>The Place &amp; Market — Daley Brennan Consulting</span>
+    <span class="conf">Complimentary diagnostic</span>
+  </div>
+</section>
+
+<!-- ── PAGE 5 — THE OPPORTUNITY (CTA, NO SOLUTION) ────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Opportunity</div>
+    <h2 class="doc-h">You now know the number. The next question is what to do with it.</h2>
+    <p>This diagnostic shows where <strong>{{WINE}}</strong> lands today and the shelf it would join. What it deliberately does not do is recommend the move — the price architecture, the channel sequence, the accounts to open first, and the discount structure that is legal and works in {{TARGET}}.</p>
+    <p>That is the <strong>Market-Entry Pricing Strategy</strong>: a tailored plan built on this same model, your real trade quotes, and twenty years of opening these markets — delivered as a document you can put in front of an importer.</p>
+    <ul class="ticks">
+      <li>A recommended EXW and price architecture for every stop and channel.</li>
+      <li>The on- and off-premise sequence, with target accounts.</li>
+      <li>The quantity-discount play, structured to what is legal in your market.</li>
+      <li>A twelve-month commercial plan with the numbers behind it.</li>
+    </ul>
+    <div class="callout callout--dark">
+      <div class="section-label">Next step</div>
+      <p class="mt-0">To commission the strategy, simply reply to the email this came with. I prepare a small number of these each month and review every one personally.</p>
+      <p class="small mt-0" style="color:#B9B9B9">Daley Brennan · The Place &amp; Market · daleybrennan@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="page__footer">
+    <span>The Place &amp; Market — Daley Brennan Consulting</span>
+    <span class="conf">Complimentary diagnostic · Not for distribution</span>
+  </div>
+</section>
+
+</body>
+</html>

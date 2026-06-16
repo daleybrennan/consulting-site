@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "purpose": "Legality of volume / quantity discounts to the trade by jurisdiction, to drive the 'where legal' flag in the pricing walk and strategy.",
+    "lastReviewed": "2026-06-15",
+    "disclaimer": "GENERAL GUIDANCE, NOT LEGAL ADVICE. US alcohol pricing law is state-specific, changes often, and is enforced by each state's ABC. Always confirm against the current state statute / regulation or qualified counsel before recommending a discount structure. Categories below are simplifications.",
+    "categories": {
+      "open": "Pricing relatively free; quantity discounts to retailers generally permitted unless otherwise noted.",
+      "post-and-hold": "Wholesalers must file (post) prices with the state and hold them for a set period; discounts must be posted and offered to all on equal terms within a price tier.",
+      "franchise": "Supplier-distributor relationship is statutorily protected (hard to terminate); affects deal structure more than per-unit discounting.",
+      "control": "The state itself is the wholesaler and/or retailer; private quantity discounting to retail does not apply in the usual sense."
+    }
+  },
+
+  "markets": {
+    "US": {
+      "model": "three-tier",
+      "federalNote": "Federal FAA Act 'tied house' and 'quantity discount' rules restrict inducements; many states layer stricter rules. Quantity discounts that are not available to all retailers on equal terms are a common violation.",
+      "defaultIfStateUnlisted": { "quantityDiscountToRetailer": "verify", "note": "State not in table — confirm with the state ABC before assuming." },
+      "states": {
+        "NY": { "type": "post-and-hold", "quantityDiscountToRetailer": "prohibited", "note": "NY ABC bans volume/quantity discounts to retailers; wholesalers post monthly prices held for the month. Discounts must be in posted schedule and uniform." },
+        "CA": { "type": "open", "quantityDiscountToRetailer": "allowed", "note": "Relatively liberal; quantity discounts generally permitted but must avoid tied-house inducements." },
+        "NJ": { "type": "open", "quantityDiscountToRetailer": "restricted", "note": "Discounts must be offered to all licensees of the same class on equal terms." },
+        "IL": { "type": "open", "quantityDiscountToRetailer": "allowed", "note": "Permitted with equal-treatment constraints." },
+        "FL": { "type": "open", "quantityDiscountToRetailer": "restricted", "note": "Confirm current cash-law / equal-terms rules." },
+        "TX": { "type": "open", "quantityDiscountToRetailer": "restricted", "note": "TABC rules on discounts and dual-tier ownership; confirm." },
+        "MA": { "type": "post-and-hold", "quantityDiscountToRetailer": "prohibited", "note": "Volume discounts to retailers restricted; price postings apply." },
+        "CT": { "type": "post-and-hold", "quantityDiscountToRetailer": "prohibited", "note": "Minimum-bottle / price-posting regime limits discounting." },
+        "PA": { "type": "control", "quantityDiscountToRetailer": "n/a", "note": "PLCB is the wholesaler/retailer; engage the board's listing process." },
+        "MI": { "type": "control", "quantityDiscountToRetailer": "n/a", "note": "Control state for spirits; wine rules differ — confirm." }
+      }
+    },
+
+    "UK": {
+      "model": "open trade",
+      "quantityDiscountToRetailer": "allowed",
+      "note": "No three-tier system. Volume discounts are normal commercial practice. Watch the duty system, minimum unit pricing in Scotland/Wales (off-trade), and competition-law constraints on RPM (resale price maintenance)."
+    },
+
+    "FR": {
+      "model": "open trade",
+      "quantityDiscountToRetailer": "allowed",
+      "note": "Quantity discounts are common, but resale below cost (revente a perte) is prohibited and commercial terms are framed by the Code de commerce. Loi Evin constrains alcohol MARKETING, not pricing. Confirm CGV (conditions generales de vente)."
+    },
+
+    "CA": {
+      "model": "control",
+      "quantityDiscountToRetailer": "n/a",
+      "note": "Provincial boards set retail prices; private quantity discounting to retail does not apply. Trade pricing is via the board's quote/listing and any licensee/agency programmes."
+    }
+  }
+}

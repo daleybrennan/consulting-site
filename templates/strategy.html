@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Market-Entry Pricing Strategy — {{CLIENT}}</title>
+  <link rel="stylesheet" href="../templates/print.css">
+</head>
+<body>
+
+<!-- ============================================================
+     STRATEGY TEMPLATE (the $5,000 product)
+     The orchestrator fills the analysis (numbers, competitive set,
+     legality) AND leaves the RECOMMENDATION in .slot blocks for
+     Daley. The machine must NEVER auto-write the recommended
+     strategy — every .slot below is Daley's judgement to supply.
+     Sample analysis content = demo (Château Demo 2021 -> US/NY).
+     ============================================================ -->
+
+<!-- ── COVER ──────────────────────────────────────────────────── -->
+<section class="page page--cover">
+  <div class="cover__top">
+    <div class="brandmark__name">The Place &amp; Market</div>
+    <div class="brandmark__sub">Daley Brennan Consulting</div>
+  </div>
+  <div class="cover__mid">
+    <div class="cover__rule"></div>
+    <div class="cover__eyebrow">Market-Entry Pricing Strategy</div>
+    <h1 class="cover__title">The plan to enter<br>{{TARGET}} at the<br>right number.</h1>
+    <div class="cover__client">{{CLIENT}}</div>
+    <div class="cover__meta">
+      <strong>{{WINE}}</strong><br>
+      Origin: {{ORIGIN}} &nbsp;·&nbsp; Target: <strong>{{TARGET}}</strong><br>
+      Prepared {{DATE}} · Prepared by Daley Brennan
+    </div>
+  </div>
+  <div class="cover__bottom">
+    <div class="cover__meta" style="margin:0">Private &amp; confidential · Prepared exclusively for {{CLIENT}}</div>
+  </div>
+</section>
+
+<!-- ── EXECUTIVE SUMMARY ──────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">Executive Summary</div>
+    <h1 class="doc-h">The recommendation in one page.</h1>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — the call</div>
+      <div class="slot__hint">Your recommendation in 3–4 sentences: the headline EXW / price move, the channel to lead with, and the single most important action. This is the part the client is paying for — write it last, once the analysis below is settled.</div>
+    </div>
+    <h3 class="doc-h" style="margin-top:8mm">What the analysis establishes (machine-generated, verify)</h3>
+    <ul class="ticks">
+      <li>At today's EXW the wine lands at an expected <strong>{{SHELF}}</strong> shelf in {{TARGET}} — {{GAP_ONE_LINER}}.</li>
+      <li>The competitive set sits at {{COMP_BAND}}; the placement you want implies a target shelf of {{TARGET_SHELF}}.</li>
+      <li>Quantity discounts to the trade are <strong>{{QD_STATUS}}</strong> in {{TARGET}} — {{QD_IMPLICATION}}.</li>
+    </ul>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── BRIEF & OBJECTIVES ─────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Brief &amp; Objectives</div>
+    <table>
+      <tbody>
+        <tr><td class="muted" style="width:42%">Producer</td><td><strong>{{CLIENT}}</strong></td></tr>
+        <tr><td class="muted">Wine</td><td>{{WINE}} — {{ORIGIN}}</td></tr>
+        <tr><td class="muted">Target market</td><td><strong>{{TARGET}}</strong></td></tr>
+        <tr><td class="muted">Current EXW</td><td>{{EXW}} per bottle</td></tr>
+        <tr><td class="muted">Volume available</td><td>{{VOLUME}} cases / year</td></tr>
+        <tr><td class="muted">Intended channel</td><td>{{CHANNEL}}</td></tr>
+        <tr><td class="muted">Stated positioning ambition</td><td>{{POSITIONING}}</td></tr>
+      </tbody>
+    </table>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — objectives</div>
+      <div class="slot__hint">Reframe the client's ambition into 2–3 measurable objectives for the engagement (e.g. "secure off-premise placement at $X in NY metro within 9 months at ≥Y% importer margin").</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── PRICE ARCHITECTURE ─────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Price Architecture</div>
+    <h1 class="doc-h">From EXW to shelf — current vs. recommended.</h1>
+    <p class="small muted">Per 750ml bottle, {{CURRENCY}}. Current column = today's EXW through the model. Recommended column = Daley's target structure.</p>
+    <table class="walk">
+      <thead><tr><th>Stop</th><th class="num">Current</th><th class="num">Recommended</th><th class="num">Per case (rec.)</th></tr></thead>
+      <tbody>
+        <!-- SLOT:arch-rows — current from pricing-model; recommended from Daley's target EXW re-run -->
+        <tr class="stop"><td>EXW</td><td class="num">$8.64</td><td class="num">{{REC_EXW}}</td><td class="num">—</td></tr>
+        <tr class="stop is-key"><td>= LANDED</td><td class="num">$9.42</td><td class="num">{{REC_LANDED}}</td><td class="num">—</td></tr>
+        <tr class="stop is-key"><td>= FRONT LINE</td><td class="num">$19.22</td><td class="num">{{REC_FRONTLINE}}</td><td class="num">—</td></tr>
+        <tr class="stop"><td>On-premise list</td><td class="num">$67.29</td><td class="num">{{REC_ONPREM}}</td><td class="num">—</td></tr>
+        <tr class="stop"><td>Off-premise shelf</td><td class="num">$31.24</td><td class="num">{{REC_SHELF}}</td><td class="num">—</td></tr>
+      </tbody>
+    </table>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — the recommended EXW &amp; why</div>
+      <div class="slot__hint">State the EXW you recommend and the logic: what shelf it buys, what margin it leaves each tier, and the trade-off being made. Re-run pricing-model.js with the recommended EXW to fill the Recommended column above.</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── COMPETITIVE SET ────────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Competitive Set</div>
+    <h1 class="doc-h">The shelf, read precisely.</h1>
+    <table>
+      <thead><tr><th>Wine</th><th>Style / origin</th><th class="num">Retail</th><th class="num">On-prem list</th><th>Importer / distributor</th></tr></thead>
+      <tbody>
+        <!-- SLOT:competitive-rows — researched comparables with sources -->
+        <tr><td>Comparable A</td><td>Bordeaux red</td><td class="num">$24.99</td><td class="num">$45</td><td class="muted small">—</td></tr>
+        <tr><td>Comparable B</td><td>Bordeaux red</td><td class="num">$28.00</td><td class="num">$52</td><td class="muted small">—</td></tr>
+        <tr class="is-key"><td><strong>{{WINE}}</strong> (recommended)</td><td>{{ORIGIN}}</td><td class="num"><strong>{{REC_SHELF}}</strong></td><td class="num"><strong>{{REC_ONPREM}}</strong></td><td class="muted small">TBC</td></tr>
+      </tbody>
+    </table>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — read of the set</div>
+      <div class="slot__hint">Where does the wine win, and against whom? Which comparables are vulnerable, and on what (price, story, distribution)?</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── CHANNEL STRATEGY ───────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">Channel Strategy</div>
+    <h1 class="doc-h">On-premise and off-premise — the sequence.</h1>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — channel sequence</div>
+      <div class="slot__hint">Which channel leads and why; how on- and off-premise reinforce each other; pricing discipline across the two so they don't undercut. Reference the on/off figures from the architecture.</div>
+    </div>
+    <div class="section-label" style="margin-top:8mm">Target Accounts</div>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — first accounts to open</div>
+      <div class="slot__hint">Name the importer/distributor profile and 5–10 first-wave accounts that set the reference price and credibility for the rest.</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── QUANTITY-DISCOUNT PLAY ─────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">Quantity Discounts — Where Legal</div>
+    <p class="small">In <strong>{{TARGET}}</strong>, volume discounts to the trade are <strong>{{QD_STATUS}}</strong>. {{QD_NOTE}}</p>
+    <p class="small muted">General guidance, not legal advice — confirm against current regulation before structuring.</p>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — the discount play</div>
+      <div class="slot__hint">If legal: the tier structure you recommend and the volumes that trigger it, kept compliant and uniform. If prohibited (e.g. NY): the compliant alternatives — depletion allowances, posted-price timing, programme support — that achieve the commercial aim without an illegal discount.</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── 12-MONTH PLAN ──────────────────────────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">The Twelve-Month Plan</div>
+    <h1 class="doc-h">What happens, and when.</h1>
+    <div class="slot">
+      <div class="slot__tag">★ Daley — the plan</div>
+      <div class="slot__hint">Quarter-by-quarter: appoint route to market, set price postings, open first accounts, build depletion, review. Tie each step to a number from the architecture.</div>
+    </div>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+<!-- ── APPENDIX — ASSUMPTIONS & SOURCES ───────────────────────── -->
+<section class="page">
+  <div class="section">
+    <div class="section-label">Appendix — Assumptions &amp; Sources</div>
+    <h2 class="doc-h">Every number, traceable.</h2>
+    <table>
+      <thead><tr><th>Assumption</th><th>Value used</th><th>Basis / source</th></tr></thead>
+      <tbody>
+        <!-- SLOT:assumptions-rows — from pricing-model assumptionsResolved + research sources -->
+        <tr><td>FX {{EXW_CCY}}→{{CURRENCY}}</td><td>{{FX_RATE}}</td><td class="muted small">{{FX_SOURCE}}</td></tr>
+        <tr><td>Freight / case</td><td>{{FREIGHT}}</td><td class="muted small">{{FREIGHT_SOURCE}}</td></tr>
+        <tr><td>Duty</td><td>{{DUTY}}</td><td class="muted small">{{DUTY_SOURCE}}</td></tr>
+        <tr><td>Excise</td><td>{{EXCISE}}</td><td class="muted small">{{EXCISE_SOURCE}}</td></tr>
+        <tr><td>Importer / distributor margin</td><td>{{MARGINS}}</td><td class="muted small">Trade-standard / quoted</td></tr>
+      </tbody>
+    </table>
+    <p class="small muted">Planning model. Trade quotes and live FX override defaults where provided. Not tax or legal advice.</p>
+  </div>
+  <div class="page__footer"><span>Prepared for {{CLIENT}}</span><span class="conf">Private &amp; confidential</span></div>
+</section>
+
+</body>
+</html>

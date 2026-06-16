@@ -1,0 +1,153 @@
+/* ============================================================
+   print.css — brand-matched print styling for PDF deliverables
+   The Place & Market — Daley Brennan Consulting
+   Mirrors css/styles.css tokens, adapted for A4 paper.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg:        #F7F7F8;
+  --bg-dark:   #0A0A0A;
+  --white:     #FFFFFF;
+  --black:     #111111;
+  --text-muted:#6B6B6B;
+  --gold:      #C9A84C;
+  --gold-light:#E8C97A;
+  --border:    #E5E5E5;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', Arial, sans-serif;
+}
+
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+html { -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+}
+
+/* ── Page system ─────────────────────────────────────────────── */
+.page {
+  position: relative;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm 18mm 22mm;
+  background: var(--white);
+  break-after: page;
+  overflow: hidden;
+}
+.page:last-child { break-after: auto; }
+
+/* ── Cover ───────────────────────────────────────────────────── */
+.page--cover {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cover__top, .cover__mid, .cover__bottom { padding: 0 18mm; }
+.cover__top { padding-top: 22mm; }
+.cover__bottom { padding-bottom: 22mm; }
+.cover__rule { width: 46mm; height: 2px; background: var(--gold); margin: 0 0 10mm; }
+
+.brandmark__name { font-family: var(--font-display); font-size: 19pt; font-weight: 400; letter-spacing: 0.01em; }
+.brandmark__sub  { font-family: var(--font-body); font-size: 8pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-top: 2mm; }
+
+.cover__eyebrow { font-size: 8.5pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6mm; }
+.cover__title { font-family: var(--font-display); font-size: 40pt; font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; }
+.cover__client { font-family: var(--font-display); font-size: 20pt; font-weight: 300; font-style: italic; color: var(--gold-light); margin-top: 8mm; }
+.cover__meta { font-size: 9pt; color: #B9B9B9; margin-top: 4mm; line-height: 1.9; }
+.cover__meta strong { color: var(--white); font-weight: 500; }
+
+/* ── Typographic scale ───────────────────────────────────────── */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 8pt; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 4mm;
+}
+h1.doc-h { font-family: var(--font-display); font-weight: 400; font-size: 26pt; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 6mm; }
+h2.doc-h { font-family: var(--font-display); font-weight: 400; font-size: 19pt; line-height: 1.15; margin-bottom: 4mm; }
+h3.doc-h { font-family: var(--font-display); font-weight: 600; font-size: 13pt; margin-bottom: 2mm; }
+p { margin-bottom: 3.5mm; }
+p.lead { font-family: var(--font-display); font-size: 15pt; line-height: 1.4; font-weight: 300; color: #2a2a2a; }
+strong { font-weight: 500; }
+em { font-style: italic; }
+a { color: var(--gold); text-decoration: none; }
+
+.section { margin-bottom: 12mm; }
+.section:last-child { margin-bottom: 0; }
+
+/* ── Tables ──────────────────────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 4mm 0; }
+thead th {
+  text-align: left; font-weight: 500; font-size: 7.5pt; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted);
+  border-bottom: 1.5px solid var(--black); padding: 2.5mm 3mm;
+}
+tbody td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--border); vertical-align: top; }
+tbody tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr.is-total td { border-top: 1.5px solid var(--black); border-bottom: none; font-weight: 600; }
+tr.is-key td { background: rgba(201,168,76,0.10); font-weight: 500; }
+
+/* The price-walk ladder */
+.walk td:first-child { color: var(--text-muted); }
+.walk tr.stop td:first-child { color: var(--black); font-weight: 500; }
+
+/* ── Callouts ────────────────────────────────────────────────── */
+.callout {
+  border-left: 3px solid var(--gold);
+  background: var(--bg);
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+}
+.callout .section-label { margin-bottom: 2mm; }
+.callout--dark { background: var(--bg-dark); color: var(--white); border-left-color: var(--gold); }
+.callout--dark .section-label { color: var(--gold); }
+
+.band {
+  display: flex; gap: 6mm; margin: 4mm 0;
+}
+.band__item { flex: 1; border: 1px solid var(--border); border-radius: 4px; padding: 4mm; }
+.band__item .lbl { font-size: 7.5pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.band__item .val { font-family: var(--font-display); font-size: 20pt; line-height: 1.1; margin-top: 1mm; }
+.band__item .sub { font-size: 8pt; color: var(--text-muted); margin-top: 1mm; }
+.band__item--key { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+
+/* Daley-input slot (strategy doc only) */
+.slot {
+  border: 1px dashed var(--gold);
+  background: rgba(201,168,76,0.05);
+  padding: 4mm 5mm; margin: 4mm 0; border-radius: 4px;
+}
+.slot__tag { font-size: 7.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5mm; }
+.slot__hint { font-size: 9pt; color: var(--text-muted); font-style: italic; }
+
+/* ── Running footer ──────────────────────────────────────────── */
+.page__footer {
+  position: absolute; left: 18mm; right: 18mm; bottom: 12mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; letter-spacing: 0.06em; color: var(--text-muted);
+  border-top: 1px solid var(--border); padding-top: 3mm;
+}
+.page__footer .conf { text-transform: uppercase; letter-spacing: 0.14em; }
+
+/* utility */
+.muted { color: var(--text-muted); }
+.small { font-size: 8.5pt; }
+.gold { color: var(--gold); }
+.mt-0 { margin-top: 0; }
+.nowrap { white-space: nowrap; }
+ul.ticks { list-style: none; margin: 3mm 0; }
+ul.ticks li { position: relative; padding-left: 6mm; margin-bottom: 2mm; }
+ul.ticks li::before { content: ""; position: absolute; left: 0; top: 2.4mm; width: 2mm; height: 2mm; border-radius: 999px; background: var(--gold); }

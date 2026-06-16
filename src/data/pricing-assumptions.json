@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "purpose": "Default planning assumptions for the EXW -> shelf pricing walk. Every number here is a transparent, overridable default. Daley's trade data (distributor cost sheets, importer quotes, state price postings, live FX) should override these before a $5,000 strategy goes out.",
+    "lastReviewed": "2026-06-15",
+    "disclaimer": "Planning defaults only. Duty, excise, FX, and freight are volatile and route-specific. VERIFY each against a current source before sign-off. Not tax or legal advice.",
+    "conventions": {
+      "fx": "EXW is converted to the target-market currency using fx.rates (base = target currency). Update fx.rates and fx.asOf before every run.",
+      "caseSize": "All per-case figures assume the case's bottleCount x bottleMl. Default case = 12 x 750ml = 9.0 litres.",
+      "marginVsMarkup": "Trade-tier margins are expressed as marginPctOnSell (margin on the tier's OWN selling price). sell = cost / (1 - marginPctOnSell). This matches how importers and distributors quote.",
+      "onPremise": "onPremiseMultiplier multiplies the FRONT-LINE (wholesale-to-trade) bottle price to give the restaurant by-the-bottle list price.",
+      "offPremise": "offPremiseMarginPctOnSell is the retailer's margin on their shelf price: shelf = frontline / (1 - margin).",
+      "tax": "Consumer sales tax / VAT is shown separately at the shelf. Trade tiers reclaim VAT, so it is NOT compounded through the chain except where a market is VAT-inclusive at trade (noted per market).",
+      "stops": ["EXW", "FOB/CIF (EXW + freight + insurance)", "LANDED (+ duty + excise)", "IMPORTER-OUT", "FRONT LINE (distributor-to-trade)", "ON-PREMISE LIST", "OFF-PREMISE SHELF"]
+    }
+  },
+
+  "fx": {
+    "asOf": "2026-06-15",
+    "note": "Indicative only — replace with live mid-market rates before use. Base is the amount of target currency per 1 unit of the listed currency.",
+    "rates": {
+      "EUR": { "USD": 1.08, "GBP": 0.85, "CAD": 1.47, "EUR": 1.0 },
+      "GBP": { "USD": 1.27, "EUR": 1.18, "CAD": 1.73, "GBP": 1.0 },
+      "USD": { "EUR": 0.93, "GBP": 0.79, "CAD": 1.36, "USD": 1.0 },
+      "CAD": { "USD": 0.74, "EUR": 0.68, "GBP": 0.58, "CAD": 1.0 }
+    }
+  },
+
+  "defaultCase": { "bottleCount": 12, "bottleMl": 750 },
+
+  "defaults": {
+    "insurancePctOfGoods": 0.01,
+    "importerMarginPctOnSell": 0.30,
+    "distributorMarginPctOnSell": 0.30,
+    "offPremiseMarginPctOnSell": 0.33,
+    "onPremiseMultiplier": 3.5
+  },
+
+  "markets": {
+    "US": {
+      "label": "United States",
+      "currency": "USD",
+      "model": "three-tier (importer -> distributor -> retailer)",
+      "freightPerCaseDefault": 4.5,
+      "freightNote": "Ocean LCL, EU -> US East Coast, per 9L case. Highly variable; get a current quote.",
+      "duty": {
+        "perLitre": 0.063,
+        "basis": "Still wine <=14% ABV, HTS 2204. ~6.3 cents/litre.",
+        "note": "Sparkling and >14% differ. Confirm current HTS line."
+      },
+      "excise": {
+        "federalPerLitre": 0.2827,
+        "federalBasis": "US federal excise $1.07/gallon (<=16% ABV) = $0.2827/litre. CBMA small-producer credits can reduce this.",
+        "stateExcisePerLitreExamples": { "NY": 0.079, "CA": 0.053, "TX": 0.054, "FL": 0.601, "IL": 0.439 },
+        "stateNote": "State excise varies widely and may be levied at distributor or retail tier. Examples are indicative."
+      },
+      "importerMarginPctOnSell": 0.30,
+      "distributorMarginPctOnSell": 0.30,
+      "offPremiseMarginPctOnSell": 0.33,
+      "onPremiseMultiplier": 3.5,
+      "consumerTax": { "type": "state+local sales tax", "appliedAt": "shelf", "examplePct": { "NY": 0.08875, "CA": 0.0725, "FL": 0.06 } },
+      "controlStatesNote": "PA, UT, NC, VA, AL, ID, MS, MT, NH, OH, OR, VT, WV, WY and others run control systems where the state is wholesaler and/or retailer; the importer/distributor split above does not apply cleanly."
+    },
+
+    "UK": {
+      "label": "United Kingdom",
+      "currency": "GBP",
+      "model": "importer/wholesaler -> trade (on-/off-trade)",
+      "freightPerCaseDefault": 3.5,
+      "freightNote": "EU -> UK groupage per 9L case post-Brexit; includes customs handling. Get a current quote.",
+      "duty": {
+        "perBottle750ml": 2.67,
+        "basis": "Still wine 11.5-14.5% ABV under the 2023 alcohol duty system (transitional easement).",
+        "note": "From the Feb 2025 move to strict by-ABV bands this varies by exact ABV (~£2.45-£2.88 / 75cl). Confirm against HMRC for the wine's ABV."
+      },
+      "excise": { "perBottle750ml": 0.0, "note": "UK 'duty' above already includes excise; no separate line." },
+      "importerMarginPctOnSell": 0.30,
+      "distributorMarginPctOnSell": 0.25,
+      "distributorNote": "Many UK routes collapse importer+wholesaler into one margin; set distributor margin to 0 if a single intermediary.",
+      "offPremiseMarginPctOnSell": 0.30,
+      "onPremiseMultiplier": 3.0,
+      "consumerTax": { "type": "VAT", "appliedAt": "shelf", "pct": 0.20, "note": "20% VAT on the duty-inclusive shelf price; trade reclaims input VAT." }
+    },
+
+    "FR": {
+      "label": "France",
+      "currency": "EUR",
+      "model": "importer/agent -> distributor/caviste -> trade",
+      "freightPerCaseDefault": 2.0,
+      "freightNote": "Intra-EU road freight per 9L case (nil if origin is France). Get a current quote.",
+      "duty": {
+        "perBottle750ml": 0.0,
+        "basis": "Intra-EU movements of EU-origin wine attract no customs duty.",
+        "note": "Non-EU origin wine entering France attracts EU import duty + may need an importer of record."
+      },
+      "excise": { "perBottle750ml": 0.0294, "basis": "French 'droit de circulation' on still wine ~ EUR 3.92/hL = ~EUR 0.0294 / 75cl.", "note": "Among the lowest in the EU." },
+      "importerMarginPctOnSell": 0.25,
+      "distributorMarginPctOnSell": 0.22,
+      "distributorNote": "Caviste (specialist off-trade) margins often run 30-35%; set offPremise accordingly for that channel.",
+      "offPremiseMarginPctOnSell": 0.30,
+      "onPremiseMultiplier": 3.2,
+      "consumerTax": { "type": "TVA", "appliedAt": "shelf", "pct": 0.20, "note": "20% TVA; trade reclaims input TVA." }
+    },
+
+    "CA": {
+      "label": "Canada",
+      "currency": "CAD",
+      "model": "provincial liquor board monopoly (control market)",
+      "isControlMarket": true,
+      "freightPerCaseDefault": 6.0,
+      "freightNote": "Ocean to Canadian port per 9L case. Get a current quote.",
+      "duty": { "perLitre": 0.0187, "basis": "Canada wine customs duty ~CAD 1.87/hL for non-FTA origin; nil under CETA (EU) / CPTPP where applicable.", "note": "Confirm FTA eligibility." },
+      "excise": { "perLitre": 0.731, "basis": "Federal excise ~CAD 0.731/litre for wine >7% ABV.", "note": "Indexed annually." },
+      "boardMarkupPctOnLanded": 0.715,
+      "boardMarkupNote": "Provincial board ad valorem markup (e.g. LCBO Ontario ~71.5%) applied to landed cost, PLUS flat levies and container deposits, BEFORE board retail price and HST. This dominates the model in control markets — treat importer/distributor margins as N/A and model the board markup instead.",
+      "importerMarginPctOnSell": 0.0,
+      "distributorMarginPctOnSell": 0.0,
+      "offPremiseMarginPctOnSell": 0.0,
+      "onPremiseMultiplier": 2.5,
+      "consumerTax": { "type": "HST/GST+PST", "appliedAt": "shelf", "examplePct": { "ON": 0.13, "BC": 0.12, "QC": 0.14975 } }
+    }
+  }
+}
