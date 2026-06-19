@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Section, CtaBand, Eyebrow } from '@/components/ui';
+import vineyard from '../../../../public/vineyard-glass.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 
@@ -49,15 +51,30 @@ export default async function ExportStrategyPage({
 function Hero() {
   const t = useTranslations('exportStrategy.hero');
   return (
-    <Section tone="dark">
-      <Eyebrow>{t('eyebrow')}</Eyebrow>
-      <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
-        {t('title')}
-      </h1>
-      <p className="reveal prose-measure mt-8 text-lg text-muted-dark md:text-xl">
-        {t('lede')}
-      </p>
-    </Section>
+    <section className="relative isolate overflow-hidden bg-ink text-surface">
+      <Image
+        src={vineyard}
+        alt=""
+        aria-hidden="true"
+        placeholder="blur"
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_30%]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"
+      />
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
+        <Eyebrow>{t('eyebrow')}</Eyebrow>
+        <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
+          {t('title')}
+        </h1>
+        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
+          {t('lede')}
+        </p>
+      </div>
+    </section>
   );
 }
 

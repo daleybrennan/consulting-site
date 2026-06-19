@@ -3,8 +3,8 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Section, CtaBand, Eyebrow } from '@/components/ui';
-import portrait from '../../../../public/daley-brennan.jpg';
 import barPortrait from '../../../../public/daley-brennan-3.jpg';
+import seminar from '../../../../public/speaking-seminar.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 
@@ -42,7 +42,6 @@ export default async function SpeakingPage({
       <Hero />
       <Education />
       <Formats />
-      <SpeakingBand />
       <Academic />
       <Cta />
     </>
@@ -52,15 +51,30 @@ export default async function SpeakingPage({
 function Hero() {
   const t = useTranslations('speaking.hero');
   return (
-    <Section tone="dark">
-      <Eyebrow>{t('eyebrow')}</Eyebrow>
-      <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
-        {t('title')}
-      </h1>
-      <p className="reveal prose-measure mt-8 text-lg text-muted-dark md:text-xl">
-        {t('lede')}
-      </p>
-    </Section>
+    <section className="relative isolate overflow-hidden bg-ink text-surface">
+      <Image
+        src={seminar}
+        alt=""
+        aria-hidden="true"
+        placeholder="blur"
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"
+      />
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
+        <Eyebrow>{t('eyebrow')}</Eyebrow>
+        <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
+          {t('title')}
+        </h1>
+        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
+          {t('lede')}
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -114,25 +128,6 @@ function Formats() {
   );
 }
 
-function SpeakingBand() {
-  return (
-    <section className="relative isolate overflow-hidden bg-ink">
-      <Image
-        src={barPortrait}
-        alt=""
-        aria-hidden="true"
-        placeholder="blur"
-        sizes="100vw"
-        className="h-[44vh] min-h-[300px] w-full object-cover object-[50%_20%] md:h-[56vh]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/15 to-ink/40"
-      />
-    </section>
-  );
-}
-
 function Academic() {
   const t = useTranslations('speaking.academic');
   const creds = ['0', '1', '2'] as const;
@@ -145,11 +140,11 @@ function Academic() {
             {t('title')}
           </h2>
           <Image
-            src={portrait}
+            src={barPortrait}
             alt="Daley Brennan"
             placeholder="blur"
             sizes="(min-width: 768px) 40vw, 100vw"
-            className="reveal mt-10 w-full max-w-xs rounded-lg border border-line object-cover md:sticky md:top-28"
+            className="reveal mt-10 w-full max-w-xs rounded-lg border border-line object-cover object-[50%_20%] md:sticky md:top-28"
           />
         </div>
         <div>
