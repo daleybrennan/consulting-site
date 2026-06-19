@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Section, CtaBand, Eyebrow } from '@/components/ui';
-import portrait from '../../../../public/daley-brennan.jpg';
+import { Section, CtaBand, Eyebrow, PHOTO_REVEAL } from '@/components/ui';
+import wineScene from '../../../../public/daley-brennan-4.jpeg';
+import parisShop from '../../../../public/aldb-paris.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 const LINKEDIN = 'https://www.linkedin.com/in/daley-b-91477670/';
@@ -50,15 +51,30 @@ export default async function AboutPage({
 function Hero() {
   const t = useTranslations('about.hero');
   return (
-    <Section tone="dark">
-      <Eyebrow>{t('eyebrow')}</Eyebrow>
-      <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
-        {t('title')}
-      </h1>
-      <p className="reveal prose-measure mt-8 text-lg text-muted-dark md:text-xl">
-        {t('lede')}
-      </p>
-    </Section>
+    <section className="relative isolate overflow-hidden bg-ink text-surface">
+      <Image
+        src={wineScene}
+        alt=""
+        aria-hidden="true"
+        placeholder="blur"
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_30%] grayscale"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"
+      />
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
+        <Eyebrow>{t('eyebrow')}</Eyebrow>
+        <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
+          {t('title')}
+        </h1>
+        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
+          {t('lede')}
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -66,19 +82,22 @@ function Body() {
   const t = useTranslations('about.body');
   return (
     <Section tone="light">
-      <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-16">
-        <div className="reveal">
-          <Image
-            src={portrait}
-            alt="Daley Brennan"
-            placeholder="blur"
-            sizes="(min-width: 768px) 33vw, 100vw"
-            className="w-full max-w-xs rounded-lg border border-line object-cover grayscale md:sticky md:top-28"
-          />
-        </div>
+      <div className="mx-auto max-w-3xl">
         <div>
           <div className="space-y-6 text-lg leading-relaxed text-ink-soft">
             <p className="reveal">{t('p1')}</p>
+            <figure className="reveal">
+              <Image
+                src={parisShop}
+                alt="Daley Brennan outside à l'ombre d'un bouchon, his wine shop in Paris"
+                placeholder="blur"
+                sizes="(min-width: 768px) 60vw, 100vw"
+                className={`w-full rounded-lg border border-line object-cover ${PHOTO_REVEAL}`}
+              />
+              <figcaption className="mt-3 text-sm text-muted">
+                {t('parisCaption')}
+              </figcaption>
+            </figure>
             <p className="reveal">{t('p2')}</p>
             <p className="reveal">{t('p3')}</p>
           </div>
@@ -108,11 +127,11 @@ function Skills() {
   return (
     <Section tone="panel">
       <h2 className="reveal text-3xl md:text-4xl">{t('title')}</h2>
-      <ul className="mt-10 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => (
           <li
             key={item}
-            className="reveal border-b border-r border-line bg-surface px-6 py-7 text-sm leading-snug text-ink-soft"
+            className="reveal bg-surface px-6 py-7 text-sm leading-snug text-ink-soft"
           >
             {item}
           </li>

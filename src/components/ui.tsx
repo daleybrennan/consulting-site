@@ -9,6 +9,11 @@ const TONE: Record<Tone, string> = {
   panel: 'bg-surface-2 text-ink',
 };
 
+/** Photo that sits grayscale and eases to full colour on hover — a restrained
+ *  way to add warmth without breaking the monochrome system. */
+export const PHOTO_REVEAL =
+  'grayscale transition-[filter] duration-700 ease-out hover:grayscale-0 motion-reduce:transition-none';
+
 export function Section({
   tone = 'light',
   children,

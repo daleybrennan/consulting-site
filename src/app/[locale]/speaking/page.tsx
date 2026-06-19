@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Section, CtaBand, Eyebrow } from '@/components/ui';
+import portrait from '../../../../public/daley-brennan.jpg';
+import barPortrait from '../../../../public/daley-brennan-3.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 
@@ -39,6 +42,7 @@ export default async function SpeakingPage({
       <Hero />
       <Education />
       <Formats />
+      <SpeakingBand />
       <Academic />
       <Cta />
     </>
@@ -70,9 +74,9 @@ function Education() {
         {t('title')}
       </h2>
       <p className="reveal prose-measure mt-6 text-lg text-muted">{t('body')}</p>
-      <div className="mt-12 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2">
+      <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
         {points.map((p) => (
-          <div key={p} className="reveal border-b border-r border-line bg-paper p-8">
+          <div key={p} className="reveal bg-paper p-8">
             <h3 className="text-xl">{t(`points.${p}.title`)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               {t(`points.${p}.body`)}
@@ -92,9 +96,9 @@ function Formats() {
       <Eyebrow>{t('eyebrow')}</Eyebrow>
       <h2 className="reveal mt-5 text-3xl md:text-4xl">{t('title')}</h2>
       <p className="reveal mt-5 max-w-xl text-lg text-muted">{t('body')}</p>
-      <div className="mt-12 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {items.map((i) => (
-          <div key={i} className="reveal border-b border-r border-line bg-surface p-7">
+          <div key={i} className="reveal bg-surface p-7">
             <h3 className="text-lg">{t(`items.${i}.title`)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               {t(`items.${i}.body`)}
@@ -110,6 +114,25 @@ function Formats() {
   );
 }
 
+function SpeakingBand() {
+  return (
+    <section className="relative isolate overflow-hidden bg-ink">
+      <Image
+        src={barPortrait}
+        alt=""
+        aria-hidden="true"
+        placeholder="blur"
+        sizes="100vw"
+        className="h-[44vh] min-h-[300px] w-full object-cover object-[50%_20%] md:h-[56vh]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/15 to-ink/40"
+      />
+    </section>
+  );
+}
+
 function Academic() {
   const t = useTranslations('speaking.academic');
   const creds = ['0', '1', '2'] as const;
@@ -121,6 +144,13 @@ function Academic() {
           <h2 className="reveal mt-5 text-balance text-3xl md:text-4xl">
             {t('title')}
           </h2>
+          <Image
+            src={portrait}
+            alt="Daley Brennan"
+            placeholder="blur"
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="reveal mt-10 w-full max-w-xs rounded-lg border border-line object-cover md:sticky md:top-28"
+          />
         </div>
         <div>
           <p className="reveal text-lg leading-relaxed text-muted">{t('body')}</p>
