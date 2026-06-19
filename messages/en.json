@@ -3,23 +3,41 @@
     "siteName": "Daley Brennan",
     "home": {
       "title": "US Market Strategy for Premium Wine & Spirits Brands",
-      "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on US market entry, distribution strategy, and pricing. Bilingual EN/FR."
+      "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on US market entry, distribution strategy, and pricing. Bilingual EN/FR.",
+      "name": "Daley Brennan, Commercial Strategy for Premium Wine & Spirits",
+      "serviceTypes": [
+        "Export strategy and audit for premium wine brands",
+        "Wine importer and distributor strategy",
+        "Pricing architecture",
+        "Distributor and reseller prospecting"
+      ]
     },
-    "diagnostic": {
-      "title": "Commercial Diagnostic: US Market Readiness for Wine Brands",
-      "description": "A focused diagnostic of how ready your wine or spirits brand is for the US market: pricing architecture, distribution fit, and the sequencing errors that stall growth."
+    "exportStrategy": {
+      "title": "Export Strategy & Audit for Wine & Spirits Brands",
+      "description": "From a blank page to a full review of an established export business: brand, cultural positioning, pricing and margins, distribution, fulfilment, and channels — across the US, France, the UK, and beyond.",
+      "serviceType": "Export strategy and independent multi-market audit: brand, positioning, pricing, distribution, fulfilment, and channels"
+    },
+    "distributorFinder": {
+      "title": "Distributor & Reseller Finder for Wineries",
+      "description": "A tool for wineries to surface and prioritise the right distributors and resellers in each target market, so outreach starts with a shortlist worth working.",
+      "name": "Distributor & Reseller Finder"
     },
     "advisory": {
       "title": "Advisory: Distribution, Pricing & Channel Strategy",
-      "description": "Ongoing commercial advisory for premium wine and spirits brands: importer and distributor strategy, pricing architecture, channel and account targeting across the US and selected markets."
+      "description": "Ongoing commercial advisory for premium wine and spirits brands: importer and distributor strategy, pricing architecture, channel and account targeting across the US and selected markets.",
+      "name": "Commercial Advisory for Premium Wine & Spirits Brands",
+      "serviceType": "Distribution, pricing, and channel strategy for wine and spirits brands"
     },
     "about": {
       "title": "About: A Current Practitioner, Still in the Market",
-      "description": "A bilingual commercial leader active in premium wine since 2008, advising a limited number of brands alongside a senior commercial role. US market access, distribution, pricing, and cross-cultural EN/FR work."
+      "description": "A bilingual commercial leader active in premium wine since 2008, advising a limited number of brands alongside a senior commercial role. US market access, distribution, pricing, and cross-cultural EN/FR work.",
+      "jobTitle": "Commercial strategist, premium wine & spirits"
     },
     "speaking": {
       "title": "Speaking & Education: Cultural Adaptation for Wine & Spirits",
-      "description": "Available for one-off seminars, keynotes, and team education on cross-cultural commercial strategy across the US, France, the UK, and beyond. Delivered in English or French."
+      "description": "Available for one-off seminars, keynotes, and team education on cross-cultural commercial strategy across the US, France, the UK, and beyond. Delivered in English or French.",
+      "name": "Speaking & Education: Cross-Cultural Commercial Strategy",
+      "serviceType": "Seminars, keynotes, and cultural-adaptation education for wine & spirits"
     },
     "contact": {
       "title": "Request an Introduction",
@@ -28,9 +46,10 @@
   },
   "nav": {
     "home": "Home",
-    "diagnostic": "Diagnostic",
+    "exportStrategy": "Export Strategy",
     "advisory": "Advisory",
-    "speaking": "Speaking & Education",
+    "distributorFinder": "Account Finder",
+    "speaking": "Speaking",
     "about": "About",
     "contact": "Request an introduction",
     "skipToContent": "Skip to content"
@@ -49,7 +68,7 @@
       "title": "The US market rewards precision, and it's an easy one to misread.",
       "lede": "I help a small number of premium wine and spirits brands enter and grow in the United States: pricing, distribution, and the order you do things in. From inside the industry.",
       "cta": "Request an introduction",
-      "secondary": "See the diagnostic"
+      "secondary": "See how it works"
     },
     "positioning": {
       "title": "A practitioner, in the market every day.",
@@ -86,9 +105,9 @@
     },
     "diagnosticTeaser": {
       "eyebrow": "Start here",
-      "title": "A commercial diagnostic, before anyone signs anything",
-      "body": "Tell me about your brand and I'll send you a written diagnostic of where you stand in the US market: the risks worth naming and the questions worth answering before you commit budget. It only takes you a few minutes.",
-      "cta": "See how the diagnostic works"
+      "title": "An honest read, before anyone signs anything",
+      "body": "Tell me about your brand and where you want to take it. We'll start with where you actually stand — in the US, France, the UK, or further afield — and the questions worth answering before you commit budget.",
+      "cta": "See how it works"
     },
     "selectiveBlock": {
       "title": "Deliberately small",
@@ -101,46 +120,145 @@
       "cta": "Speaking & education"
     }
   },
-  "diagnostic": {
+  "exportStrategy": {
     "hero": {
-      "eyebrow": "The commercial diagnostic",
-      "title": "Where does your brand actually stand in the US market?",
-      "lede": "A focused, written diagnostic of your brand's commercial readiness for the United States: pricing, distribution fit, and market sequencing, built from your situation and current market conditions."
+      "eyebrow": "Export Strategy & Audit",
+      "title": "From a blank page to a full review of an established export business.",
+      "lede": "Whether you're planning your first export market or already running across a dozen, this is an independent, hands-on read of where your brand stands and where it's quietly leaking value: brand, pricing, partners, fulfilment, and the cultural fit that decides it all."
     },
-    "what": {
-      "title": "What it is",
-      "body": "Not a sales deck and not a generic market report. It's a short, specific written assessment: where the pressure points are for a brand like yours, in the markets you're targeting, given how the trade is buying right now.",
-      "points": {
-        "pricing": "The pricing-ladder risks hiding between your ex-cellars price and the shelf.",
-        "distribution": "Whether the distribution path you're on fits your volume and ambition.",
-        "sequencing": "The market-sequencing decisions that shape the next two years."
+    "startingPoints": {
+      "title": "Two places to start",
+      "items": {
+        "scratch": {
+          "title": "Starting from scratch",
+          "body": "No export presence yet, or a first market in your sights. We build the strategy from the ground up: where to go, in what order, at what price, and through whom."
+        },
+        "established": {
+          "title": "An established business",
+          "body": "Already selling across several markets. We audit what you've built, market by market, and name what's working, what's costing you, and what to fix first."
+        }
       }
+    },
+    "covers": {
+      "title": "What we look at",
+      "items": {
+        "brand": {
+          "title": "Brand & positioning",
+          "body": "Whether the brand reads the way you intend in each market, and where the story is getting lost between the cellar and the shelf."
+        },
+        "culture": {
+          "title": "Cultural fit per market",
+          "body": "How the brand, the pitch, and the commercial approach land in each culture you sell into. The same wine earns trust differently in New York, London, and Dubai."
+        },
+        "pricing": {
+          "title": "Pricing & margin integrity",
+          "body": "The full price walk in each market, where margin is leaking between your gate and the consumer, and whether your ladder still holds."
+        },
+        "distribution": {
+          "title": "Distribution & partners",
+          "body": "An honest assessment of the importers, distributors, and agents you rely on: who's performing, who's coasting, and where a relationship has quietly stopped working."
+        },
+        "fulfilment": {
+          "title": "Fulfilment & supply chain",
+          "body": "Freight, logistics, lead times, and landed cost across your routes: where the chain is fragile, slow, or more expensive than it needs to be."
+        },
+        "channel": {
+          "title": "Channel performance",
+          "body": "On- and off-premise, chains and independents, e-commerce: which channels are genuinely carrying the brand in each market, and which are flattering the numbers."
+        }
+      }
+    },
+    "markets": {
+      "title": "Where I work",
+      "body": "The sharpest focus is the United States, France, and the United Kingdom, where I'm in the trade every day. But export rarely stops there: I've worked across Latin America and the Middle East too, and I'm glad to talk through any market you're weighing. If I'm not the right person for a given market, I'll tell you."
     },
     "how": {
       "title": "How it works",
       "steps": {
         "one": {
-          "title": "You tell me about your brand",
-          "body": "A short form: category, where you sell today, where you want to go, and what's not working. Just a few minutes."
+          "title": "We scope it together",
+          "body": "A first conversation to map your markets, your ambitions, and where you suspect the value is leaking. We agree what we'll cover."
         },
         "two": {
-          "title": "I research and write",
-          "body": "I assess your situation against current market conditions and competitive set, and write a diagnostic specific to your brand."
+          "title": "I build or review",
+          "body": "Either an export strategy from the ground up, or an independent review across each market you sell into, against current trade conditions, not a playbook."
         },
         "three": {
-          "title": "You receive a written diagnostic",
-          "body": "A concise document naming the real risks and the questions worth answering, yours to keep whether or not we work together."
+          "title": "You get it in writing",
+          "body": "A clear document: the plan, or the findings, with a prioritised list of what to do first, ranked by impact and yours to act on."
         },
         "four": {
-          "title": "If it's a fit, we talk",
-          "body": "If the diagnostic points to work worth doing, we book a call to go deeper. No obligation either way."
+          "title": "We debrief",
+          "body": "A working session to walk through it together and agree the order of play. Where it points to deeper work, we'll talk about that separately."
         }
       }
     },
     "cta": {
-      "title": "Get your diagnostic",
-      "body": "Tell me about your brand. If it's a fit, I'll come back to you, and the diagnostic itself comes with no obligation at all.",
+      "title": "Start the conversation",
+      "body": "Tell me about your brand and the markets you're weighing or already in. If it's a fit, I'll come back to you and we'll take it from there.",
       "button": "Request an introduction"
+    }
+  },
+  "distributorFinder": {
+    "hero": {
+      "eyebrow": "Distributor & reseller finder",
+      "title": "Find the right distributors and resellers, market by market.",
+      "lede": "A tool for wineries that takes the guesswork out of who to approach. It surfaces and prioritises the distributors and resellers worth your time in each market, so your outreach starts with a list that's actually worth working."
+    },
+    "what": {
+      "title": "What it does",
+      "body": "Most producers spend their best outreach on the wrong doors. The finder builds a focused, prioritised shortlist of distributors and resellers in a market, so you put your energy into the partners most likely to carry your brand.",
+      "items": {
+        "0": {
+          "title": "A real shortlist",
+          "body": "Not a directory dump. A focused set of distributors and resellers that fit your category, price, and volume."
+        },
+        "1": {
+          "title": "Prioritised by fit",
+          "body": "Ranked so you start with the partners most likely to say yes, and most worth your time."
+        },
+        "2": {
+          "title": "Market by market",
+          "body": "Run it for each market you're targeting, so your approach is tailored rather than scattered."
+        },
+        "3": {
+          "title": "Built for wineries",
+          "body": "Designed around how wine actually reaches shelves and lists, not a generic B2B lead tool."
+        },
+        "4": {
+          "title": "Export to Sheets or CSV",
+          "body": "Every list and result is yours to take with you. Export straight to Google Sheets or download as a .csv."
+        },
+        "5": {
+          "title": "Your branding, optional",
+          "body": "Make the experience your own. The interface can be customised to your internal branding so it feels in-house."
+        }
+      }
+    },
+    "plans": {
+      "title": "Two ways to subscribe",
+      "individual": {
+        "title": "Individual licence",
+        "body": "For a single user running their own markets: everything the finder does, on one seat."
+      },
+      "team": {
+        "title": "Team licence",
+        "body": "For commercial teams working markets together: shared access and shared lists across multiple seats."
+      }
+    },
+    "platforms": {
+      "title": "Available everywhere you work",
+      "body": "Use it in any browser, or on the move with the iOS and Android apps. Your lists stay in sync.",
+      "browser": "Use it in any browser",
+      "ios": "Download on the App Store",
+      "android": "Get it on Google Play",
+      "comingSoon": "Links coming soon"
+    },
+    "cta": {
+      "title": "Try the distributor & reseller finder",
+      "body": "Open the tool to see how it builds your shortlist. Questions about whether it fits your brand? Get in touch.",
+      "button": "Open the tool",
+      "secondary": "Ask a question"
     }
   },
   "advisory": {
@@ -183,8 +301,8 @@
       "body": "Primary focus on the United States, with bilingual EN/FR work across the UK, the UAE, and Northern Europe. The cross-cultural piece is not a footnote. Most commercial relationships in this industry fail at the cultural seam, not on the spreadsheet."
     },
     "cta": {
-      "title": "Start with a diagnostic",
-      "body": "Advisory engagements usually begin with the commercial diagnostic. It's how we both find out whether there's work worth doing together.",
+      "title": "Start with an export review",
+      "body": "Advisory engagements usually begin with an export strategy or audit. It's how we both find out whether there's work worth doing together.",
       "button": "Request an introduction"
     }
   },
@@ -261,7 +379,7 @@
     },
     "cta": {
       "title": "Request an introduction",
-      "body": "If you're building a premium wine or spirits brand in the US, start with a diagnostic.",
+      "body": "If you're building or growing a premium wine or spirits brand abroad, start with an export strategy or audit.",
       "button": "Request an introduction"
     }
   },

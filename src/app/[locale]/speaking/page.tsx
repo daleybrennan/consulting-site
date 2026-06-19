@@ -146,13 +146,13 @@ function Cta() {
   return <CtaBand title={t('title')} body={t('body')} button={t('button')} />;
 }
 
-function ServiceJsonLd({ locale }: { locale: string }) {
+async function ServiceJsonLd({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'meta.speaking' });
   const json = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Speaking & Education: Cross-Cultural Commercial Strategy',
-    serviceType:
-      'Seminars, keynotes, and cultural-adaptation education for wine & spirits',
+    name: t('name'),
+    serviceType: t('serviceType'),
     url: `${SITE_URL}/${locale}/speaking`,
     provider: {
       '@type': 'Person',

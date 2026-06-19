@@ -26,8 +26,9 @@ export function Footer() {
             {t('linksTitle')}
           </p>
           <ul className="space-y-3 text-sm">
-            <li><Link href="/diagnostic" className="transition-colors hover:text-accent-soft">{nav('diagnostic')}</Link></li>
+            <li><Link href="/export-strategy" className="transition-colors hover:text-accent-soft">{nav('exportStrategy')}</Link></li>
             <li><Link href="/advisory" className="transition-colors hover:text-accent-soft">{nav('advisory')}</Link></li>
+            <li><Link href="/distributor-finder" className="transition-colors hover:text-accent-soft">{nav('distributorFinder')}</Link></li>
             <li><Link href="/speaking" className="transition-colors hover:text-accent-soft">{nav('speaking')}</Link></li>
             <li><Link href="/about" className="transition-colors hover:text-accent-soft">{nav('about')}</Link></li>
             <li><Link href="/contact" className="transition-colors hover:text-accent-soft">{nav('contact')}</Link></li>

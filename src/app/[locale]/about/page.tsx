@@ -127,12 +127,13 @@ function Cta() {
   return <CtaBand title={t('title')} body={t('body')} button={t('button')} />;
 }
 
-function PersonJsonLd({ locale }: { locale: string }) {
+async function PersonJsonLd({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'meta.about' });
   const json = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Daley Brennan',
-    jobTitle: 'Commercial strategist, premium wine & spirits',
+    jobTitle: t('jobTitle'),
     url: `${SITE_URL}/${locale}/about`,
     sameAs: [LINKEDIN],
     knowsLanguage: ['en', 'fr'],

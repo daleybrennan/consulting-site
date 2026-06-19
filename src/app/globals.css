@@ -12,6 +12,7 @@
   --paper: #ffffff;
   --accent: #7b1e3b;       /* modern burgundy */
   --accent-soft: #9a2a47;
+  --accent-on-dark: #d98aa0; /* lightened burgundy for legible eyebrows on dark */
   --line: #e6e6e3;         /* thin neutral hairline on light */
   --line-dark: #2c2c2e;    /* hairline rules on dark */
   --muted: #6b6b6b;        /* neutral muted body on light */
@@ -26,6 +27,7 @@
   --color-paper: var(--paper);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-on-dark: var(--accent-on-dark);
   --color-line: var(--line);
   --color-line-dark: var(--line-dark);
   --color-muted: var(--muted);
@@ -113,6 +115,12 @@ body {
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 500;
+}
+
+/* On dark sections the burgundy eyebrow is too low-contrast; lift it to a
+   lighter tint of the same accent. Targets every Section tone="dark" / CtaBand. */
+.bg-ink .eyebrow {
+  color: var(--accent-on-dark);
 }
 
 /* Constrained reading measure */

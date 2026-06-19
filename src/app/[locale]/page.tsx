@@ -181,7 +181,7 @@ function DiagnosticTeaser() {
           <NoObligationPill />
         </div>
         <div className="reveal md:justify-self-end">
-          <ButtonLink href="/diagnostic">{t('cta')}</ButtonLink>
+          <ButtonLink href="/export-strategy">{t('cta')}</ButtonLink>
         </div>
       </div>
     </Section>
@@ -222,22 +222,18 @@ function Selective() {
   );
 }
 
-function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
+async function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'meta.home' });
   const json = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Daley Brennan, Commercial Strategy for Premium Wine & Spirits',
+    name: t('name'),
     url: `${SITE_URL}/${locale}`,
     areaServed: ['United States', 'United Kingdom', 'United Arab Emirates', 'Northern Europe'],
     knowsLanguage: ['en', 'fr'],
     sameAs: ['https://www.linkedin.com/in/daley-b-91477670/'],
     founder: { '@type': 'Person', name: 'Daley Brennan' },
-    serviceType: [
-      'US market entry for premium wine brands',
-      'Wine importer and distributor strategy',
-      'Pricing architecture',
-      'Commercial diagnostic',
-    ],
+    serviceType: t.raw('serviceTypes'),
   };
   return (
     <script

@@ -3,23 +3,41 @@
     "siteName": "Daley Brennan",
     "home": {
       "title": "Stratégie du marché américain pour les marques de vins et spiritueux premium",
-      "description": "Praticien commercial senior, actif dans le vin premium, qui conseille un nombre limité de marques sur l'entrée sur le marché américain, la distribution et le positionnement tarifaire. Bilingue FR/EN."
+      "description": "Praticien commercial senior, actif dans le vin premium, qui conseille un nombre limité de marques sur l'entrée sur le marché américain, la distribution et le positionnement tarifaire. Bilingue FR/EN.",
+      "name": "Daley Brennan, stratégie commerciale pour les vins & spiritueux premium",
+      "serviceTypes": [
+        "Stratégie et audit export pour les marques de vin premium",
+        "Stratégie d'importateurs et de distributeurs de vin",
+        "Architecture tarifaire",
+        "Prospection de distributeurs et de revendeurs"
+      ]
     },
-    "diagnostic": {
-      "title": "Diagnostic commercial : préparation au marché américain pour les marques de vin",
-      "description": "Un diagnostic ciblé de la préparation de votre marque de vins ou spiritueux au marché américain : architecture tarifaire, adéquation de la distribution et erreurs de séquençage qui freinent la croissance."
+    "exportStrategy": {
+      "title": "Stratégie & audit export pour les marques de vins & spiritueux",
+      "description": "De la page blanche à la revue complète d'une activité export établie : marque, positionnement culturel, prix et marges, distribution, logistique et circuits — aux États-Unis, en France, au Royaume-Uni et au-delà.",
+      "serviceType": "Stratégie export et audit multi-marchés indépendant : marque, positionnement, prix, distribution, logistique et circuits"
+    },
+    "distributorFinder": {
+      "title": "Prospection de distributeurs & revendeurs pour les domaines",
+      "description": "Un outil pour les domaines viticoles : faire émerger et prioriser les bons distributeurs et revendeurs sur chaque marché visé, pour démarrer la prospection avec une liste qui en vaut la peine.",
+      "name": "Prospection de distributeurs & revendeurs"
     },
     "advisory": {
       "title": "Conseil : distribution, prix et stratégie de circuits",
-      "description": "Conseil commercial continu pour les marques de vins et spiritueux premium : stratégie d'importateurs et de distributeurs, architecture tarifaire, ciblage des circuits et des comptes aux États-Unis et sur des marchés sélectionnés."
+      "description": "Conseil commercial continu pour les marques de vins et spiritueux premium : stratégie d'importateurs et de distributeurs, architecture tarifaire, ciblage des circuits et des comptes aux États-Unis et sur des marchés sélectionnés.",
+      "name": "Conseil commercial pour les marques de vins & spiritueux premium",
+      "serviceType": "Stratégie de distribution, de prix et de circuits pour les marques de vins et spiritueux"
     },
     "about": {
       "title": "À propos : un praticien actuel, toujours sur le marché",
-      "description": "Dirigeant commercial bilingue, actif dans le vin premium depuis 2008, qui conseille un nombre limité de marques en parallèle d'un poste commercial senior. Accès au marché américain, distribution, prix et travail interculturel FR/EN."
+      "description": "Dirigeant commercial bilingue, actif dans le vin premium depuis 2008, qui conseille un nombre limité de marques en parallèle d'un poste commercial senior. Accès au marché américain, distribution, prix et travail interculturel FR/EN.",
+      "jobTitle": "Stratège commercial, vins & spiritueux premium"
     },
     "speaking": {
       "title": "Conférences & enseignement : adaptation culturelle, vins & spiritueux",
-      "description": "Disponible pour des séminaires ponctuels, des conférences et la formation d'équipes sur la stratégie commerciale interculturelle aux États-Unis, en France, au Royaume-Uni et au-delà. En français ou en anglais."
+      "description": "Disponible pour des séminaires ponctuels, des conférences et la formation d'équipes sur la stratégie commerciale interculturelle aux États-Unis, en France, au Royaume-Uni et au-delà. En français ou en anglais.",
+      "name": "Conférences & enseignement : stratégie commerciale interculturelle",
+      "serviceType": "Séminaires, conférences et formation à l'adaptation culturelle pour les vins & spiritueux"
     },
     "contact": {
       "title": "Demander une mise en relation",
@@ -28,9 +46,10 @@
   },
   "nav": {
     "home": "Accueil",
-    "diagnostic": "Diagnostic",
+    "exportStrategy": "Stratégie export",
     "advisory": "Conseil",
-    "speaking": "Conférences & enseignement",
+    "distributorFinder": "Prospecter",
+    "speaking": "Conférences",
     "about": "À propos",
     "contact": "Demander une mise en relation",
     "skipToContent": "Aller au contenu"
@@ -49,7 +68,7 @@
       "title": "Le marché américain récompense la précision, et c'est un marché facile à mal lire.",
       "lede": "J'accompagne un petit nombre de marques de vins et spiritueux premium dans leur entrée et leur croissance aux États-Unis : prix, distribution, et l'ordre dans lequel on agit. De l'intérieur du métier.",
       "cta": "Demander une mise en relation",
-      "secondary": "Voir le diagnostic"
+      "secondary": "Voir comment ça marche"
     },
     "positioning": {
       "title": "Un praticien, sur le marché chaque jour.",
@@ -86,9 +105,9 @@
     },
     "diagnosticTeaser": {
       "eyebrow": "Commencez ici",
-      "title": "Un diagnostic commercial, avant toute signature",
-      "body": "Parlez-moi de votre marque et je vous enverrai un diagnostic écrit de votre position sur le marché américain : les risques à nommer et les questions à trancher avant d'engager un budget. Cela ne vous coûte que quelques minutes.",
-      "cta": "Voir comment fonctionne le diagnostic"
+      "title": "Un regard honnête, avant toute signature",
+      "body": "Parlez-moi de votre marque et de là où vous voulez l'emmener. Nous partirons de votre position réelle — aux États-Unis, en France, au Royaume-Uni ou plus loin — et des questions à trancher avant d'engager un budget.",
+      "cta": "Voir comment ça marche"
     },
     "selectiveBlock": {
       "title": "Volontairement restreint",
@@ -101,46 +120,145 @@
       "cta": "Conférences & enseignement"
     }
   },
-  "diagnostic": {
+  "exportStrategy": {
     "hero": {
-      "eyebrow": "Le diagnostic commercial",
-      "title": "Où se situe vraiment votre marque sur le marché américain ?",
-      "lede": "Un diagnostic écrit et ciblé de la préparation commerciale de votre marque pour les États-Unis : prix, adéquation de la distribution et séquençage du marché, construit à partir de votre situation et des conditions actuelles du marché."
+      "eyebrow": "Stratégie & audit export",
+      "title": "De la page blanche à la revue complète d'une activité export établie.",
+      "lede": "Que vous prépariez votre premier marché export ou que vous opériez déjà sur une dizaine, voici une lecture indépendante et concrète de votre position et de là où votre marque perd discrètement de la valeur : marque, prix, partenaires, logistique, et l'adéquation culturelle qui décide de tout."
     },
-    "what": {
-      "title": "Ce que c'est",
-      "body": "Ni un argumentaire de vente, ni un rapport de marché générique. C'est une évaluation écrite, courte et précise : où sont les points de tension pour une marque comme la vôtre, sur les marchés que vous visez, compte tenu de la façon dont le négoce achète en ce moment.",
-      "points": {
-        "pricing": "Les risques d'échelle de prix cachés entre votre prix départ-cave et le rayon.",
-        "distribution": "Si la voie de distribution que vous suivez correspond à votre volume et à votre ambition.",
-        "sequencing": "Les décisions de séquençage qui façonnent les deux prochaines années."
+    "startingPoints": {
+      "title": "Deux points de départ",
+      "items": {
+        "scratch": {
+          "title": "Partir de zéro",
+          "body": "Pas encore de présence à l'export, ou un premier marché en ligne de mire. Nous bâtissons la stratégie depuis la base : où aller, dans quel ordre, à quel prix, et via qui."
+        },
+        "established": {
+          "title": "Une activité établie",
+          "body": "Déjà présent sur plusieurs marchés. Nous auditons ce que vous avez bâti, marché par marché, et nommons ce qui fonctionne, ce qui vous coûte, et ce qu'il faut corriger d'abord."
+        }
       }
+    },
+    "covers": {
+      "title": "Ce que nous examinons",
+      "items": {
+        "brand": {
+          "title": "Marque & positionnement",
+          "body": "Si la marque se lit comme vous l'entendez sur chaque marché, et où le récit se perd entre la cave et le rayon."
+        },
+        "culture": {
+          "title": "Adéquation culturelle par marché",
+          "body": "Comment la marque, l'argumentaire et l'approche commerciale résonnent dans chaque culture où vous vendez. Le même vin inspire la confiance différemment à New York, Londres et Dubaï."
+        },
+        "pricing": {
+          "title": "Prix & intégrité des marges",
+          "body": "Le parcours de prix complet sur chaque marché, où la marge fuit entre votre porte et le consommateur, et si votre échelle de prix tient encore."
+        },
+        "distribution": {
+          "title": "Distribution & partenaires",
+          "body": "Une évaluation honnête des importateurs, distributeurs et agents sur lesquels vous comptez : qui performe, qui se repose, et où une relation a discrètement cessé de fonctionner."
+        },
+        "fulfilment": {
+          "title": "Logistique & chaîne d'approvisionnement",
+          "body": "Fret, logistique, délais et coût rendu sur vos routes : où la chaîne est fragile, lente, ou plus chère qu'elle ne devrait l'être."
+        },
+        "channel": {
+          "title": "Performance des circuits",
+          "body": "CHR et distribution, chaînes et indépendants, e-commerce : quels circuits portent réellement la marque sur chaque marché, et lesquels flattent les chiffres."
+        }
+      }
+    },
+    "markets": {
+      "title": "Où j'interviens",
+      "body": "Le focus le plus net porte sur les États-Unis, la France et le Royaume-Uni, où je suis dans le négoce au quotidien. Mais l'export s'arrête rarement là : j'ai aussi travaillé en Amérique latine et au Moyen-Orient, et je suis ravi d'échanger sur tout marché que vous envisagez. Si je ne suis pas la bonne personne pour un marché donné, je vous le dirai."
     },
     "how": {
       "title": "Comment ça marche",
       "steps": {
         "one": {
-          "title": "Vous me parlez de votre marque",
-          "body": "Une courte candidature : catégorie, où vous vendez aujourd'hui, où vous voulez aller, et ce qui ne fonctionne pas. Quelques minutes."
+          "title": "Nous cadrons ensemble",
+          "body": "Une première conversation pour cartographier vos marchés, vos ambitions et là où vous soupçonnez une perte de valeur. Nous convenons de ce que nous couvrirons."
         },
         "two": {
-          "title": "Je recherche et je rédige",
-          "body": "J'évalue votre situation au regard des conditions actuelles du marché et de votre univers concurrentiel, et je rédige un diagnostic propre à votre marque."
+          "title": "Je bâtis ou j'audite",
+          "body": "Soit une stratégie export depuis la base, soit une revue indépendante sur chaque marché où vous vendez, au regard des conditions actuelles du négoce, pas d'un manuel."
         },
         "three": {
-          "title": "Vous recevez un diagnostic écrit",
-          "body": "Un document concis qui nomme les vrais risques et les questions à trancher. Il est à vous, que nous travaillions ensemble ou non."
+          "title": "Vous le recevez par écrit",
+          "body": "Un document clair : le plan, ou les conclusions, avec une liste priorisée de ce qu'il faut faire d'abord, classée par impact et à vous d'agir."
         },
         "four": {
-          "title": "Si c'est pertinent, nous échangeons",
-          "body": "Si le diagnostic révèle un travail qui en vaut la peine, nous planifions un appel pour approfondir. Sans engagement, dans un sens comme dans l'autre."
+          "title": "Nous débriefons",
+          "body": "Une session de travail pour le parcourir ensemble et convenir de l'ordre des priorités. Si cela appelle un travail plus approfondi, nous en parlerons séparément."
         }
       }
     },
     "cta": {
-      "title": "Obtenez votre diagnostic",
-      "body": "Parlez-moi de votre marque. Si c'est pertinent, je reviendrai vers vous. Le diagnostic lui-même est entièrement sans engagement.",
+      "title": "Lançons la conversation",
+      "body": "Parlez-moi de votre marque et des marchés que vous envisagez ou où vous êtes déjà présent. Si c'est pertinent, je reviendrai vers vous et nous verrons la suite.",
       "button": "Demander une mise en relation"
+    }
+  },
+  "distributorFinder": {
+    "hero": {
+      "eyebrow": "Prospection distributeurs & revendeurs",
+      "title": "Trouvez les bons distributeurs et revendeurs, marché par marché.",
+      "lede": "Un outil pour les domaines viticoles qui élimine le tâtonnement sur les portes à frapper. Il fait émerger et priorise les distributeurs et revendeurs qui méritent votre temps sur chaque marché, pour démarrer la prospection avec une liste qui en vaut vraiment la peine."
+    },
+    "what": {
+      "title": "Ce qu'il fait",
+      "body": "La plupart des producteurs dépensent leur meilleure prospection sur les mauvaises portes. L'outil construit une liste courte, ciblée et priorisée de distributeurs et revendeurs sur un marché, pour concentrer votre énergie sur les partenaires les plus susceptibles de porter votre marque.",
+      "items": {
+        "0": {
+          "title": "Une vraie liste courte",
+          "body": "Pas un annuaire déversé en vrac. Un ensemble ciblé de distributeurs et revendeurs adaptés à votre catégorie, votre prix et votre volume."
+        },
+        "1": {
+          "title": "Priorisé par pertinence",
+          "body": "Classé pour commencer par les partenaires les plus susceptibles de dire oui, et qui méritent le plus votre temps."
+        },
+        "2": {
+          "title": "Marché par marché",
+          "body": "Lancez-le pour chaque marché visé, pour une approche sur mesure plutôt que dispersée."
+        },
+        "3": {
+          "title": "Conçu pour les domaines",
+          "body": "Pensé autour de la façon dont le vin atteint réellement les rayons et les cartes, pas un outil de prospection B2B générique."
+        },
+        "4": {
+          "title": "Export vers Sheets ou CSV",
+          "body": "Chaque liste et chaque résultat vous appartient. Exportez directement vers Google Sheets ou téléchargez en .csv."
+        },
+        "5": {
+          "title": "Votre image de marque, en option",
+          "body": "Faites-en un outil à vous. L'interface peut être personnalisée à votre charte interne pour qu'elle ait l'air d'un outil maison."
+        }
+      }
+    },
+    "plans": {
+      "title": "Deux façons de s'abonner",
+      "individual": {
+        "title": "Licence individuelle",
+        "body": "Pour un seul utilisateur qui gère ses propres marchés : tout ce que fait l'outil, sur un poste."
+      },
+      "team": {
+        "title": "Licence équipe",
+        "body": "Pour les équipes commerciales qui travaillent les marchés ensemble : accès et listes partagés sur plusieurs postes."
+      }
+    },
+    "platforms": {
+      "title": "Disponible partout où vous travaillez",
+      "body": "Utilisez-le dans n'importe quel navigateur, ou en déplacement avec les applications iOS et Android. Vos listes restent synchronisées.",
+      "browser": "Dans n'importe quel navigateur",
+      "ios": "Télécharger sur l'App Store",
+      "android": "Disponible sur Google Play",
+      "comingSoon": "Liens à venir"
+    },
+    "cta": {
+      "title": "Essayez l'outil de prospection",
+      "body": "Ouvrez l'outil pour voir comment il construit votre liste. Des questions sur son adéquation à votre marque ? Écrivez-moi.",
+      "button": "Ouvrir l'outil",
+      "secondary": "Poser une question"
     }
   },
   "advisory": {
@@ -183,8 +301,8 @@
       "body": "Concentration principale sur les États-Unis, avec un travail bilingue FR/EN au Royaume-Uni, aux Émirats arabes unis et en Europe du Nord. La dimension interculturelle n'est pas un détail : dans ce métier, la plupart des relations commerciales se brisent sur la couture culturelle, pas sur le tableur."
     },
     "cta": {
-      "title": "Commencez par un diagnostic",
-      "body": "Les missions de conseil commencent généralement par le diagnostic commercial : c'est ainsi que nous découvrons tous les deux s'il y a un travail qui en vaut la peine.",
+      "title": "Commencez par une revue export",
+      "body": "Les missions de conseil commencent généralement par une stratégie ou un audit export : c'est ainsi que nous découvrons tous les deux s'il y a un travail qui en vaut la peine.",
       "button": "Demander une mise en relation"
     }
   },
