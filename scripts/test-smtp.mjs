@@ -68,7 +68,7 @@ if (to) {
       from: SMTP_FROM,
       to,
       subject: 'IONOS SMTP test — daleybrennan.com',
-      text: 'This is a test message confirming outbound email works from contact@daleybrennan.com.',
+      text: 'This is a test message confirming outbound email works from daley@daleybrennan.com.',
     });
     console.log(`✓ Test email sent to ${to} (id: ${info.messageId}).`);
     console.log('  → Check it landed in the Inbox (not spam) and that SPF/DKIM pass.');

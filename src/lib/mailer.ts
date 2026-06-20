@@ -3,7 +3,7 @@ import nodemailer, { type Transporter } from 'nodemailer';
 /**
  * Shared outbound mail transport (IONOS SMTP).
  *
- * Sends from `contact@daleybrennan.com` via smtp.ionos.com. Authenticates with
+ * Sends from `daley@daleybrennan.com` via smtp.ionos.com. Authenticates with
  * the mailbox address + password — a forwarding-only alias cannot send. Replies
  * land back in the mailbox (which forwards to iCloud), so no separate reply-to
  * is needed unless the caller wants replies routed elsewhere (e.g. to a prospect).

@@ -30,7 +30,7 @@ export function acknowledgmentEmail({
         'Bien à vous,',
         'Daley Brennan',
         'Export Consultant',
-        'contact@daleybrennan.com',
+        'daley@daleybrennan.com',
       ].join('\n'),
     };
   }
@@ -47,7 +47,7 @@ export function acknowledgmentEmail({
       'Best regards,',
       'Daley Brennan',
       'Export Consultant',
-      'contact@daleybrennan.com',
+      'daley@daleybrennan.com',
     ].join('\n'),
   };
 }

@@ -7,7 +7,7 @@ export const runtime = 'nodejs';
 
 /**
  * The single irreversible action: send the diagnostic to the lead with the
- * PDF attached, via IONOS SMTP from contact@daleybrennan.com. Replies forward
+ * PDF attached, via IONOS SMTP from daley@daleybrennan.com. Replies forward
  * back to Daley's iCloud.
  */
 export async function POST(
