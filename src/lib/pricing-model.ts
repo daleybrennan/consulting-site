@@ -15,6 +15,30 @@ const qdRules = qdRulesRaw as any;
 
 // ── types ─────────────────────────────────────────────────────────
 
+/** Per-market assumption shape (subset of pricing-assumptions.json actually read). */
+interface MarketAssumptions {
+  label: string;
+  currency: string;
+  model: string;
+  freightPerCaseDefault: number;
+  insurancePctOfGoods?: number;
+  isControlMarket?: boolean;
+  boardMarkupPctOnLanded?: number;
+  boardMarkupNote?: string;
+  importerMarginPctOnSell?: number;
+  distributorMarginPctOnSell?: number;
+  offPremiseMarginPctOnSell?: number;
+  onPremiseMultiplier?: number;
+  duty?: { perBottle750ml?: number; perLitre?: number };
+  excise?: {
+    perBottle750ml?: number;
+    federalPerLitre?: number;
+    perLitre?: number;
+    stateExcisePerLitreExamples?: Record<string, number>;
+  };
+  consumerTax?: { pct?: number; examplePct?: Record<string, number> };
+}
+
 export interface PricingSubmission {
   wineName?: string;
   origin?: string;
@@ -90,14 +114,14 @@ function fxRate(from: string, to: string): number {
   throw new Error(`No FX rate ${from}->${to}. Add it to src/data/pricing-assumptions.json fx.rates.`);
 }
 
-function dutyPerBottle(market: any, bottleMl: number): number {
+function dutyPerBottle(market: MarketAssumptions, bottleMl: number): number {
   const d = market.duty || {};
   if (d.perBottle750ml != null) return d.perBottle750ml * (bottleMl / 750);
   if (d.perLitre != null) return d.perLitre * (bottleMl / 1000);
   return 0;
 }
 
-function excisePerBottle(market: any, bottleMl: number, region: string | null): number {
+function excisePerBottle(market: MarketAssumptions, bottleMl: number, region: string | null): number {
   const e = market.excise || {};
   let total = 0;
   if (e.perBottle750ml != null) total += e.perBottle750ml * (bottleMl / 750);
@@ -109,7 +133,7 @@ function excisePerBottle(market: any, bottleMl: number, region: string | null): 
   return total;
 }
 
-function consumerTaxPct(market: any, region: string | null): number {
+function consumerTaxPct(market: MarketAssumptions, region: string | null): number {
   const c = market.consumerTax;
   if (!c) return 0;
   if (c.pct != null) return c.pct;
@@ -122,7 +146,7 @@ function consumerTaxPct(market: any, region: string | null): number {
 
 function walk(
   sub: PricingSubmission,
-  market: any,
+  market: MarketAssumptions,
   region: string | null,
   scenario: { marginDelta: number; freightFactor: number }
 ): WalkResult {

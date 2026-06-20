@@ -16,9 +16,6 @@ export function Footer() {
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-dark">
             {t('tagline')}
           </p>
-          <p className="mt-6 text-xs uppercase tracking-[0.16em] text-accent-soft">
-            {t('selective')}
-          </p>
         </div>
 
         <div>

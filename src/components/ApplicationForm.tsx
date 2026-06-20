@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -40,10 +41,24 @@ export function ApplicationForm() {
         callback: (token: string) => {
           turnstileToken.current = token;
         },
+        'expired-callback': () => {
+          turnstileToken.current = '';
+        },
+        'error-callback': () => {
+          turnstileToken.current = '';
+        },
       });
     };
     document.body.appendChild(script);
   }, []);
+
+  // Reset the Turnstile widget after a failed submit so the user gets a fresh
+  // challenge token rather than a stale, already-consumed one.
+  function resetTurnstile() {
+    turnstileToken.current = '';
+    // @ts-expect-error injected global
+    window.turnstile?.reset?.();
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -104,6 +119,7 @@ export function ApplicationForm() {
         body: JSON.stringify(payload),
       });
       if (res.ok) {
+        track('lead_submitted', { category: payload.brand_category, stage: payload.stage });
         setStatus('success');
         form.reset();
         setCategory('');
@@ -111,9 +127,11 @@ export function ApplicationForm() {
       }
       const data = await res.json().catch(() => ({}));
       setErrorKey(data?.errorKey ?? 'generic');
+      resetTurnstile();
       setStatus('error');
     } catch {
       setErrorKey('generic');
+      resetTurnstile();
       setStatus('error');
     }
   }
@@ -137,20 +155,24 @@ export function ApplicationForm() {
           <input
             name="contact_name"
             autoComplete="name"
+            aria-required="true"
             className={`${FIELD_BASE} ${errClass('contact_name')}`}
             aria-invalid={!!fieldErrors.contact_name}
+            aria-describedby={fieldErrors.contact_name ? 'contact_name-error' : undefined}
           />
-          {fieldErrors.contact_name && <Err>{te('name')}</Err>}
+          {fieldErrors.contact_name && <Err id="contact_name-error">{te('name')}</Err>}
         </Field>
         <Field label={t('contactEmail')} required>
           <input
             name="contact_email"
             type="email"
             autoComplete="email"
+            aria-required="true"
             className={`${FIELD_BASE} ${errClass('contact_email')}`}
             aria-invalid={!!fieldErrors.contact_email}
+            aria-describedby={fieldErrors.contact_email ? 'contact_email-error' : undefined}
           />
-          {fieldErrors.contact_email && <Err>{te('email')}</Err>}
+          {fieldErrors.contact_email && <Err id="contact_email-error">{te('email')}</Err>}
         </Field>
       </div>
 
@@ -166,10 +188,12 @@ export function ApplicationForm() {
           <input
             name="company_name"
             autoComplete="organization"
+            aria-required="true"
             className={`${FIELD_BASE} ${errClass('company_name')}`}
             aria-invalid={!!fieldErrors.company_name}
+            aria-describedby={fieldErrors.company_name ? 'company_name-error' : undefined}
           />
-          {fieldErrors.company_name && <Err>{te('company')}</Err>}
+          {fieldErrors.company_name && <Err id="company_name-error">{te('company')}</Err>}
         </Field>
       </div>
 
@@ -179,8 +203,10 @@ export function ApplicationForm() {
             name="brand_category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            aria-required="true"
             className={`${FIELD_BASE} ${errClass('brand_category')}`}
             aria-invalid={!!fieldErrors.brand_category}
+            aria-describedby={fieldErrors.brand_category ? 'brand_category-error' : undefined}
           >
             <option value="" disabled>
               {t('select')}
@@ -195,7 +221,7 @@ export function ApplicationForm() {
             </option>
             <option value="other">{t('brandCategoryOptions.other')}</option>
           </select>
-          {fieldErrors.brand_category && <Err>{te('category')}</Err>}
+          {fieldErrors.brand_category && <Err id="brand_category-error">{te('category')}</Err>}
         </Field>
         <Field label={t('brandWebsite')} hint={t('brandWebsiteOptional')}>
           <input
@@ -229,8 +255,10 @@ export function ApplicationForm() {
         <select
           name="stage"
           defaultValue=""
+          aria-required="true"
           className={`${FIELD_BASE} ${errClass('stage')}`}
           aria-invalid={!!fieldErrors.stage}
+          aria-describedby={fieldErrors.stage ? 'stage-error' : undefined}
         >
           <option value="" disabled>
             {t('select')}
@@ -241,7 +269,7 @@ export function ApplicationForm() {
             {t('stageOptions.underperforming')}
           </option>
         </select>
-        {fieldErrors.stage && <Err>{te('stage')}</Err>}
+        {fieldErrors.stage && <Err id="stage-error">{te('stage')}</Err>}
       </Field>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -402,10 +430,12 @@ export function ApplicationForm() {
           name="free_text"
           rows={5}
           placeholder={t('freeTextPlaceholder')}
+          aria-required="true"
           className={`${FIELD_BASE} resize-y ${errClass('free_text')}`}
           aria-invalid={!!fieldErrors.free_text}
+          aria-describedby={fieldErrors.free_text ? 'free_text-error' : undefined}
         />
-        {fieldErrors.free_text && <Err>{te('freeText')}</Err>}
+        {fieldErrors.free_text && <Err id="free_text-error">{te('freeText')}</Err>}
       </Field>
 
       {/* Honeypot */}
@@ -422,12 +452,14 @@ export function ApplicationForm() {
         <input
           type="checkbox"
           name="consent"
+          aria-required="true"
           className="mt-1 h-4 w-4 accent-[var(--accent)]"
           aria-invalid={!!fieldErrors.consent}
+          aria-describedby={fieldErrors.consent ? 'consent-error' : undefined}
         />
         <span>{t('consent')}</span>
       </label>
-      {fieldErrors.consent && <Err>{te('consent')}</Err>}
+      {fieldErrors.consent && <Err id="consent-error">{te('consent')}</Err>}
 
       {TURNSTILE_SITE_KEY && <div id="turnstile-widget" className="pt-2" />}
 
@@ -472,9 +504,9 @@ function Field({
   );
 }
 
-function Err({ children }: { children: React.ReactNode }) {
+function Err({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
-    <span role="alert" className="mt-1.5 block text-xs text-accent">
+    <span id={id} role="alert" className="mt-1.5 block text-xs text-accent">
       {children}
     </span>
   );

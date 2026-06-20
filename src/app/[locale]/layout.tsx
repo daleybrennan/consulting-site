@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Newsreader, Geist } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -26,6 +27,10 @@ const geist = Geist({
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
+
+export const viewport: Viewport = {
+  themeColor: '#141414',
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -89,6 +94,7 @@ export default async function LocaleLayout({
           <Footer />
           <Reveal />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

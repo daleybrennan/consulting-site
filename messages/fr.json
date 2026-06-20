@@ -101,7 +101,9 @@
         "3": "Chiffre d'affaires d'un groupe vinicole européen porté à ×1,9 et marge brute améliorée de onze points.",
         "4": "Redressement d'une boutique de vins parisienne en difficulté : marge brute passée de 9 % à 34 %, puis cession de l'affaire."
       },
-      "note": "Marques et clients gardés anonymes par respect de leur confidentialité."
+      "note": "Marques et clients gardés anonymes par respect de leur confidentialité.",
+      "verify": "Les postes, les dates et les références derrière ces chiffres relèvent du domaine public.",
+      "verifyCta": "Voir le parcours complet sur LinkedIn"
     },
     "diagnosticTeaser": {
       "eyebrow": "Commencez ici",
@@ -191,7 +193,37 @@
           "title": "Nous débriefons",
           "body": "Une session de travail pour le parcourir ensemble et convenir de l'ordre des priorités. Si cela appelle un travail plus approfondi, nous en parlerons séparément."
         }
-      }
+      },
+      "note": "Chaque diagnostic est conçu sur mesure pour une marque et un ensemble de marchés. Il n'y a ni modèle ni exemple à envoyer — un exemple générique ne vous apprendrait rien sur votre propre situation."
+    },
+    "faq": {
+      "title": "Questions qui méritent d'être posées",
+      "items": [
+        {
+          "q": "Qu'est-ce que je reçois concrètement ?",
+          "a": "Un document écrit — la stratégie export, ou les conclusions de l'audit — avec une liste priorisée de ce qu'il faut faire d'abord, classée par impact et à vous d'agir. Puis un appel de travail pour le parcourir ensemble."
+        },
+        {
+          "q": "Combien de temps cela prend-il ?",
+          "a": "La plupart des diagnostics prennent une à deux semaines à partir de notre appel de cadrage, selon le nombre de marchés concernés et la quantité de données de marché disponibles."
+        },
+        {
+          "q": "Combien cela coûte-t-il ?",
+          "a": "Chaque mission est cadrée sur le brief, donc les honoraires dépendent des marchés et de la profondeur requise. Nous en convenons lors de notre premier appel, avant tout engagement de votre part."
+        },
+        {
+          "q": "Ce que je partage reste-t-il confidentiel ?",
+          "a": "Oui. Tout ce que vous me confiez est traité de manière confidentielle, et je signe volontiers un NDA avant d'entrer dans les détails."
+        },
+        {
+          "q": "Vous occupez un poste commercial senior — n'est-ce pas un conflit ?",
+          "a": "C'est l'essentiel, pas le problème : rester actif sur le marché est ce qui garde ma lecture actuelle plutôt que mémorisée. Je n'accepte qu'un nombre limité de marques, jamais en concurrence avec mon employeur ni entre elles, et la confidentialité va dans les deux sens."
+        },
+        {
+          "q": "Quels marchés et quelles langues couvrez-vous ?",
+          "a": "Le plus net sur les États-Unis, la France et le Royaume-Uni, avec un travail en Amérique latine, au Moyen-Orient et en Europe du Nord. En français ou en anglais. Si je ne suis pas la bonne personne pour un marché donné, je vous le dirai."
+        }
+      ]
     },
     "cta": {
       "title": "Lançons la conversation",
@@ -238,7 +270,7 @@
       "nature": "C'est un outil sur mesure, conçu autour de la façon dont votre entreprise vend réellement, et il fonctionne entièrement dans votre navigateur — rien à installer. De nouvelles fonctionnalités sont développées en continu, si bien qu'il ne cesse de gagner en précision."
     },
     "plans": {
-      "title": "Deux façons de s'abonner",
+      "title": "Deux façons de l'utiliser",
       "individual": {
         "title": "Licence individuelle",
         "body": "Pour un seul utilisateur qui gère ses propres marchés : tout ce que fait l'outil, sur un poste."
@@ -256,8 +288,9 @@
     },
     "cta": {
       "title": "Essayez l'outil de prospection",
-      "body": "Ouvrez l'outil pour voir comment il construit votre liste. Des questions sur son adéquation à votre marque ? Écrivez-moi.",
-      "button": "Ouvrir l'outil",
+      "body": "Parlez-moi de votre marque et des marchés que vous visez, et je vous montrerai comment il construit votre liste.",
+      "button": "Demander une démo",
+      "openTool": "Ouvrir l'outil",
       "secondary": "Poser une question"
     }
   },
@@ -484,7 +517,6 @@
     "linksTitle": "Naviguer",
     "contactTitle": "Contact",
     "linkedin": "LinkedIn",
-    "rights": "Tous droits réservés.",
-    "selective": "Un nombre limité de missions à la fois."
+    "rights": "Tous droits réservés."
   }
 }

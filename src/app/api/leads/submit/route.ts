@@ -5,6 +5,8 @@ import { rateLimit, clientIp } from '@/lib/rate-limit';
 import { getServiceClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { generatePitchReport } from '@/lib/generate-pitch';
 import { notifyOwner } from '@/lib/notify';
+import { sendMail, isMailConfigured } from '@/lib/mailer';
+import { acknowledgmentEmail } from '@/lib/emails/acknowledgment';
 import type { LeadSubmitInput } from '@/lib/validation';
 
 export const runtime = 'nodejs';
@@ -108,19 +110,38 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'db', errorKey: 'generic' }, { status: 500 });
   }
 
-  await notifyOwner('lead_created', {
-    leadId: data.id,
-    company: input.company_name,
-    overview: leadOverview(input),
-  });
   await supabase.from('activity_log').insert({
     lead_id: data.id,
     type: 'lead_created',
     payload: { ip },
   });
 
-  // 6. Generate the pitch after the response is sent.
+  // 6. Notify the owner, acknowledge the submitter, and generate the pitch —
+  //    all after the response is sent so the form returns instantly.
   after(async () => {
+    // Owner alert (Telegram + email if configured); reply-to = the prospect.
+    await notifyOwner('lead_created', {
+      leadId: data.id,
+      company: input.company_name,
+      overview: leadOverview(input),
+      replyTo: input.contact_email,
+    });
+
+    // Instant acknowledgment to the submitter — never let a mail failure
+    // surface; the lead is already saved.
+    if (isMailConfigured()) {
+      try {
+        const ack = acknowledgmentEmail({
+          locale: input.locale,
+          contactName: input.contact_name,
+          companyName: input.company_name,
+        });
+        await sendMail({ to: input.contact_email, subject: ack.subject, text: ack.text });
+      } catch (err) {
+        console.error('[leads/submit] acknowledgment email error', err);
+      }
+    }
+
     try {
       await generatePitchReport(data.id);
     } catch (err) {

@@ -6,7 +6,7 @@
 - `src/lib/pricing-model.ts` — EXW → shelf engine. Call `computePricing(sub)` where `sub` is a `PricingSubmission`. Returns a fully-traced band (low / expected / high), quantity-discount legality, and warnings. Pure, no side effects.
 - `src/data/pricing-assumptions.json` — freight, duty, excise, margin defaults by market (US / UK / FR / CA). FX rates included but must be refreshed from live mid-market before any paid deliverable ships.
 - `src/data/quantity-discount-rules.json` — legality of volume discounts by market and US state (three-tier). NY = prohibited. CA (US) = allowed. General guidance, not legal advice.
-- `templates/diagnostic.html` + `templates/strategy.html` + `templates/print.css` — brand-matched A4 PDF templates. Gold `#C9A84C`, Cormorant Garamond headings, DM Sans body. Fill `{{TOKEN}}` placeholders and `SLOT:` regions before rendering.
+- `templates/diagnostic.html` + `templates/strategy.html` + `templates/print.css` — **LEGACY** static A4 prototype from the pre-rebrand "The Place & Market" identity (gold `#C9A84C`, Cormorant Garamond / DM Sans). NOT used by the live app. The shipped PDF is rendered by `src/lib/pdf-template.ts` + `src/lib/render-pdf.ts` in the **current burgundy brand** (accent `#7b1e3b` on web / `#7c2433` in the PDF, Newsreader headings, Geist body — shared with `src/app/globals.css`). Keep these files only as a reference for the `{{TOKEN}}` / `SLOT:` structure, and re-skin to burgundy before any reuse.
 
 ## Two-deliverable model
 - **Diagnostic (free):** names the pricing problem, shows EXW→shelf walk + competitive set. NEVER contains the recommendation. Closes with an invitation to commission the strategy.

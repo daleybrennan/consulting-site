@@ -448,10 +448,16 @@ export async function regeneratePitchReport(
     return { ok: true, newReportId: created.id };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    console.error('[regeneratePitchReport] failed', message);
     await supabase
       .from('reports')
       .update({ status: 'error', error: message })
       .eq('id', created.id);
+    await notifyOwner('pitch_error', {
+      leadId: lead.id,
+      company: lead.company_name,
+      detail: message,
+    });
     return { ok: false, error: message };
   }
 }

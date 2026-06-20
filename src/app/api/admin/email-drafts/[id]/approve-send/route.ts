@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { requireAdmin } from '@/lib/supabase/admin-auth';
 import { getServiceClient } from '@/lib/supabase/server';
+import { sendMail, isMailConfigured } from '@/lib/mailer';
 
 export const runtime = 'nodejs';
 
 /**
  * The single irreversible action: send the diagnostic to the lead with the
- * PDF attached. Phase 1 uses Resend; sending from Daley's own Gmail inbox so it
- * threads naturally is a later upgrade (see spec).
+ * PDF attached, via IONOS SMTP from contact@daleybrennan.com. Replies forward
+ * back to Daley's iCloud.
  */
 export async function POST(
   req: Request,
@@ -53,9 +53,7 @@ export async function POST(
   }
   const pdfBuffer = Buffer.from(await file.arrayBuffer());
 
-  const key = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM;
-  if (!key || !from) {
+  if (!isMailConfigured()) {
     return NextResponse.json(
       { error: 'email_not_configured' },
       { status: 503 }
@@ -68,21 +66,18 @@ export async function POST(
       : 'Commercial-diagnostic.pdf';
 
   try {
-    const resend = new Resend(key);
-    const sent = await resend.emails.send({
-      from,
+    const messageId = await sendMail({
       to: lead.contact_email,
       subject: draft.subject,
       text: draft.body,
       attachments: [{ filename, content: pdfBuffer }],
     });
-    if (sent.error) throw new Error(sent.error.message);
 
     await supabase
       .from('email_drafts')
       .update({
         status: 'sent',
-        gmail_message_id: sent.data?.id ?? null,
+        gmail_message_id: messageId ?? null,
         sent_at: new Date().toISOString(),
       })
       .eq('id', id);
@@ -94,7 +89,7 @@ export async function POST(
     await supabase.from('activity_log').insert({
       lead_id: lead.id,
       type: 'email_sent',
-      payload: { draft_id: id, message_id: sent.data?.id },
+      payload: { draft_id: id, message_id: messageId },
     });
 
     return NextResponse.json({ ok: true });

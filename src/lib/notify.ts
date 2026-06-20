@@ -1,6 +1,28 @@
+import { sendMail, isMailConfigured } from '@/lib/mailer';
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 type NotifyType = 'lead_created' | 'pitch_generated' | 'pitch_error';
+
+/**
+ * Emails the owner. Non-throwing — a failed notification must never break the
+ * pipeline. Recipient is OWNER_EMAIL, falling back to ADMIN_EMAIL.
+ */
+async function sendOwnerEmail(
+  subject: string,
+  body: string,
+  replyTo?: string
+): Promise<boolean> {
+  const to = process.env.OWNER_EMAIL ?? process.env.ADMIN_EMAIL;
+  if (!to || !isMailConfigured()) return false;
+  try {
+    await sendMail({ to, subject, text: body, replyTo });
+    return true;
+  } catch (err) {
+    console.error('[notifyOwner] email send error:', err);
+    return false;
+  }
+}
 
 /**
  * Sends a plain-text message to the owner's Telegram chat. Non-throwing.
@@ -41,7 +63,13 @@ async function sendTelegram(text: string): Promise<boolean> {
  */
 export async function notifyOwner(
   type: NotifyType,
-  ref: { leadId: string; company?: string; detail?: string; overview?: string }
+  ref: {
+    leadId: string;
+    company?: string;
+    detail?: string;
+    overview?: string;
+    replyTo?: string;
+  }
 ): Promise<void> {
   const reviewUrl = `${SITE_URL}/en/admin/leads/${ref.leadId}`;
   const subjects: Record<NotifyType, string> = {
@@ -50,16 +78,17 @@ export async function notifyOwner(
     pitch_error: `Pitch generation failed — ${ref.company ?? ''}`.trim(),
   };
 
-  const line = [
-    subjects[type],
-    ref.overview ?? ref.detail ?? '',
-    `Review: ${reviewUrl}`,
-  ]
+  const body = [ref.overview ?? ref.detail ?? '', `Review: ${reviewUrl}`]
     .filter(Boolean)
     .join('\n\n');
+  const line = [subjects[type], body].filter(Boolean).join('\n\n');
 
-  const sent = await sendTelegram(line);
-  if (!sent) {
+  // Telegram + email run independently; either being unconfigured is fine.
+  const [telegramSent, emailSent] = await Promise.all([
+    sendTelegram(line),
+    sendOwnerEmail(subjects[type], body, ref.replyTo),
+  ]);
+  if (!telegramSent && !emailSent) {
     console.log(`[notifyOwner:${type}] ${line}`);
   }
 }

@@ -101,7 +101,9 @@
         "3": "Lifted a European wine group's turnover 1.9× and its gross margin by eleven points.",
         "4": "Took a struggling Paris wine shop from 9% to 34% gross margin, then sold the business."
       },
-      "note": "Brands and clients kept anonymous out of respect for their confidentiality."
+      "note": "Brands and clients kept anonymous out of respect for their confidentiality.",
+      "verify": "The roles, dates, and references behind these numbers are a matter of public record.",
+      "verifyCta": "See the full track record on LinkedIn"
     },
     "diagnosticTeaser": {
       "eyebrow": "Start here",
@@ -191,7 +193,37 @@
           "title": "We debrief",
           "body": "A working session to walk through it together and agree the order of play. Where it points to deeper work, we'll talk about that separately."
         }
-      }
+      },
+      "note": "Every diagnostic is built from scratch for one brand and one set of markets. There's no template and no sample to send — a generic example would tell you nothing about your own situation."
+    },
+    "faq": {
+      "title": "Questions worth asking",
+      "items": [
+        {
+          "q": "What do I actually receive?",
+          "a": "A written document — the export strategy, or the audit findings — with a prioritised list of what to do first, ranked by impact and yours to act on. Then a working call to walk through it together."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "Most diagnostics take a couple of weeks from our scoping call, depending on how many markets are in scope and how much trade data we're working with."
+        },
+        {
+          "q": "What does it cost?",
+          "a": "Every engagement is scoped to the brief, so the fee depends on the markets and the depth involved. We agree it on our first call, before you commit to anything."
+        },
+        {
+          "q": "Is what I share kept confidential?",
+          "a": "Yes. Everything you tell me is treated as confidential, and I'm glad to sign an NDA before we get into specifics."
+        },
+        {
+          "q": "You hold a senior commercial role — isn't that a conflict?",
+          "a": "It's the point, not the problem: staying active in the market is what keeps my read current rather than remembered. I take on a limited number of brands, never ones that compete with my employer or with each other, and confidentiality runs both ways."
+        },
+        {
+          "q": "Which markets and languages do you cover?",
+          "a": "Sharpest on the United States, France, and the United Kingdom, with work across Latin America, the Middle East, and Northern Europe. In English or French. If I'm not the right person for a given market, I'll tell you."
+        }
+      ]
     },
     "cta": {
       "title": "Start the conversation",
@@ -238,7 +270,7 @@
       "nature": "It's a bespoke tool, built around the way your business actually sells, and it runs entirely in your browser — nothing to install. New functionality is being developed continuously, so it keeps getting sharper over time."
     },
     "plans": {
-      "title": "Two ways to subscribe",
+      "title": "Two ways to use it",
       "individual": {
         "title": "Individual licence",
         "body": "For a single user running their own markets: everything the finder does, on one seat."
@@ -256,8 +288,9 @@
     },
     "cta": {
       "title": "Try the distributor & reseller finder",
-      "body": "Open the tool to see how it builds your shortlist. Questions about whether it fits your brand? Get in touch.",
-      "button": "Open the tool",
+      "body": "Tell me about your brand and the markets you're targeting, and I'll walk you through how it builds your shortlist.",
+      "button": "Request a demo",
+      "openTool": "Open the tool",
       "secondary": "Ask a question"
     }
   },
@@ -484,7 +517,6 @@
     "linksTitle": "Navigate",
     "contactTitle": "Get in touch",
     "linkedin": "LinkedIn",
-    "rights": "All rights reserved.",
-    "selective": "A limited number of engagements at a time."
+    "rights": "All rights reserved."
   }
 }

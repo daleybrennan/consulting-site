@@ -38,15 +38,35 @@ export function LeadDetail({
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState('');
 
+  const fetchDetail = useCallback(
+    (): Promise<Detail> =>
+      authedFetch(token, `/api/admin/leads/${id}`).then((r) => r.json()),
+    [token, id]
+  );
+
+  // Manual refresh (used by the action buttons below).
   const load = useCallback(() => {
     setLoading(true);
-    authedFetch(token, `/api/admin/leads/${id}`)
-      .then((r) => r.json())
+    fetchDetail()
       .then((d) => setData(d))
       .finally(() => setLoading(false));
-  }, [token, id]);
+  }, [fetchDetail]);
 
-  useEffect(load, [load]);
+  // Initial load — state is only set inside async callbacks, never synchronously
+  // in the effect body, and is guarded against updates after unmount.
+  useEffect(() => {
+    let cancelled = false;
+    fetchDetail()
+      .then((d) => {
+        if (!cancelled) setData(d);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchDetail]);
 
   if (loading) return <Wrap><p className="text-muted">Loading…</p></Wrap>;
   if (!data?.lead) return <Wrap><p className="text-muted">Not found.</p></Wrap>;

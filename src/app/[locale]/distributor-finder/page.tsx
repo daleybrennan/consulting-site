@@ -163,6 +163,9 @@ function GlobeGlyph() {
 
 function Cta() {
   const t = useTranslations('distributorFinder.cta');
+  // Until a live tool URL is configured, the demo request (contact) is the only
+  // CTA — never render a dead '#' link.
+  const hasTool = TOOL_URL !== '#';
   return (
     <Section tone="dark" className="text-center">
       <h2 className="reveal mx-auto max-w-2xl text-balance text-4xl md:text-5xl">
@@ -170,21 +173,23 @@ function Cta() {
       </h2>
       <p className="reveal mx-auto mt-5 max-w-xl text-muted-dark">{t('body')}</p>
       <div className="reveal mt-9 flex flex-wrap items-center justify-center gap-5">
-        <a
-          href={TOOL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/contact"
           className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent-soft"
         >
           <span>{t('button')}</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-        <Link
-          href="/contact"
-          className="text-sm text-muted-dark underline-offset-4 transition-colors hover:text-white hover:underline"
-        >
-          {t('secondary')}
+          <span aria-hidden="true">→</span>
         </Link>
+        {hasTool && (
+          <a
+            href={TOOL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-dark underline-offset-4 transition-colors hover:text-white hover:underline"
+          >
+            {t('openTool')} ↗
+          </a>
+        )}
       </div>
     </Section>
   );

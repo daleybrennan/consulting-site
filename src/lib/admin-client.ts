@@ -11,14 +11,15 @@ type AuthState =
   | { status: 'signed-in'; session: Session };
 
 export function useAdminAuth() {
-  const [state, setState] = useState<AuthState>({ status: 'loading' });
+  // Resolve the "unconfigured" case during render (env availability is stable),
+  // so the effect never has to call setState synchronously on mount.
+  const [state, setState] = useState<AuthState>(() =>
+    getBrowserClient() ? { status: 'loading' } : { status: 'unconfigured' }
+  );
 
   useEffect(() => {
     const supabase = getBrowserClient();
-    if (!supabase) {
-      setState({ status: 'unconfigured' });
-      return;
-    }
+    if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => {
       setState(
         data.session

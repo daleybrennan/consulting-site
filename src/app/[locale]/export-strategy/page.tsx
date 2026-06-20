@@ -38,11 +38,13 @@ export default async function ExportStrategyPage({
   return (
     <>
       <ServiceJsonLd locale={locale} />
+      <FaqJsonLd locale={locale} />
       <Hero />
       <StartingPoints />
       <Covers />
       <Markets />
       <How />
+      <Faq />
       <Cta />
     </>
   );
@@ -154,6 +156,35 @@ function How() {
           </li>
         ))}
       </ol>
+      <p className="reveal mt-8 max-w-2xl text-sm leading-relaxed text-muted">{t('note')}</p>
+    </Section>
+  );
+}
+
+type FaqItem = { q: string; a: string };
+
+function Faq() {
+  const t = useTranslations('exportStrategy.faq');
+  const items = t.raw('items') as FaqItem[];
+  return (
+    <Section tone="light">
+      <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
+      <div className="mt-10 border-t border-line">
+        {items.map((it, i) => (
+          <details key={i} className="reveal group border-b border-line py-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg text-ink [&::-webkit-details-marker]:hidden">
+              <span>{it.q}</span>
+              <span
+                aria-hidden="true"
+                className="shrink-0 text-2xl leading-none text-accent transition-transform group-open:rotate-45"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-3 max-w-2xl leading-relaxed text-muted">{it.a}</p>
+          </details>
+        ))}
+      </div>
     </Section>
   );
 }
@@ -183,6 +214,26 @@ async function ServiceJsonLd({ locale }: { locale: string }) {
       'Latin America',
       'Middle East',
     ],
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
+async function FaqJsonLd({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'exportStrategy.faq' });
+  const items = t.raw('items') as FaqItem[];
+  const json = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((it) => ({
+      '@type': 'Question',
+      name: it.q,
+      acceptedAnswer: { '@type': 'Answer', text: it.a },
+    })),
   };
   return (
     <script
