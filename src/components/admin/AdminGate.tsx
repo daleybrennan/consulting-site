@@ -25,7 +25,7 @@ export function AdminGate({
         <p className="mt-3 max-w-md text-sm text-muted">
           Supabase isn&apos;t configured yet. Set{' '}
           <code>NEXT_PUBLIC_SUPABASE_URL</code>,{' '}
-          <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> and{' '}
+          <code>NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY</code> and{' '}
           <code>SUPABASE_SERVICE_ROLE_KEY</code> in <code>.env.local</code>, then
           create an admin user in the Supabase dashboard.
         </p>
