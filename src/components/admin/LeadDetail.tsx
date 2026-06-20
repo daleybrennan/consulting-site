@@ -112,6 +112,10 @@ export function LeadDetail({
                   ['Price', 'price_positioning'],
                   ['Scale', 'scale_note'],
                   ['Website', 'brand_website'],
+                  ['Engagement', 'event_type'],
+                  ['Audience & topic', 'event_audience'],
+                  ['Timeframe', 'event_timeframe'],
+                  ['Location & format', 'event_format'],
                 ] as const
               ).map(([label, key]) => {
                 const v = lead[key];

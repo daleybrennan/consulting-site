@@ -22,6 +22,7 @@ export const leadSubmitSchema = z.object({
     'na_beverage',
     'specialty_food',
     'other',
+    'speaking',
   ]),
   brand_website: z
     .string()
@@ -31,7 +32,12 @@ export const leadSubmitSchema = z.object({
     .default(''),
   current_markets: z.string().trim().max(1000).optional().default(''),
   target_markets: z.string().trim().max(1000).optional().default(''),
-  stage: z.enum(['pre_entry', 'expanding', 'underperforming']),
+  // Required for export inquiries; not shown (or required) for speaking — see refine below.
+  stage: z
+    .enum(['pre_entry', 'expanding', 'underperforming'])
+    .or(z.literal(''))
+    .optional()
+    .default(''),
   current_distribution: z.string().trim().max(1000).optional().default(''),
   price_positioning: z.string().trim().max(500).optional().default(''),
   scale_note: z.string().trim().max(500).optional().default(''),
@@ -53,6 +59,20 @@ export const leadSubmitSchema = z.object({
   exw_currency:    z.enum(['EUR', 'USD', 'GBP', 'CAD', '']).optional().default(''),
   channel:         z.enum(['on', 'off', 'both', '']).optional().default(''),
   tech_sheet_url:  z.string().trim().max(500).optional().default(''),
+  // Speaking / training inquiry fields (optional — shown for 'speaking' only)
+  event_type:      z.string().trim().max(200).optional().default(''),
+  event_audience:  z.string().trim().max(1000).optional().default(''),
+  event_timeframe: z.string().trim().max(200).optional().default(''),
+  event_format:    z.string().trim().max(200).optional().default(''),
+}).superRefine((data, ctx) => {
+  // Stage is required for every inquiry except speaking / training.
+  if (data.brand_category !== 'speaking' && !data.stage) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['stage'],
+      message: 'Please choose a stage.',
+    });
+  }
 });
 
 export type LeadSubmitInput = z.infer<typeof leadSubmitSchema>;
@@ -69,7 +89,7 @@ export function toLeadRow(input: LeadSubmitInput) {
     brand_website: input.brand_website || null,
     current_markets: toList(input.current_markets),
     target_markets: toList(input.target_markets),
-    stage: input.stage,
+    stage: input.stage || null,
     current_distribution: input.current_distribution || null,
     price_positioning: input.price_positioning || null,
     scale_note: input.scale_note || null,
@@ -89,6 +109,11 @@ export function toLeadRow(input: LeadSubmitInput) {
     exw_currency:    input.exw_currency    || null,
     channel:         input.channel         || null,
     tech_sheet_url:  input.tech_sheet_url  || null,
+    // Speaking / training fields
+    event_type:      input.event_type      || null,
+    event_audience:  input.event_audience  || null,
+    event_timeframe: input.event_timeframe || null,
+    event_format:    input.event_format    || null,
   };
 }
 

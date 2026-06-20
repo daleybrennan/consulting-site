@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/supabase/admin-auth';
 import { getServiceClient } from '@/lib/supabase/server';
-import { sendMail, isMailConfigured } from '@/lib/mailer';
+import { sendMail, isMailConfigured, mailBcc } from '@/lib/mailer';
 
 export const runtime = 'nodejs';
 
@@ -70,6 +70,7 @@ export async function POST(
       to: lead.contact_email,
       subject: draft.subject,
       text: draft.body,
+      bcc: mailBcc(),
       attachments: [{ filename, content: pdfBuffer }],
     });
 

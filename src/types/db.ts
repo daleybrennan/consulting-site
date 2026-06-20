@@ -16,7 +16,8 @@ export type BrandCategory =
   | 'spirits'
   | 'na_beverage'
   | 'specialty_food'
-  | 'other';
+  | 'other'
+  | 'speaking';
 
 export type Stage = 'pre_entry' | 'expanding' | 'underperforming';
 
@@ -33,7 +34,7 @@ export interface Lead {
   brand_website: string | null;
   current_markets: string[];
   target_markets: string[];
-  stage: Stage;
+  stage: Stage | null;
   current_distribution: string | null;
   price_positioning: string | null;
   scale_note: string | null;
@@ -54,6 +55,11 @@ export interface Lead {
   exw_currency: string | null;
   channel: string | null;
   tech_sheet_url: string | null;
+  // Speaking / training inquiry fields (migration 20260620225229)
+  event_type: string | null;
+  event_audience: string | null;
+  event_timeframe: string | null;
+  event_format: string | null;
 }
 
 export type ReportType = 'pitch' | 'product';

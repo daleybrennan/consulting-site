@@ -21,10 +21,12 @@ export function ApplicationForm() {
   const [errorKey, setErrorKey] = useState<string>('generic');
   const [fieldErrors, setFieldErrors] = useState<Record<string, boolean>>({});
   const [category, setCategory] = useState('');
+  const [wasSpeaking, setWasSpeaking] = useState(false);
   const turnstileToken = useRef<string>('');
   const widgetMounted = useRef(false);
 
   const showPricing = category === 'wine' || category === 'spirits';
+  const isSpeaking = category === 'speaking';
 
   // Load Cloudflare Turnstile only when a site key is configured.
   useEffect(() => {
@@ -96,6 +98,11 @@ export function ApplicationForm() {
       exw_currency:    get('exw_currency'),
       channel:         get('channel'),
       tech_sheet_url:  get('tech_sheet_url'),
+      // Speaking / training fields
+      event_type:      get('event_type'),
+      event_audience:  get('event_audience'),
+      event_timeframe: get('event_timeframe'),
+      event_format:    get('event_format'),
     };
 
     // Client-side validation (server re-validates with zod).
@@ -105,7 +112,7 @@ export function ApplicationForm() {
       errs.contact_email = true;
     if (payload.company_name.length < 1) errs.company_name = true;
     if (!payload.brand_category) errs.brand_category = true;
-    if (!payload.stage) errs.stage = true;
+    if (payload.brand_category !== 'speaking' && !payload.stage) errs.stage = true;
     if (payload.free_text.length < 5) errs.free_text = true;
     if (!payload.consent) errs.consent = true;
     setFieldErrors(errs);
@@ -120,6 +127,7 @@ export function ApplicationForm() {
       });
       if (res.ok) {
         track('lead_submitted', { category: payload.brand_category, stage: payload.stage });
+        setWasSpeaking(payload.brand_category === 'speaking');
         setStatus('success');
         form.reset();
         setCategory('');
@@ -140,7 +148,9 @@ export function ApplicationForm() {
     return (
       <div className="rounded-lg border border-line bg-paper p-8 md:p-10">
         <h2 className="font-display text-3xl text-ink">{ts('title')}</h2>
-        <p className="mt-4 max-w-prose text-muted">{ts('body')}</p>
+        <p className="mt-4 max-w-prose text-muted">
+          {wasSpeaking ? ts('speakingBody') : ts('body')}
+        </p>
       </div>
     );
   }
@@ -219,6 +229,7 @@ export function ApplicationForm() {
             <option value="specialty_food">
               {t('brandCategoryOptions.specialty_food')}
             </option>
+            <option value="speaking">{t('brandCategoryOptions.speaking')}</option>
             <option value="other">{t('brandCategoryOptions.other')}</option>
           </select>
           {fieldErrors.brand_category && <Err id="brand_category-error">{te('category')}</Err>}
@@ -234,6 +245,8 @@ export function ApplicationForm() {
         </Field>
       </div>
 
+      {!isSpeaking && (
+      <>
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label={t('currentMarkets')}>
           <input
@@ -296,6 +309,56 @@ export function ApplicationForm() {
           className={FIELD_BASE}
         />
       </Field>
+      </>
+      )}
+
+      {/* Speaking / training section — speaking inquiries only */}
+      {isSpeaking && (
+        <div className="space-y-6 rounded-lg border border-line/60 p-5">
+          <p className="text-xs uppercase tracking-[0.12em] text-muted">
+            {t('speakingSection')}
+          </p>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Field label={t('eventType')} hint={t('optional')}>
+              <select name="event_type" defaultValue="" className={FIELD_BASE}>
+                <option value="">{t('select')}</option>
+                <option value="keynote">{t('eventTypeOptions.keynote')}</option>
+                <option value="workshop">{t('eventTypeOptions.workshop')}</option>
+                <option value="panel">{t('eventTypeOptions.panel')}</option>
+                <option value="guest_lecture">
+                  {t('eventTypeOptions.guest_lecture')}
+                </option>
+                <option value="podcast">{t('eventTypeOptions.podcast')}</option>
+                <option value="other">{t('eventTypeOptions.other')}</option>
+              </select>
+            </Field>
+            <Field label={t('eventTimeframe')} hint={t('optional')}>
+              <input
+                name="event_timeframe"
+                placeholder={t('eventTimeframePlaceholder')}
+                className={FIELD_BASE}
+              />
+            </Field>
+          </div>
+
+          <Field label={t('eventAudience')} hint={t('optional')}>
+            <input
+              name="event_audience"
+              placeholder={t('eventAudiencePlaceholder')}
+              className={FIELD_BASE}
+            />
+          </Field>
+
+          <Field label={t('eventFormat')} hint={t('optional')}>
+            <input
+              name="event_format"
+              placeholder={t('eventFormatPlaceholder')}
+              className={FIELD_BASE}
+            />
+          </Field>
+        </div>
+      )}
 
       {/* Structured pricing section — wine and spirits only */}
       {showPricing && (
@@ -425,11 +488,13 @@ export function ApplicationForm() {
         </div>
       )}
 
-      <Field label={t('freeText')} required>
+      <Field label={isSpeaking ? t('freeTextSpeaking') : t('freeText')} required>
         <textarea
           name="free_text"
           rows={5}
-          placeholder={t('freeTextPlaceholder')}
+          placeholder={
+            isSpeaking ? t('freeTextSpeakingPlaceholder') : t('freeTextPlaceholder')
+          }
           aria-required="true"
           className={`${FIELD_BASE} resize-y ${errClass('free_text')}`}
           aria-invalid={!!fieldErrors.free_text}
@@ -457,7 +522,7 @@ export function ApplicationForm() {
           aria-invalid={!!fieldErrors.consent}
           aria-describedby={fieldErrors.consent ? 'consent-error' : undefined}
         />
-        <span>{t('consent')}</span>
+        <span>{isSpeaking ? t('consentSpeaking') : t('consent')}</span>
       </label>
       {fieldErrors.consent && <Err id="consent-error">{te('consent')}</Err>}
 

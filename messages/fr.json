@@ -40,7 +40,7 @@
       "serviceType": "Séminaires, conférences et formation à l'adaptation culturelle pour les vins & spiritueux"
     },
     "contact": {
-      "title": "Demander une mise en relation",
+      "title": "Discutons",
       "description": "Parlez-moi de votre marque. Je n'accepte qu'un nombre limité de missions à la fois et je reviendrai vers vous si c'est pertinent."
     }
   },
@@ -51,11 +51,11 @@
     "distributorFinder": "Prospecter",
     "speaking": "Conférences",
     "about": "À propos",
-    "contact": "Demander une mise en relation",
+    "contact": "Discutons",
     "skipToContent": "Aller au contenu"
   },
   "common": {
-    "requestIntro": "Demander une mise en relation",
+    "requestIntro": "Discutons",
     "readMore": "En savoir plus",
     "languageName": "Français",
     "switchTo": "English",
@@ -435,6 +435,7 @@
         "spirits": "Spiritueux",
         "na_beverage": "Boisson sans alcool",
         "specialty_food": "Épicerie fine",
+        "speaking": "Conférence / formation",
         "other": "Autre"
       },
       "brandWebsite": "Site web",
@@ -457,9 +458,28 @@
       "scaleNotePlaceholder": "Caisses/an ou chiffre d'affaires, en gros (facultatif)",
       "freeText": "Dites-moi ce qui se passe vraiment",
       "freeTextPlaceholder": "Qu'essayez-vous de faire, et qu'est-ce qui ne fonctionne pas ? Plus vous êtes précis, plus le diagnostic sera utile.",
+      "freeTextSpeaking": "Parlez-moi de l'intervention",
+      "freeTextSpeakingPlaceholder": "Quelle est l'occasion, le public, et le sujet sur lequel vous aimeriez que j'intervienne ou que je forme ? Plus il y a de contexte, mieux c'est.",
       "consent": "Je souhaite recevoir un diagnostic écrit par e-mail.",
+      "consentSpeaking": "Je souhaite que Daley me recontacte à ce sujet.",
+      "speakingSection": "Détails de l'intervention — facultatif, mais utile pour préparer",
+      "eventType": "Type d'intervention",
+      "eventTypeOptions": {
+        "keynote": "Conférence (keynote)",
+        "workshop": "Atelier / formation",
+        "panel": "Table ronde",
+        "guest_lecture": "Cours invité",
+        "podcast": "Podcast / entretien",
+        "other": "Autre"
+      },
+      "eventAudience": "Public & sujet",
+      "eventAudiencePlaceholder": "Qui est dans la salle, et sur quel thème ou sujet ?",
+      "eventTimeframe": "Date / période",
+      "eventTimeframePlaceholder": "ex. mars 2027, ou une période approximative",
+      "eventFormat": "Lieu & format",
+      "eventFormatPlaceholder": "ex. Paris, en présentiel — ou à distance",
       "select": "Choisir…",
-      "submit": "Demander une mise en relation",
+      "submit": "Discutons",
       "submitting": "Envoi…",
       "required": "obligatoire",
       "optional": "facultatif",
@@ -497,7 +517,8 @@
     },
     "success": {
       "title": "Merci. C'est bien arrivé.",
-      "body": "Je lis chaque message personnellement. Si votre marque correspond à ma façon de travailler, je reviendrai vers vous avec un diagnostic. Si le moment n'est pas le bon, je vous le dirai aussi."
+      "body": "Je lis chaque message personnellement. Si votre marque correspond à ma façon de travailler, je reviendrai vers vous avec un diagnostic. Si le moment n'est pas le bon, je vous le dirai aussi.",
+      "speakingBody": "Je lis chaque message personnellement. Merci d'avoir pensé à moi — je reviendrai vers vous au sujet de l'intervention. Si le moment n'est pas le bon, je vous le dirai aussi."
     },
     "errors": {
       "generic": "Une erreur s'est produite. Veuillez réessayer, ou m'écrire directement.",

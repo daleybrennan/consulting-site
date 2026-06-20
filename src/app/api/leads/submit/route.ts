@@ -5,7 +5,7 @@ import { rateLimit, clientIp } from '@/lib/rate-limit';
 import { getServiceClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { generatePitchReport } from '@/lib/generate-pitch';
 import { notifyOwner } from '@/lib/notify';
-import { sendMail, isMailConfigured } from '@/lib/mailer';
+import { sendMail, isMailConfigured, mailBcc } from '@/lib/mailer';
 import { acknowledgmentEmail } from '@/lib/emails/acknowledgment';
 import type { LeadSubmitInput } from '@/lib/validation';
 
@@ -44,6 +44,11 @@ function leadOverview(input: LeadSubmitInput): string {
   add('Target market', [input.target_country, input.target_region].filter(Boolean).join(' / '));
   add('Channel', input.channel);
   add('Tech sheet', input.tech_sheet_url);
+  // Speaking / training inquiry fields
+  add('Engagement', input.event_type);
+  add('Audience & topic', input.event_audience);
+  add('Timeframe', input.event_timeframe);
+  add('Location & format', input.event_format);
   add('Notes', input.free_text);
 
   return lines.join('\n');
@@ -135,17 +140,31 @@ export async function POST(req: Request) {
           locale: input.locale,
           contactName: input.contact_name,
           companyName: input.company_name,
+          isSpeaking: input.brand_category === 'speaking',
         });
-        await sendMail({ to: input.contact_email, subject: ack.subject, text: ack.text });
+        await sendMail({
+          to: input.contact_email,
+          subject: ack.subject,
+          text: ack.text,
+          bcc: mailBcc(),
+        });
+        await supabase.from('activity_log').insert({
+          lead_id: data.id,
+          type: 'acknowledgment_sent',
+          payload: { to: input.contact_email },
+        });
       } catch (err) {
         console.error('[leads/submit] acknowledgment email error', err);
       }
     }
 
-    try {
-      await generatePitchReport(data.id);
-    } catch (err) {
-      console.error('[leads/submit] background generation error', err);
+    // Speaking / training inquiries have no pricing diagnostic to generate.
+    if (input.brand_category !== 'speaking') {
+      try {
+        await generatePitchReport(data.id);
+      } catch (err) {
+        console.error('[leads/submit] background generation error', err);
+      }
     }
   });
 

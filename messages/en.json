@@ -40,7 +40,7 @@
       "serviceType": "Seminars, keynotes, and cultural-adaptation education for wine & spirits"
     },
     "contact": {
-      "title": "Request an Introduction",
+      "title": "Let's Talk",
       "description": "Tell me about your brand. I take on a limited number of engagements at a time and will come back to you if it's a fit."
     }
   },
@@ -51,11 +51,11 @@
     "distributorFinder": "Account Finder",
     "speaking": "Speaking",
     "about": "About",
-    "contact": "Request an introduction",
+    "contact": "Let's talk",
     "skipToContent": "Skip to content"
   },
   "common": {
-    "requestIntro": "Request an introduction",
+    "requestIntro": "Let's talk",
     "readMore": "Read more",
     "languageName": "English",
     "switchTo": "Français",
@@ -435,6 +435,7 @@
         "spirits": "Spirits",
         "na_beverage": "Non-alcoholic beverage",
         "specialty_food": "Specialty food",
+        "speaking": "Speaking / training",
         "other": "Other"
       },
       "brandWebsite": "Website",
@@ -457,9 +458,28 @@
       "scaleNotePlaceholder": "Cases/year or revenue, roughly (optional)",
       "freeText": "Tell me what's actually going on",
       "freeTextPlaceholder": "What are you trying to do, and what isn't working? The more specific you are, the more useful the diagnostic.",
+      "freeTextSpeaking": "Tell me about the engagement",
+      "freeTextSpeakingPlaceholder": "What's the occasion, the audience, and what you'd like me to speak on or teach? The more context, the better.",
       "consent": "I'd like to receive a written diagnostic by email.",
+      "consentSpeaking": "I'd like Daley to get back to me about this.",
+      "speakingSection": "Engagement details — optional, but helps me prepare",
+      "eventType": "Engagement type",
+      "eventTypeOptions": {
+        "keynote": "Keynote",
+        "workshop": "Workshop / training",
+        "panel": "Panel",
+        "guest_lecture": "Guest lecture",
+        "podcast": "Podcast / interview",
+        "other": "Other"
+      },
+      "eventAudience": "Audience & topic",
+      "eventAudiencePlaceholder": "Who's in the room, and what theme or subject?",
+      "eventTimeframe": "Date / timeframe",
+      "eventTimeframePlaceholder": "e.g. March 2027, or a rough window",
+      "eventFormat": "Location & format",
+      "eventFormatPlaceholder": "e.g. London, in person — or virtual",
       "select": "Select…",
-      "submit": "Request an introduction",
+      "submit": "Let's talk",
       "submitting": "Sending…",
       "required": "required",
       "optional": "optional",
@@ -497,7 +517,8 @@
     },
     "success": {
       "title": "Thank you. It's with me.",
-      "body": "I read every message personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too."
+      "body": "I read every message personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too.",
+      "speakingBody": "I read every message personally. Thank you for thinking of me — I'll come back to you about the engagement. If the timing isn't right, I'll tell you that too."
     },
     "errors": {
       "generic": "Something went wrong. Please try again, or email me directly.",

@@ -15,6 +15,7 @@ export interface MailMessage {
   text: string;
   html?: string;
   replyTo?: string;
+  bcc?: string;
   attachments?: Array<{ filename: string; content: Buffer }>;
 }
 
@@ -28,6 +29,15 @@ export function isMailConfigured(): boolean {
   return Boolean(
     env('SMTP_HOST') && env('SMTP_USER') && env('SMTP_PASS') && env('SMTP_FROM')
   );
+}
+
+/**
+ * Where to BCC a copy of every prospect-facing email so Daley has a record in
+ * the mailbox he checks. Defaults to the sending mailbox (SMTP_USER); override
+ * with MAIL_BCC.
+ */
+export function mailBcc(): string | undefined {
+  return env('MAIL_BCC') ?? env('SMTP_USER');
 }
 
 let cached: Transporter | null = null;
@@ -63,6 +73,7 @@ export async function sendMail(msg: MailMessage): Promise<string | undefined> {
     text: msg.text,
     html: msg.html,
     replyTo: msg.replyTo,
+    bcc: msg.bcc,
     attachments: msg.attachments,
   });
   return info.messageId;
