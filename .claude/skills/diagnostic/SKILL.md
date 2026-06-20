@@ -10,6 +10,20 @@ Thin orchestrator. It turns one intake submission into a brand-matched diagnosti
 ## The hard rule
 The diagnostic **names the problem and shows the numbers. It must NOT contain the recommendation** (the recommended EXW/price architecture, channel sequence, accounts, discount play). That is the paid product. The close is an *invitation* to commission the strategy, never advice. This protects Daley's IP and is the commercial hook.
 
+## Voice & tone
+
+Every sentence in the PDF is addressed to the client (the wine producer). Write as a senior advisor writing to a business counterpart — not as an LLM reporting on its own process or leaving notes for Daley.
+
+**No LLM-speak.** Phrases like "could not be verified in this session", "will not be asserted", "as of this analysis", or "in this session" must not appear. When data cannot be confirmed, state it as a professional advisory note to the client:
+- ✓ "Import duty and tariff rates are subject to revision; verify the current schedule before finalising your cost model."
+- ✗ "Tariffs could not be verified in this session and will not be asserted."
+
+**Prose standard**: Concise and precise. No trade argot, no informal evaluative phrases ("a prestige scalp", "a great buy"). One clear idea per sentence.
+
+**Regulatory bodies**: Name the correct authority for the jurisdiction — never use "ABC" as a generic abbreviation. New York's authority is the State Liquor Authority (NYSLA/SLA).
+
+**Questions sections**: The heading is "QUESTIONS WORTH ANSWERING" — nothing after that. Any questions must be framed as prompts to the client (what the producer should be asking themselves before entering the market), not as a task list or an internal agenda.
+
 ## Steps
 
 1. **Get the submission.** Either Daley pastes it, or pull the latest from the intake form email:

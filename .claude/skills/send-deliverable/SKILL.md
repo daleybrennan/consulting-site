@@ -14,7 +14,7 @@ Client name + email, which deliverable (diagnostic = free, strategy = paid), the
 - **Subject:** diagnostic → `Your Pricing Diagnostic — {{WINE}}`; strategy → `Your Market-Entry Pricing Strategy — {{WINE}}`.
 - **Tone:** match the website — warm, precise, premium, first person ("I"). Short. For the diagnostic, the email's job is to deliver value *and* open the door to the paid strategy without hard-selling. For the strategy, it's a confident handover of commissioned work.
 - If `preferred_language` is `fr`, write the email in French.
-- Sign as Daley Brennan · The Place & Market · daleybrennan@gmail.com.
+- Sign as Daley Brennan · daleybrennan@gmail.com.
 
 ## Attach
 Create the draft with `mcp__claude_ai_Gmail__create_draft`:

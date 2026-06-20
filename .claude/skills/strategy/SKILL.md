@@ -10,6 +10,20 @@ Builds the full paid deliverable on the same engine as the diagnostic, but deepe
 ## The hard rule
 **The machine never writes the recommendation.** Fill the analysis (numbers, competitive set, legality, current price architecture) and the `SLOT:` content regions. **Leave every `.slot` block ("★ Daley —") untouched** — those are Daley's: the recommended EXW, channel sequence, target accounts, discount play, and 12-month plan. If you are unsure whether something is analysis or recommendation, treat it as recommendation and leave it for Daley.
 
+## Voice & tone
+
+Every sentence in the PDF is addressed to the client (the wine producer). Write as a senior advisor writing to a business counterpart — not as an LLM reporting on its own process or leaving notes for Daley.
+
+**No LLM-speak.** Phrases like "could not be verified in this session", "will not be asserted", "as of this analysis", or "in this session" must not appear. When data cannot be confirmed, state it as a professional advisory note to the client:
+- ✓ "Import duty and tariff rates are subject to revision; verify the current schedule before finalising your cost model."
+- ✗ "Tariffs could not be verified in this session and will not be asserted."
+
+**Prose standard**: Concise and precise. No trade argot, no informal evaluative phrases ("a prestige scalp", "a great buy"). One clear idea per sentence.
+
+**Regulatory bodies**: Name the correct authority for the jurisdiction — never use "ABC" as a generic abbreviation. New York's authority is the State Liquor Authority (NYSLA/SLA).
+
+**Questions sections**: The heading is "QUESTIONS WORTH ANSWERING" — nothing after that. Any questions must be framed as prompts to the client (what the producer should be asking themselves before entering the market), not as a task list or an internal agenda.
+
 ## Steps
 
 1. **Submission + diagnostic context.** Start from the intake submission (and the diagnostic if one was produced). Confirm the brief and objectives.
@@ -22,7 +36,7 @@ Builds the full paid deliverable on the same engine as the diagnostic, but deepe
 
 5. **Research deeply** — `competitive-research` for a precise set with off- AND on-premise prices, importers/distributors, and sources for the appendix.
 
-6. **Regulatory** — pull the quantity-discount legality (`data/quantity-discount-rules.json`) for the market/state and state it plainly; flag where a discount is prohibited (e.g. NY) so Daley's slot addresses compliant alternatives.
+6. **Regulatory** — pull the quantity-discount legality (`data/quantity-discount-rules.json`) for the market/state and state it plainly; flag where a discount is prohibited (e.g. New York, where the NYSLA prohibits volume discounts under the three-tier system) so Daley's slot addresses compliant alternatives.
 
 7. **Render** — `render-pdf` skill with `templates/strategy.html` → `out/<client-slug>-strategy.pdf`. Fill `SLOT:` analysis regions and `{{TOKENS}}`; **leave `.slot` recommendation blocks for Daley.**
 

@@ -32,3 +32,4 @@ A table-ready list plus:
 - Distinguish observed prices from inferred ones.
 - Don't invent comparables or prices. If the set is thin, say so and widen the net deliberately (adjacent regions/styles), noting the adjustment.
 - Hand the sources to the orchestrator for the appendix and for Daley's verification before sign-off.
+- Prose describing the competitive set must be professional and precise — no informal evaluative language ("a prestige scalp", "a steal") and no trade argot.

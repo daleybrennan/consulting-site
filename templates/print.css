@@ -151,3 +151,34 @@ tr.is-key td { background: rgba(201,168,76,0.10); font-weight: 500; }
 ul.ticks { list-style: none; margin: 3mm 0; }
 ul.ticks li { position: relative; padding-left: 6mm; margin-bottom: 2mm; }
 ul.ticks li::before { content: ""; position: absolute; left: 0; top: 2.4mm; width: 2mm; height: 2mm; border-radius: 999px; background: var(--gold); }
+
+/* ── In-browser editing ──────────────────────────────────── */
+@media screen {
+  .edit-toolbar {
+    position: fixed; top: 14px; right: 16px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-dark); color: var(--white);
+    padding: 7px 14px; border-radius: 5px;
+    font-family: var(--font-body); font-size: 8.5pt;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+  .edit-toolbar span { opacity: 0.55; letter-spacing: 0.05em; }
+  .edit-toolbar button {
+    background: var(--gold); color: var(--bg-dark);
+    border: none; padding: 4px 12px; border-radius: 3px;
+    font-family: var(--font-body); font-size: 8.5pt;
+    font-weight: 500; cursor: pointer; letter-spacing: 0.04em;
+  }
+  .edit-toolbar button:hover { background: var(--gold-light); }
+  [contenteditable]:focus {
+    outline: 2px solid var(--gold); outline-offset: 1px;
+    border-radius: 2px;
+  }
+  [contenteditable]:hover:not(:focus) {
+    outline: 1px dashed rgba(201,168,76,0.45); outline-offset: 1px;
+    border-radius: 2px; cursor: text;
+  }
+}
+@media print {
+  .no-print { display: none !important; }
+}

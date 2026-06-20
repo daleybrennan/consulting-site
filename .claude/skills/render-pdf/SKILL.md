@@ -1,6 +1,6 @@
 ---
 name: render-pdf
-description: Fill a branded HTML template with content and render it to a PDF that matches The Place & Market website. Use when producing the diagnostic or strategy deliverable PDF. Wraps scripts/generate-pdf.js (system Chrome, no npm deps).
+description: Fill a branded HTML template with content and render it to a PDF for Daley Brennan Export Consultant. Use when producing the diagnostic or strategy deliverable PDF. Wraps scripts/generate-pdf.js (system Chrome, no npm deps).
 ---
 
 # Render a branded PDF
