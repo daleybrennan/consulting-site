@@ -67,7 +67,7 @@
       "eyebrow": "Vins & spiritueux premium · stratégie commerciale",
       "title": "Les États-Unis sont ma spécialité, mais ce n'est pas le seul domaine où je peux aider.",
       "lede": "J'accompagne les marques de vins et spiritueux premium dans leur entrée et leur croissance aux États-Unis : prix, distribution, et l'ordre dans lequel on agit. Ce même savoir-faire concret s'étend à la stratégie export sur d'autres marchés, au conseil dans la durée, et aux interventions.",
-      "cta": "Demander une mise en relation",
+      "cta": "Discutons",
       "secondary": "Voir comment ça marche"
     },
     "positioning": {
@@ -228,7 +228,7 @@
     "cta": {
       "title": "Lançons la conversation",
       "body": "Parlez-moi de votre marque et des marchés que vous envisagez ou où vous êtes déjà présent. Si c'est pertinent, je reviendrai vers vous et nous verrons la suite.",
-      "button": "Demander une mise en relation"
+      "button": "Discutons"
     }
   },
   "distributorFinder": {
@@ -336,7 +336,7 @@
     "cta": {
       "title": "Commencez par une revue export",
       "body": "Les missions de conseil commencent généralement par une stratégie ou un audit export : c'est ainsi que nous découvrons tous les deux s'il y a un travail qui en vaut la peine.",
-      "button": "Demander une mise en relation"
+      "button": "Discutons"
     }
   },
   "speaking": {
@@ -381,7 +381,7 @@
     "cta": {
       "title": "Sollicitez Daley pour un événement",
       "body": "Parlez-moi de votre public ou de votre cahier des charges et je reviendrai vers vous. Les demandes d'intervention sont bienvenues en français ou en anglais.",
-      "button": "Demander une mise en relation"
+      "button": "Discutons"
     }
   },
   "about": {
@@ -412,14 +412,14 @@
       }
     },
     "cta": {
-      "title": "Demander une mise en relation",
+      "title": "Discutons",
       "body": "Si vous construisez une marque de vins ou spiritueux premium aux États-Unis, commencez par un diagnostic.",
-      "button": "Demander une mise en relation"
+      "button": "Discutons"
     }
   },
   "contact": {
     "hero": {
-      "eyebrow": "Demander une mise en relation",
+      "eyebrow": "Discutons",
       "title": "Parlez-moi de votre marque.",
       "lede": "Parlez-moi un peu de votre marque et de là où vous voulez l'emmener. Je n'accepte qu'un nombre limité de missions à la fois, donc je lis chaque message moi-même et je reviendrai vers vous si je pense pouvoir vraiment aider."
     },
