@@ -64,6 +64,8 @@ export function pitchHtml(
   :root {
     --ink:#0e0e10; --surface:#f6f3ea; --accent:#7c2433; --muted:#6b6458; --line:#ddd6c6;
   }
+  @page { size: A4; margin: 1.5cm; }
+  @media print { .no-print { display: none; } }
   * { box-sizing: border-box; }
   html, body { margin:0; padding:0; }
   body {

@@ -5,8 +5,47 @@ import { rateLimit, clientIp } from '@/lib/rate-limit';
 import { getServiceClient, isSupabaseConfigured } from '@/lib/supabase/server';
 import { generatePitchReport } from '@/lib/generate-pitch';
 import { notifyOwner } from '@/lib/notify';
+import type { LeadSubmitInput } from '@/lib/validation';
 
 export const runtime = 'nodejs';
+export const maxDuration = 300;
+
+/** Plain-text overview of a submission for the owner notification. */
+function leadOverview(input: LeadSubmitInput): string {
+  const lines: string[] = [];
+  const add = (label: string, value: unknown) => {
+    if (value === undefined || value === null || value === '') return;
+    lines.push(`${label}: ${value}`);
+  };
+
+  add('Name', [input.contact_name, input.contact_role && `(${input.contact_role})`]
+    .filter(Boolean)
+    .join(' '));
+  add('Email', input.contact_email);
+  add('Brand', [input.company_name, input.brand_category]
+    .filter(Boolean)
+    .join(' — '));
+  add('Website', input.brand_website);
+  add('Sells today', input.current_markets);
+  add('Target', input.target_markets);
+  add('Stage', input.stage);
+  add('Distribution', input.current_distribution);
+  add('Price positioning', input.price_positioning);
+  add('Scale', input.scale_note);
+  // Structured pricing fields (wine/spirits)
+  add('Wines', input.wine_names);
+  add('Style', input.wine_style);
+  add('Vintage', input.vintage);
+  add('Volume (cases)', input.volume_cases);
+  add('EXW', input.exw_price && `${input.exw_price} ${input.exw_currency}`.trim());
+  add('Origin', [input.origin_region, input.origin_country].filter(Boolean).join(', '));
+  add('Target market', [input.target_country, input.target_region].filter(Boolean).join(' / '));
+  add('Channel', input.channel);
+  add('Tech sheet', input.tech_sheet_url);
+  add('Notes', input.free_text);
+
+  return lines.join('\n');
+}
 
 export async function POST(req: Request) {
   // 1. Rate limit (each submit can trigger paid LLM work).
@@ -72,6 +111,7 @@ export async function POST(req: Request) {
   await notifyOwner('lead_created', {
     leadId: data.id,
     company: input.company_name,
+    overview: leadOverview(input),
   });
   await supabase.from('activity_log').insert({
     lead_id: data.id,
