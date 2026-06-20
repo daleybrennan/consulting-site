@@ -233,7 +233,9 @@
           "title": "Votre image de marque, en option",
           "body": "Faites-en un outil à vous. L'interface peut être personnalisée à votre charte interne pour qu'elle ait l'air d'un outil maison."
         }
-      }
+      },
+      "proof": "L'outil est déjà déployé en interne dans un domaine viticole prestigieux, où il permet à l'équipe commerciale d'aller bien plus loin qu'une simple recherche Google — en révélant des comptes grossistes et grand public en plus grand nombre, et avec une bien plus grande facilité.",
+      "nature": "C'est un outil sur mesure, conçu autour de la façon dont votre entreprise vend réellement, et il fonctionne entièrement dans votre navigateur — rien à installer. De nouvelles fonctionnalités sont développées en continu, si bien qu'il ne cesse de gagner en précision."
     },
     "plans": {
       "title": "Deux façons de s'abonner",
@@ -248,11 +250,9 @@
     },
     "platforms": {
       "title": "Disponible partout où vous travaillez",
-      "body": "Utilisez-le dans n'importe quel navigateur, ou en déplacement avec les applications iOS et Android. Vos listes restent synchronisées.",
+      "body": "Utilisez-le directement dans n'importe quel navigateur — rien à installer. Vos listes vous suivent partout.",
       "browser": "Dans n'importe quel navigateur",
-      "ios": "Télécharger sur l'App Store",
-      "android": "Disponible sur Google Play",
-      "comingSoon": "Liens à venir"
+      "comingSoon": "Version mobile native à venir"
     },
     "cta": {
       "title": "Essayez l'outil de prospection",
@@ -444,10 +444,11 @@
         "US": "États-Unis",
         "UK": "Royaume-Uni",
         "FR": "France",
-        "CA": "Canada"
+        "CA": "Canada",
+        "OTHER": "Autre / plusieurs marchés"
       },
-      "targetRegion": "État / région cible",
-      "targetRegionPlaceholder": "ex. New York, Californie…",
+      "targetRegion": "État / région / autre(s) marché(s)",
+      "targetRegionPlaceholder": "ex. Californie — ou nommez le(s) marché(s) si « Autre »",
       "exwPrice": "Prix départ cave (par bouteille)",
       "volumeCases": "Volume annuel (caisses)",
       "volumeCasesPlaceholder": "ex. 500",

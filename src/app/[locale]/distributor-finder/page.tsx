@@ -103,6 +103,10 @@ function What() {
           </div>
         ))}
       </div>
+      <div className="reveal mt-14 max-w-3xl border-l-2 border-accent pl-6">
+        <p className="text-lg leading-relaxed text-ink-soft">{t('proof')}</p>
+        <p className="mt-4 text-lg leading-relaxed text-ink-soft">{t('nature')}</p>
+      </div>
     </Section>
   );
 }
@@ -125,26 +129,6 @@ function Plans() {
   );
 }
 
-// Placeholder app-store badges — link to '#' until real store URLs are provided.
-function StoreBadge({
-  label,
-  glyph,
-}: {
-  label: string;
-  glyph: React.ReactNode;
-}) {
-  return (
-    <a
-      href="#"
-      aria-label={label}
-      className="inline-flex items-center gap-3 rounded-lg bg-ink px-5 py-3 text-white transition-colors hover:bg-accent"
-    >
-      <span aria-hidden="true">{glyph}</span>
-      <span className="text-sm font-medium">{label}</span>
-    </a>
-  );
-}
-
 function Platforms() {
   const t = useTranslations('distributorFinder.platforms');
   return (
@@ -158,8 +142,6 @@ function Platforms() {
               <GlobeGlyph />
               <span className="text-sm font-medium">{t('browser')}</span>
             </span>
-            <StoreBadge label={t('ios')} glyph={<AppleGlyph />} />
-            <StoreBadge label={t('android')} glyph={<PlayGlyph />} />
           </div>
           <p className="reveal mt-4 text-xs uppercase tracking-[0.12em] text-muted">
             {t('comingSoon')}
@@ -175,22 +157,6 @@ function GlobeGlyph() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
-    </svg>
-  );
-}
-
-function AppleGlyph() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M16.36 12.78c.02 2.55 2.23 3.4 2.26 3.41-.02.06-.35 1.21-1.16 2.4-.7 1.03-1.43 2.05-2.58 2.07-1.13.02-1.49-.67-2.78-.67-1.29 0-1.69.65-2.76.69-1.11.04-1.96-1.11-2.66-2.14-1.44-2.08-2.54-5.88-1.06-8.45.73-1.27 2.04-2.08 3.46-2.1 1.09-.02 2.12.73 2.78.73.67 0 1.92-.9 3.24-.77.55.02 2.1.22 3.1 1.68-.08.05-1.85 1.08-1.83 3.24zM14.2 5.39c.59-.71.98-1.7.87-2.69-.85.03-1.87.57-2.48 1.28-.55.63-1.02 1.64-.9 2.6.95.08 1.92-.48 2.51-1.19z" />
-    </svg>
-  );
-}
-
-function PlayGlyph() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M3.6 2.4c-.25.26-.4.66-.4 1.18v16.84c0 .52.15.92.4 1.18l.06.05L13.1 12.1v-.2L3.66 2.35l-.06.05zM16.5 15.5l-3.4-3.4 3.4-3.4 4 2.28c1.14.65 1.14 1.71 0 2.36l-4 2.16zM12.97 11.9l-9.3 9.3c.38.4 1 .45 1.7.05l10.93-6.21-3.33-3.14z" />
     </svg>
   );
 }

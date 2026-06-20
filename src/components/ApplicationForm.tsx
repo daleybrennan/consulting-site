@@ -318,6 +318,7 @@ export function ApplicationForm() {
                 <option value="UK">{t('targetCountryOptions.UK')}</option>
                 <option value="FR">{t('targetCountryOptions.FR')}</option>
                 <option value="CA">{t('targetCountryOptions.CA')}</option>
+                <option value="OTHER">{t('targetCountryOptions.OTHER')}</option>
               </select>
             </Field>
             <Field label={t('targetRegion')} hint={t('optional')}>

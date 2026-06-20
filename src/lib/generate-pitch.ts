@@ -6,6 +6,10 @@ import { notifyOwner } from '@/lib/notify';
 import { computePricing, money } from '@/lib/pricing-model';
 import type { Lead, PitchContent, Locale } from '@/types/db';
 
+// Markets the EXW→shelf price walk supports (others, incl. 'OTHER', are skipped).
+const PRICING_MARKETS = ['US', 'UK', 'FR', 'CA'] as const;
+type PricingMarket = (typeof PRICING_MARKETS)[number];
+
 // ---- Prompts ----------------------------------------------------
 
 function brandBrief(lead: Lead): string {
@@ -262,12 +266,15 @@ export async function generatePitchReport(leadId: string): Promise<void> {
 
     // Enrich research findings with computed price walk when pricing data is present.
     let enrichedFindings = findings;
-    if (lead.exw_price != null && lead.target_country) {
+    if (
+      lead.exw_price != null &&
+      PRICING_MARKETS.includes(lead.target_country as PricingMarket)
+    ) {
       try {
         const pricing = computePricing({
           exwPrice: lead.exw_price,
           exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
-          targetMarket: lead.target_country as 'US' | 'UK' | 'FR' | 'CA',
+          targetMarket: lead.target_country as PricingMarket,
           targetRegion: lead.target_region || undefined,
           volumeCases: lead.volume_cases || undefined,
         });
@@ -381,12 +388,15 @@ export async function regeneratePitchReport(
     const { findings, sources } = await research(lead);
 
     let enrichedFindings = findings;
-    if (lead.exw_price != null && lead.target_country) {
+    if (
+      lead.exw_price != null &&
+      PRICING_MARKETS.includes(lead.target_country as PricingMarket)
+    ) {
       try {
         const pricing = computePricing({
           exwPrice: lead.exw_price,
           exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
-          targetMarket: lead.target_country as 'US' | 'UK' | 'FR' | 'CA',
+          targetMarket: lead.target_country as PricingMarket,
           targetRegion: lead.target_region || undefined,
           volumeCases: lead.volume_cases || undefined,
         });

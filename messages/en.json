@@ -233,7 +233,9 @@
           "title": "Your branding, optional",
           "body": "Make the experience your own. The interface can be customised to your internal branding so it feels in-house."
         }
-      }
+      },
+      "proof": "The tool is already deployed for internal use at a prestigious winery, where it helps the sales team dig far deeper than a traditional Google search — surfacing wholesale and consumer-facing accounts in greater volume, and with far greater ease.",
+      "nature": "It's a bespoke tool, built around the way your business actually sells, and it runs entirely in your browser — nothing to install. New functionality is being developed continuously, so it keeps getting sharper over time."
     },
     "plans": {
       "title": "Two ways to subscribe",
@@ -248,11 +250,9 @@
     },
     "platforms": {
       "title": "Available everywhere you work",
-      "body": "Use it in any browser, or on the move with the iOS and Android apps. Your lists stay in sync.",
+      "body": "Use it straight from any browser — nothing to install. Your lists are always with you.",
       "browser": "Use it in any browser",
-      "ios": "Download on the App Store",
-      "android": "Get it on Google Play",
-      "comingSoon": "Links coming soon"
+      "comingSoon": "Native mobile version coming soon"
     },
     "cta": {
       "title": "Try the distributor & reseller finder",
@@ -444,10 +444,11 @@
         "US": "United States",
         "UK": "United Kingdom",
         "FR": "France",
-        "CA": "Canada"
+        "CA": "Canada",
+        "OTHER": "Other / multiple markets"
       },
-      "targetRegion": "Target state / region",
-      "targetRegionPlaceholder": "e.g. New York, California…",
+      "targetRegion": "State / region / other market(s)",
+      "targetRegionPlaceholder": "e.g. California — or name the market(s) if 'Other'",
       "exwPrice": "EXW price per bottle",
       "volumeCases": "Annual volume (cases)",
       "volumeCasesPlaceholder": "e.g. 500",

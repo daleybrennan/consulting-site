@@ -43,7 +43,7 @@ export const leadSubmitSchema = z.object({
   // Structured pricing fields (optional — shown for wine/spirits only)
   origin_country:  z.string().trim().max(100).optional().default(''),
   origin_region:   z.string().trim().max(100).optional().default(''),
-  target_country:  z.enum(['US', 'UK', 'FR', 'CA', '']).optional().default(''),
+  target_country:  z.enum(['US', 'UK', 'FR', 'CA', 'OTHER', '']).optional().default(''),
   target_region:   z.string().trim().max(100).optional().default(''),
   wine_names:      z.string().trim().max(500).optional().default(''),
   wine_style:      z.string().trim().max(200).optional().default(''),
