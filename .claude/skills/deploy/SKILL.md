@@ -1,96 +1,92 @@
 ---
 name: deploy
-description: Deploy the consulting site to Vercel production and verify the live build, including the custom domain. Use when shipping changes to production, redeploying after an env-var change, or diagnosing why www.daleybrennan.com serves a stale build.
+description: Deploy the consulting site to Vercel production and verify it live on www.daleybrennan.com. Use when shipping changes, after an env-var change, or diagnosing why the live site/admin is stale or shows "Supabase isn't configured".
 ---
 
 # Deploy to production
 
-Ships the Next.js app to Vercel and confirms the change is actually live on the
-custom domain — not just on the `*.vercel.app` alias. Working directory is the
-repo root. The Vercel project is already linked (`.vercel/project.json`,
-team `daley-s-projects`).
+Ships the Next.js app to Vercel and confirms it's live on `www.daleybrennan.com`.
+Working directory is the repo root.
 
-## TL;DR
+## ‼️ FIRST: deploy to the RIGHT project — there are TWO
+
+There are two Vercel projects with near-identical names. Only one is real:
+
+| | Scope | Serves www? | Use it? |
+|---|---|---|---|
+| ✅ REAL | **`daley-projects`** | **Yes** (Latest Production URL = www.daleybrennan.com) | **YES** |
+| ❌ stray | `daley-s-projects` (note the extra `-s-`) | No (only `*.vercel.app`) | never — delete eventually |
+
+The stray project caused a long debugging saga: CLI work landed on `daley-s-projects`
+while `www` is served by `daley-projects`. **Always confirm you're on `daley-projects`.**
 
 ```bash
+# Confirm the local repo is linked to the REAL project:
+cat .vercel/project.json    # orgId must be the daley-projects team, name "consulting-site"
+# If not, relink (needs a Vercel token for the daley-projects account):
+export VERCEL_TOKEN="<token for daley-projects>"
+npx vercel link --yes --scope daley-projects --project consulting-site
+```
+`daley-projects` is a separate Vercel **account** from `daley-s-projects`; the default
+CLI login cannot see it. You need a token created in that account
+(vercel.com → Account Settings → Tokens) exported as `VERCEL_TOKEN`.
+
+## Deploy
+
+```bash
+export VERCEL_TOKEN="<daley-projects token>"
 git add -A && git commit -m "<message>"   # if there are code changes
-npx vercel --prod                          # build + deploy to production
+git push origin main                       # Git is connected → auto-deploys & aliases www
+# OR force an immediate clean deploy from CLI (also aliases www on this project):
+npx vercel --prod --force
 ```
+A CLI `--prod` on the **daley-projects** project aliases straight to
+`www.daleybrennan.com` (verified). `--force` skips build cache — use it after any
+env-var change so `NEXT_PUBLIC_*` re-inline.
 
-Then run **Verify** below. If the custom domain is stale, see **Custom-domain gotcha**.
+## ‼️ Env vars: NEXT_PUBLIC_* must be NON-sensitive, on ALL environments
 
-## Critical: NEXT_PUBLIC_* must be NON-sensitive
+`NEXT_PUBLIC_*` are inlined into the browser bundle **at build time**. If stored
+"Sensitive" they come through **empty** → admin shows "Supabase isn't configured",
+captcha doesn't enforce, `new URL('')` can crash the build. Also set them for
+**all environments** (production, preview, development) — Git builds here have been
+observed building in a non-Production context, so Production-only vars don't reach them.
 
-`NEXT_PUBLIC_*` vars are inlined into the browser bundle **at build time**.
-Vercel "Sensitive" vars are withheld during the build and come through as empty
-strings — which silently breaks the client (e.g. the admin login shows
-"Supabase isn't configured", and `new URL('')` can crash the build).
-
-Server-only secrets (`SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY`,
-`ADMIN_EMAIL`, `OWNER_EMAIL`, `TURNSTILE_SECRET_KEY`) **can** stay sensitive —
-they're injected at runtime, not inlined.
-
-Public vars that MUST be non-sensitive: `NEXT_PUBLIC_SUPABASE_URL`,
-`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `NEXT_PUBLIC_SITE_URL`,
-`NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
-
-To (re)create one correctly:
-```bash
-npx vercel env rm  <NAME> production --yes
-npx vercel env add <NAME> production --no-sensitive --yes --value '<value>'
-```
-A var pulled empty when it shouldn't be is the tell:
-```bash
-npx vercel env pull .env.vercel.tmp --environment production && \
-  grep -E '^NEXT_PUBLIC_' .env.vercel.tmp ; rm -f .env.vercel.tmp
-```
-
-## Verify (always run after deploy)
-
-Confirm the **custom domain** serves the **same build** as the production alias,
-and that a known public env value is inlined:
+Required (set with the helper below):
+- non-sensitive: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`,
+  `NEXT_PUBLIC_SITE_URL` (`https://www.daleybrennan.com`), `NEXT_PUBLIC_TURNSTILE_SITE_KEY`
+- sensitive OK: `SUPABASE_SERVICE_ROLE_KEY`, `TURNSTILE_SECRET_KEY`, `ANTHROPIC_API_KEY`,
+  `ADMIN_EMAIL`, `OWNER_EMAIL`
 
 ```bash
-prod="https://consulting-site-psi-ten.vercel.app"   # *.vercel.app production alias
-live="https://www.daleybrennan.com"                 # customer-facing domain
-page="/en/admin"                                     # a page that uses NEXT_PUBLIC_SUPABASE_*
-
-# Same set of JS chunks on both = same build live on the custom domain
-diff <(curl -s "$prod$page" | grep -oE '/_next/static/[^"]+\.js' | sort -u) \
-     <(curl -s "$live$page" | grep -oE '/_next/static/[^"]+\.js' | sort -u) \
-  && echo "OK: custom domain on current build" \
-  || echo "STALE: custom domain serving an older deployment (see gotcha)"
-
-# NEXT_PUBLIC_SUPABASE_URL actually inlined (project ref should appear in a chunk)
-curl -s "$live$page" | grep -oE '/_next/static/[^"]+\.js' | sort -u | while read c; do
-  curl -s "$live$c" | grep -q "ubxrdqbclxwrwwgvpqyz" && echo "OK: Supabase URL inlined ($c)"
-done
+export VERCEL_TOKEN="<daley-projects token>"
+setvar() { # name value pub|sec
+  for env in production preview development; do
+    npx vercel env rm "$1" "$env" --yes >/dev/null 2>&1
+    [ "$3" = pub ] \
+      && npx vercel env add "$1" "$env" --no-sensitive --yes --value "$2" >/dev/null 2>&1 \
+      || npx vercel env add "$1" "$env" --yes --value "$2" >/dev/null 2>&1
+  done; echo "set $1"; }
+# setvar NEXT_PUBLIC_SUPABASE_URL '<url>' pub   ... etc, then redeploy with --force
 ```
+Audit: `npx vercel env pull .env.tmp --environment production && grep '^NEXT_PUBLIC_' .env.tmp; rm .env.tmp`
+— every `NEXT_PUBLIC_*` must show a real value (not empty).
 
-## Custom-domain gotcha
+## Verify (always, against the customer domain)
 
-`www.daleybrennan.com` is an external (IONOS) domain. In this project it has
-been observed **not** to follow CLI `vercel --prod` deploys — the `.vercel.app`
-alias updates but the custom domain stays pinned to an older deployment, and
-`vercel alias set` fails with "don't have access to the domain" (scope boundary).
-
-Fixes, best first:
-1. **Connect the Git repo for seamless deploys (recommended).** Vercel
-   Dashboard → Project → Settings → Git → connect `daleybrennan/consulting-site`.
-   After that, `git push` auto-builds and **updates all production domains
-   together** — no CLI alias step. This is the durable "seamless" path.
-2. **Dashboard reassign:** Deployments → latest *Ready* deployment → ⋯ →
-   **Promote to Production** (assigns domains), or Settings → Domains → confirm
-   `www.daleybrennan.com` + apex are set to serve **Production**.
-
-Until the domain is fixed, the current build is always reachable at the
-production alias (`consulting-site-psi-ten.vercel.app`).
+```bash
+base="https://www.daleybrennan.com"
+# admin: real Supabase config inlined (not just the library's default string)
+for c in $(curl -s "$base/en/admin?cb=$(date +%s%N)" | grep -oE '/_next/static/[^"]+\.js' | sort -u); do
+  curl -s "$base$c" | grep -q "sb_publishable" && echo "admin OK (supabase inlined)" && break; done
+# captcha enforced
+curl -s -o /dev/null -w 'captcha POST=%{http_code} (want 400)\n' -X POST "$base/api/leads/submit" \
+  -H 'Content-Type: application/json' \
+  -d '{"locale":"en","contact_name":"Bot","contact_email":"b@e.com","company_name":"B","brand_category":"wine","stage":"pre_entry","free_text":"bot test here","consent":true,"turnstileToken":""}'
+```
 
 ## Notes
-- Never set `NEXT_PUBLIC_SITE_URL` to an empty string — `layout.tsx` does
-  `new URL(SITE_URL)` and an empty value fails the build. Use
-  `https://www.daleybrennan.com` in production.
-- PowerShell `echo "x" | vercel env add` stores an empty value — use the
-  `--value` flag (or Bash `printf`) instead.
-- Public site never shows pricing; that policy is unrelated to deploy but don't
-  add env-driven price surfaces.
+- `.env.local` stays `NEXT_PUBLIC_SITE_URL=http://localhost:3000` (local dev only); Vercel never reads it.
+- Never set `NEXT_PUBLIC_SITE_URL` empty — `layout.tsx` does `new URL(SITE_URL)`.
+- PowerShell `echo "x" | vercel env add` stores empty — always use `--value` (or Bash `printf`).
+- The `consulting-site-psi-ten.vercel.app` alias belongs to the **stray** project; don't verify against it — use `www.daleybrennan.com`.
