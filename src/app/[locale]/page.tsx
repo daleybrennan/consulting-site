@@ -11,6 +11,7 @@ import {
   ProofBar,
   NumberedGrid,
 } from '@/components/ui';
+import { RotatingHeadline } from '@/components/RotatingHeadline';
 import portrait from '../../../public/daley-brennan.jpg';
 import vineyard from '../../../public/vineyard-vista.png';
 
@@ -59,12 +60,13 @@ export default async function HomePage({
 
 function Hero() {
   const t = useTranslations('home.hero');
+  const titles = t.raw('titles') as string[];
   return (
     <PageHero
       image={vineyard}
       size="xl"
       eyebrow={t('eyebrow')}
-      title={t('title')}
+      title={<RotatingHeadline titles={titles} />}
       lede={t('lede')}
     >
       <div className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">

@@ -119,7 +119,7 @@ export function PageHero({
   objectPosition?: string;
   imageClassName?: string;
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   lede: string;
   size?: 'xl' | 'lg';
   children?: React.ReactNode;

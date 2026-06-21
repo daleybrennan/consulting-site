@@ -65,7 +65,14 @@
   "home": {
     "hero": {
       "eyebrow": "Vins & spiritueux premium · stratégie commerciale",
-      "title": "Passer la frontière est la partie facile. C'est sur le prix et le partenaire que les marques perdent le marché.",
+      "titles": [
+        "Passer la frontière est la partie facile. Vendre sur un nouveau marché est un acte culturel avant d'être commercial.",
+        "Passer la frontière est la partie facile. Parler la langue du marché, c'est tout le reste.",
+        "Une marque perd un marché sur le terrain culturel, pas sur le tableur.",
+        "Votre vin parle de lui-même. Son nouveau marché parle une autre langue.",
+        "Même produit, cultures différentes. L'argumentaire doit changer dans chacune.",
+        "Le vin passe la frontière facilement. La relation et la lecture du marché, non."
+      ],
       "lede": "J'accompagne les marques de vins et spiritueux premium pour franchir les frontières et se développer une fois arrivées : l'échelle de prix, le bon distributeur, et l'ordre dans lequel on agit. Les États-Unis sont mon terrain de prédilection, que vous cherchiez à y entrer ou à en exporter vers l'Europe, mais ce même savoir-faire vaut pour la France, le Royaume-Uni et au-delà.",
       "cta": "Discutons",
       "secondary": "Voir comment ça marche"

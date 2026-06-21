@@ -65,7 +65,14 @@
   "home": {
     "hero": {
       "eyebrow": "Premium wine & spirits · commercial strategy",
-      "title": "Crossing the border is the easy part. Price and partner are where brands lose the market.",
+      "titles": [
+        "Crossing the border is the easy part. Selling into a new market is a cultural act before it is a commercial one.",
+        "Crossing the border is the easy part. Speaking the market's language is the rest.",
+        "Brands lose a market at the cultural seam, not on the spreadsheet.",
+        "Your wine speaks for itself. Its new market speaks another language.",
+        "Same product, different cultures. The pitch has to change in each.",
+        "The wine crosses the border easily. The relationship and the read do not."
+      ],
       "lede": "I help premium wine and spirits brands cross borders and grow once they arrive: the pricing ladder, the right distributor, and the order you do things in. The United States is my sharpest focus, whether you are entering it or exporting from it to Europe, though the same judgement travels to France, the UK, and further afield.",
       "cta": "Let's talk",
       "secondary": "See how it works"
