@@ -23,18 +23,34 @@ while `www` is served by `daley-projects`. **Always confirm you're on `daley-pro
 ```bash
 # Confirm the local repo is linked to the REAL project:
 cat .vercel/project.json    # orgId must be the daley-projects team, name "consulting-site"
-# If not, relink (needs a Vercel token for the daley-projects account):
-export VERCEL_TOKEN="<token for daley-projects>"
+# If not, relink (the saved token is loaded automatically; see "Token setup"):
+[ -z "$VERCEL_TOKEN" ] && [ -f "$HOME/.vercel-token" ] && export VERCEL_TOKEN="$(cat "$HOME/.vercel-token")"
 npx vercel link --yes --scope daley-projects --project consulting-site
 ```
 `daley-projects` is a separate Vercel **account** from `daley-s-projects`; the default
 CLI login cannot see it. You need a token created in that account
-(vercel.com → Account Settings → Tokens) exported as `VERCEL_TOKEN`.
+(vercel.com → Account Settings → Tokens), saved once to `~/.vercel-token` (see below).
+
+## Token setup (one-time)
+
+The deploy token lives in `~/.vercel-token` (home dir, outside the repo so it can never
+be committed; also gitignored as a belt-and-braces measure). Every command below
+auto-loads it, so there is no per-deploy pasting.
+
+```bash
+# Create or refresh it. Must be a VERCEL token (prefix `vcp_`) for the daley-projects
+# account — NOT a Supabase token (those start with `sbp_`).
+printf '%s' '<vcp_… token>' > ~/.vercel-token && chmod 600 ~/.vercel-token
+# Sanity check it works:
+npx vercel whoami --token "$(cat ~/.vercel-token)"   # → daleybrennan-2228
+```
+When it expires, overwrite the file with a fresh token.
 
 ## Deploy
 
 ```bash
-export VERCEL_TOKEN="<daley-projects token>"
+# Load the saved token (see "Token setup"); falls back to an already-set env var.
+[ -z "$VERCEL_TOKEN" ] && [ -f "$HOME/.vercel-token" ] && export VERCEL_TOKEN="$(cat "$HOME/.vercel-token")"
 git add -A && git commit -m "<message>"   # if there are code changes
 git push origin main                       # Git is connected → auto-deploys & aliases www
 # OR force an immediate clean deploy from CLI (also aliases www on this project):
@@ -59,7 +75,7 @@ Required (set with the helper below):
   `ADMIN_EMAIL`, `OWNER_EMAIL`
 
 ```bash
-export VERCEL_TOKEN="<daley-projects token>"
+[ -z "$VERCEL_TOKEN" ] && [ -f "$HOME/.vercel-token" ] && export VERCEL_TOKEN="$(cat "$HOME/.vercel-token")"
 setvar() { # name value pub|sec
   for env in production preview development; do
     npx vercel env rm "$1" "$env" --yes >/dev/null 2>&1

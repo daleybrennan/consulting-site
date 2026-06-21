@@ -47,6 +47,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+# saved Vercel deploy token (also kept in ~/.vercel-token, outside the repo)
+.vercel-token
+*.vercel-token
 
 # typescript
 *.tsbuildinfo
