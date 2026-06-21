@@ -3,7 +3,7 @@
     "siteName": "Daley Brennan",
     "home": {
       "title": "Daley Brennan - Commercial Strategist",
-      "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on US market entry, distribution strategy, and pricing. Bilingual EN/FR.",
+      "description": "An active senior commercial practitioner in premium wine, advising a limited number of brands on international market entry, distribution, and pricing, with the United States a particular specialism. Bilingual EN/FR.",
       "name": "Daley Brennan, Commercial Strategy for Premium Wine & Spirits",
       "serviceTypes": [
         "Export strategy and audit for premium wine brands",
@@ -14,7 +14,7 @@
     },
     "exportStrategy": {
       "title": "Export Strategy & Audit for Wine & Spirits Brands",
-      "description": "From a blank page to a full review of an established export business: brand, cultural positioning, pricing and margins, distribution, fulfilment, and channels — across the US, France, the UK, and beyond.",
+      "description": "From a blank page to a full review of an established export business: brand, cultural positioning, pricing and margins, distribution, fulfilment, and channels, across the US, France, the UK, and beyond.",
       "serviceType": "Export strategy and independent multi-market audit: brand, positioning, pricing, distribution, fulfilment, and channels"
     },
     "distributorFinder": {
@@ -65,10 +65,36 @@
   "home": {
     "hero": {
       "eyebrow": "Premium wine & spirits · commercial strategy",
-      "title": "The US is my specialism, but it isn't the only way I can help.",
-      "lede": "I help premium wine and spirits brands enter and grow in the United States — pricing, distribution, and the order you do things in. The same hands-on judgement carries into export strategy further afield, ongoing advisory, and speaking.",
+      "title": "Crossing the border is the easy part. Price and partner are where brands lose the market.",
+      "lede": "I help premium wine and spirits brands cross borders and grow once they arrive: the pricing ladder, the right distributor, and the order you do things in. The United States is my sharpest focus, whether you are entering it or exporting from it to Europe, though the same judgement travels to France, the UK, and further afield.",
       "cta": "Let's talk",
       "secondary": "See how it works"
+    },
+    "proof": {
+      "items": {
+        "0": { "value": "Since 2008", "label": "in premium wine" },
+        "1": { "value": "US ↔ Europe", "label": "and markets beyond" },
+        "2": { "value": "EN / FR", "label": "bilingual, both cultures" },
+        "3": { "value": "Both sides", "label": "of the buying table" }
+      }
+    },
+    "whoFor": {
+      "eyebrow": "Who this is for",
+      "title": "Who I work with",
+      "items": {
+        "0": {
+          "title": "Producers entering the US",
+          "body": "A first US market in your sights, and you want the pricing and the first distributor right the first time."
+        },
+        "1": {
+          "title": "Brands scaling across markets",
+          "body": "Already selling in several countries, and the next markets and channels need a sharper sequence than the last."
+        },
+        "2": {
+          "title": "Stalling with a distributor",
+          "body": "In a market but flat: soft depletions, leaking margin, and a partner you are no longer sure fits."
+        }
+      }
     },
     "positioning": {
       "title": "A practitioner, still active in the market.",
@@ -108,7 +134,7 @@
     "diagnosticTeaser": {
       "eyebrow": "Start here",
       "title": "An honest read, before anyone signs anything",
-      "body": "Tell me about your brand and where you want to take it. We'll start with where you actually stand — in the US, France, the UK, or further afield — and the questions worth answering before you commit budget.",
+      "body": "Tell me about your brand and where you want to take it. We'll start with where you actually stand, in the US, France, the UK, or further afield, and the questions worth answering before you commit budget.",
       "cta": "See how it works"
     },
     "selectiveBlock": {
@@ -194,14 +220,14 @@
           "body": "A working session to walk through it together and agree the order of play. Where it points to deeper work, we'll talk about that separately."
         }
       },
-      "note": "Every diagnostic is built from scratch for one brand and one set of markets. There's no template and no sample to send — a generic example would tell you nothing about your own situation."
+      "note": "Every diagnostic is built from scratch for one brand and one set of markets. There's no template and no sample to send. A generic example would tell you nothing about your own situation."
     },
     "faq": {
       "title": "Questions worth asking",
       "items": [
         {
           "q": "What do I actually receive?",
-          "a": "A written document — the export strategy, or the audit findings — with a prioritised list of what to do first, ranked by impact and yours to act on. Then a working call to walk through it together."
+          "a": "A written document, either the export strategy or the audit findings, with a prioritised list of what to do first, ranked by impact and yours to act on. Then a working call to walk through it together."
         },
         {
           "q": "How long does it take?",
@@ -216,7 +242,7 @@
           "a": "Yes. Everything you tell me is treated as confidential, and I'm glad to sign an NDA before we get into specifics."
         },
         {
-          "q": "You hold a senior commercial role — isn't that a conflict?",
+          "q": "You hold a senior commercial role. Isn't that a conflict?",
           "a": "It's the point, not the problem: staying active in the market is what keeps my read current rather than remembered. I take on a limited number of brands, never ones that compete with my employer or with each other, and confidentiality runs both ways."
         },
         {
@@ -266,8 +292,8 @@
           "body": "Make the experience your own. The interface can be customised to your internal branding so it feels in-house."
         }
       },
-      "proof": "The tool is already deployed for internal use at a prestigious winery, where it helps the sales team dig far deeper than a traditional Google search — surfacing wholesale and consumer-facing accounts in greater volume, and with far greater ease.",
-      "nature": "It's a bespoke tool, built around the way your business actually sells, and it runs entirely in your browser — nothing to install. New functionality is being developed continuously, so it keeps getting sharper over time."
+      "proof": "The tool is already deployed for internal use at a prestigious winery, where it helps the sales team dig far deeper than a traditional Google search, surfacing wholesale and consumer-facing accounts in greater volume and with far greater ease.",
+      "nature": "It's a bespoke tool, built around the way your business actually sells, and it runs entirely in your browser, with nothing to install. New functionality is being developed continuously, so it keeps getting sharper over time."
     },
     "plans": {
       "title": "Two ways to use it",
@@ -282,7 +308,7 @@
     },
     "platforms": {
       "title": "Available everywhere you work",
-      "body": "Use it straight from any browser — nothing to install. Your lists are always with you.",
+      "body": "Use it straight from any browser, with nothing to install. Your lists are always with you.",
       "browser": "Use it in any browser",
       "comingSoon": "Native mobile version coming soon"
     },
@@ -396,7 +422,7 @@
       "p3": "I advise a small number of brands because the work is hands-on, and because I'm doing it alongside a full-time role. Staying active in the market is the point: what I bring to your brand is current rather than remembered.",
       "linkedin": "The full professional record is on LinkedIn",
       "linkedinCta": "View LinkedIn profile",
-      "parisCaption": "À l'ombre d'un bouchon — one of my two wine shops in Paris."
+      "parisCaption": "À l'ombre d'un bouchon, one of my two wine shops in Paris."
     },
     "skills": {
       "title": "What I bring",
@@ -462,7 +488,7 @@
       "freeTextSpeakingPlaceholder": "What's the occasion, the audience, and what you'd like me to speak on or teach? The more context, the better.",
       "consent": "I'd like to receive a written diagnostic by email.",
       "consentSpeaking": "I'd like Daley to get back to me about this.",
-      "speakingSection": "Engagement details — optional, but helps me prepare",
+      "speakingSection": "Engagement details (optional, but it helps me prepare)",
       "eventType": "Engagement type",
       "eventTypeOptions": {
         "keynote": "Keynote",
@@ -477,13 +503,13 @@
       "eventTimeframe": "Date / timeframe",
       "eventTimeframePlaceholder": "e.g. March 2027, or a rough window",
       "eventFormat": "Location & format",
-      "eventFormatPlaceholder": "e.g. London, in person — or virtual",
+      "eventFormatPlaceholder": "e.g. London, in person, or virtual",
       "select": "Select…",
       "submit": "Let's talk",
       "submitting": "Sending…",
       "required": "required",
       "optional": "optional",
-      "pricingSection": "Pricing details — optional, but helps us model the numbers",
+      "pricingSection": "Pricing details (optional, but it helps us model the numbers)",
       "wineNames": "Wine / spirit name(s)",
       "wineNamesPlaceholder": "e.g. Château Margaux 2021, Chablis Premier Cru…",
       "wineStyle": "Style / varietal",
@@ -501,7 +527,7 @@
         "OTHER": "Other / multiple markets"
       },
       "targetRegion": "State / region / other market(s)",
-      "targetRegionPlaceholder": "e.g. California — or name the market(s) if 'Other'",
+      "targetRegionPlaceholder": "e.g. California, or name the market(s) if 'Other'",
       "exwPrice": "EXW price per bottle",
       "volumeCases": "Annual volume (cases)",
       "volumeCasesPlaceholder": "e.g. 500",
@@ -518,7 +544,7 @@
     "success": {
       "title": "Thank you. It's with me.",
       "body": "I read every message personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too.",
-      "speakingBody": "I read every message personally. Thank you for thinking of me — I'll come back to you about the engagement. If the timing isn't right, I'll tell you that too."
+      "speakingBody": "I read every message personally. Thank you for thinking of me. I'll come back to you about the engagement. If the timing isn't right, I'll tell you that too."
     },
     "errors": {
       "generic": "Something went wrong. Please try again, or email me directly.",

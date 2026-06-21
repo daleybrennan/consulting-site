@@ -101,7 +101,7 @@ const round = (n: number, d = 2) => Math.round((n + Number.EPSILON) * 10 ** d) /
 const clamp = (n: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, n));
 
 export function money(n: number | null | undefined, cur: string): string {
-  if (n == null || isNaN(n)) return '—';
+  if (n == null || isNaN(n)) return '-';
   return (CURRENCY_SYMBOL[cur] || '') + round(n, 2).toFixed(2);
 }
 
@@ -203,7 +203,7 @@ function walk(
 
 export function quantityDiscount(marketCode: string, region: string | null) {
   const m = qdRules.markets[marketCode];
-  if (!m) return { legal: 'unknown', note: 'Market not in rules table — verify locally.' };
+  if (!m) return { legal: 'unknown', note: 'Market not in rules table, verify locally.' };
   if (m.model === 'three-tier') {
     const st = (region && m.states[region]) || m.defaultIfStateUnlisted;
     return {

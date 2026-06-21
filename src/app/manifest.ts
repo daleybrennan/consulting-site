@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Daley Brennan — Commercial Strategy',
+    name: 'Daley Brennan, Commercial Strategy',
     short_name: 'Daley Brennan',
     description:
       'Commercial strategy for premium wine & spirits brands. US market entry, distribution, and pricing. Bilingual EN/FR.',

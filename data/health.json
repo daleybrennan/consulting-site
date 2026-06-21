@@ -1,0 +1,27 @@
+{
+  "ttb_cola": {
+    "status": "ok",
+    "consecutive_failures": 0,
+    "runs_since_test": 0,
+    "last_success": "2026-06-20",
+    "last_failure": "2026-06-20",
+    "note": "0 new on last run",
+    "open_repair": null,
+    "fix_log": []
+  },
+  "trade_press": {
+    "status": "ok",
+    "consecutive_failures": 0,
+    "runs_since_test": 0,
+    "last_success": "2026-06-20",
+    "last_failure": null,
+    "note": "0 new on last run",
+    "open_repair": null,
+    "fix_log": [
+      {
+        "date": "2026-06-20",
+        "event": "repair cleared by clean run"
+      }
+    ]
+  }
+}

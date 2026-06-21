@@ -1,0 +1,10 @@
+{
+  "currency": "USD",
+  "seed": 100,
+  "remaining": 100,
+  "reserve_floor": 15,
+  "started": "2026-06-20",
+  "horizon_months": 12,
+  "note": "Survival budget for the prospecting agent. Harvest is rules-only and free; spend is the weekly qualify/enrich/draft pass. Log every model call as {date, stage, model, est_cost} and never spend below reserve_floor without Daley's say-so. See Prospecting-agent-integration.md (operating manual) for model tiering.",
+  "entries": []
+}

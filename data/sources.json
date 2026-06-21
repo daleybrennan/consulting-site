@@ -1,0 +1,67 @@
+{
+  "active_sources": [
+    "ttb_cola",
+    "trade_press"
+  ],
+  "rss_feeds": [
+    {
+      "name": "The Drinks Business",
+      "url": "https://www.thedrinksbusiness.com/feed/",
+      "active": true,
+      "note": "Broad drinks trade; good for distributor and leadership moves. Verified working 2026-06-20."
+    },
+    {
+      "name": "The Buyer",
+      "url": "https://www.the-buyer.net/feed/",
+      "active": false,
+      "note": "Retired 2026-06-20: site rebuilt in Next.js, /feed/ now returns an HTML app page, no RSS found. Recheck for a new feed path before reactivating."
+    },
+    {
+      "name": "Harpers Wine & Spirit",
+      "url": "https://harpers.co.uk/feed",
+      "active": false,
+      "note": "UK trade. /feed and /rss both 404 on 2026-06-20; find the live feed path before activating."
+    },
+    {
+      "name": "Decanter",
+      "url": "https://www.decanter.com/feed/",
+      "active": false,
+      "note": "Scores and awards. Feed confirmed working 2026-06-20; high-volume consumer content, so promote in weekly review only if the award signal earns it."
+    },
+    {
+      "name": "Vitisphere",
+      "url": "https://www.vitisphere.com/rss",
+      "active": true,
+      "note": "France-based wine business and trade news. Verified working 2026-06-20 (15 entries). Strong for French producer moves, exports, distribution."
+    },
+    {
+      "name": "Terre de Vins",
+      "url": "https://www.terredevins.com/feed/",
+      "active": true,
+      "note": "France-based wine title. Verified working 2026-06-20 (10 entries). Awards, producer news, export angles."
+    },
+    {
+      "name": "Réussir Vigne",
+      "url": "https://www.reussir.fr/vigne/rss.xml",
+      "active": true,
+      "note": "France-based viticulture trade press. Verified working 2026-06-20 (20 entries). Producer and commercial news."
+    },
+    {
+      "name": "Le Monde - Vins",
+      "url": "https://www.lemonde.fr/vins/rss_full.xml",
+      "active": false,
+      "note": "France-based, general-interest wine coverage. Verified working 2026-06-20 (20 entries) but consumer-leaning; held as a candidate, promote in weekly review if it carries real trade signals."
+    }
+  ],
+  "candidates": [],
+  "yield": {
+    "trade_press": {
+      "signals": 6,
+      "last_signal": "2026-06-20"
+    },
+    "ttb_cola": {
+      "signals": 3,
+      "last_signal": "2026-06-20"
+    }
+  }
+}

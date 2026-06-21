@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 // Branded social-share card. Rendered by Satori (next/og) with the built-in
 // font — deliberately no external font fetch, so the build can never break on
 // a network call. Inherits the [locale] route param for a localised tagline.
-export const alt = 'Daley Brennan — Commercial strategy for premium wine & spirits';
+export const alt = 'Daley Brennan: Commercial strategy for premium wine & spirits';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

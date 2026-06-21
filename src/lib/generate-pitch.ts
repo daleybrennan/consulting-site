@@ -61,7 +61,7 @@ function formatPricingForContext(
     `Importer-out: ${money(pb.importerOut, cur)} | Front line (trade): ${money(pb.frontline, cur)}`,
     `On-premise list: ${money(pb.onPremiseList, cur)} | Off-premise shelf (incl. tax): ${money(pb.offPremiseShelfInclTax, cur)}`,
     `Band (off-premise shelf): ${money(b.offPremiseShelf.low, cur)} – ${money(b.offPremiseShelf.high, cur)} (expected ${money(b.offPremiseShelf.expected, cur)})`,
-    `Quantity discount: ${String(pricing.quantityDiscount.legal).toUpperCase()} — ${pricing.quantityDiscount.note || ''}`,
+    `Quantity discount: ${String(pricing.quantityDiscount.legal).toUpperCase()}: ${pricing.quantityDiscount.note || ''}`,
     pricing.warnings.length ? `Warnings: ${pricing.warnings.join(' | ')}` : '',
     pricing.disclaimer,
   ];
@@ -70,22 +70,22 @@ function formatPricingForContext(
 
 const RESEARCH_SYSTEM = `You are Daley Brennan's research engine. Daley is a current, senior commercial practitioner in the premium wine & spirits industry who advises a small number of brands on US market entry, distribution, and pricing.
 
-Your job: research a brand and produce the raw material for a TEASER diagnostic — a short written read that demonstrates Daley's competence and creates desire for a paid engagement, WITHOUT giving away the answers.
+Your job: research a brand and produce the raw material for a TEASER diagnostic, a short written read that demonstrates Daley's competence and creates desire for a paid engagement, WITHOUT giving away the answers.
 
-CRITICAL — teaser by design:
+CRITICAL, this is a teaser by design:
 - Surface the SHAPE of the diagnosis and the questions worth answering. NEVER resolve them.
-- Name categories of likely risk ("a probable pricing-ladder compression between your ex-cellars price and US shelf", "a likely market-sequencing error given your target states") — but do NOT prescribe the fix.
-- The resolution — the specific fixes and the order to make them — is the paid work. Withhold it.
+- Name categories of likely risk ("a probable pricing-ladder compression between your ex-cellars price and US shelf", "a likely market-sequencing error given your target states"), but do NOT prescribe the fix.
+- The resolution, the specific fixes and the order to make them, is the paid work. Withhold it.
 - Be specific to THIS brand, category, and target markets, and ground it in how the US trade actually buys right now. Use web search to check the brand, its competitive set, and current market conditions.
 - Never invent facts about the brand. If something is unknown, treat it as a question worth answering, not an assertion.
 
-Tone: precise, senior, quietly confident. No hype, no emoji, no sales language.`;
+Tone: precise, senior, quietly confident. No hype, no emoji, no sales language. Never use em-dashes; use commas, colons, or periods.`;
 
 function structureSystem(locale: Locale): string {
   const lang = locale === 'fr' ? 'French' : 'English';
   return `You convert research notes into a structured teaser diagnostic, written entirely in ${lang}.
 
-Hold the teaser discipline: name risks and questions, resolve nothing. Keep each field tight and specific to the brand. 3–4 risk areas, 3–5 questions. No hype, no emoji.`;
+Hold the teaser discipline: name risks and questions, resolve nothing. Keep each field tight and specific to the brand. 3–4 risk areas, 3–5 questions. No hype, no emoji. Never use em-dashes; use commas, colons, or periods.`;
 }
 
 const PITCH_SCHEMA = {
@@ -203,24 +203,24 @@ async function structure(
 function draftEmail(lead: Lead, locale: Locale) {
   if (locale === 'fr') {
     return {
-      subject: `Votre diagnostic commercial — ${lead.company_name}`,
+      subject: `Votre diagnostic commercial : ${lead.company_name}`,
       body: `Bonjour ${lead.contact_name.split(' ')[0]},
 
 Merci de m'avoir parlé de ${lead.company_name}. Vous trouverez ci-joint un court diagnostic commercial : ma lecture préliminaire de votre position sur le marché américain, les zones de risque qui méritent d'être nommées, et les questions à trancher avant d'engager un budget.
 
-C'est volontairement une lecture préliminaire — pas le diagnostic complet. Si ce que vous y lisez résonne, proposons un appel pour approfondir.
+C'est volontairement une lecture préliminaire, pas le diagnostic complet. Si ce que vous y lisez résonne, proposons un appel pour approfondir.
 
 Bien à vous,
 Daley Brennan`,
     };
   }
   return {
-    subject: `Your commercial diagnostic — ${lead.company_name}`,
+    subject: `Your commercial diagnostic: ${lead.company_name}`,
     body: `Hi ${lead.contact_name.split(' ')[0]},
 
 Thanks for telling me about ${lead.company_name}. Attached is a short commercial diagnostic: my preliminary read of where you stand in the US market, the risk areas worth naming, and the questions worth answering before you commit budget.
 
-It's deliberately a preliminary read — not the full diagnostic. If what you see in it lands, let's book a call to go deeper.
+It's deliberately a preliminary read, not the full diagnostic. If what you see in it lands, let's book a call to go deeper.
 
 Best,
 Daley Brennan`,

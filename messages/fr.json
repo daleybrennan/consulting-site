@@ -3,7 +3,7 @@
     "siteName": "Daley Brennan",
     "home": {
       "title": "Daley Brennan - Stratège Commercial",
-      "description": "Praticien commercial senior, actif dans le vin premium, qui conseille un nombre limité de marques sur l'entrée sur le marché américain, la distribution et le positionnement tarifaire. Bilingue FR/EN.",
+      "description": "Praticien commercial senior, actif dans le vin premium, qui conseille un nombre limité de marques sur l'entrée sur les marchés internationaux, la distribution et le positionnement tarifaire, les États-Unis étant une spécialité particulière. Bilingue FR/EN.",
       "name": "Daley Brennan, stratégie commerciale pour les vins & spiritueux premium",
       "serviceTypes": [
         "Stratégie et audit export pour les marques de vin premium",
@@ -14,7 +14,7 @@
     },
     "exportStrategy": {
       "title": "Stratégie & audit export pour les marques de vins & spiritueux",
-      "description": "De la page blanche à la revue complète d'une activité export établie : marque, positionnement culturel, prix et marges, distribution, logistique et circuits — aux États-Unis, en France, au Royaume-Uni et au-delà.",
+      "description": "De la page blanche à la revue complète d'une activité export établie : marque, positionnement culturel, prix et marges, distribution, logistique et circuits, aux États-Unis, en France, au Royaume-Uni et au-delà.",
       "serviceType": "Stratégie export et audit multi-marchés indépendant : marque, positionnement, prix, distribution, logistique et circuits"
     },
     "distributorFinder": {
@@ -65,10 +65,36 @@
   "home": {
     "hero": {
       "eyebrow": "Vins & spiritueux premium · stratégie commerciale",
-      "title": "Les États-Unis sont ma spécialité, mais ce n'est pas le seul domaine où je peux aider.",
-      "lede": "J'accompagne les marques de vins et spiritueux premium dans leur entrée et leur croissance aux États-Unis : prix, distribution, et l'ordre dans lequel on agit. Ce même savoir-faire concret s'étend à la stratégie export sur d'autres marchés, au conseil dans la durée, et aux interventions.",
+      "title": "Passer la frontière est la partie facile. C'est sur le prix et le partenaire que les marques perdent le marché.",
+      "lede": "J'accompagne les marques de vins et spiritueux premium pour franchir les frontières et se développer une fois arrivées : l'échelle de prix, le bon distributeur, et l'ordre dans lequel on agit. Les États-Unis sont mon terrain de prédilection, que vous cherchiez à y entrer ou à en exporter vers l'Europe, mais ce même savoir-faire vaut pour la France, le Royaume-Uni et au-delà.",
       "cta": "Discutons",
       "secondary": "Voir comment ça marche"
+    },
+    "proof": {
+      "items": {
+        "0": { "value": "Depuis 2008", "label": "dans le vin premium" },
+        "1": { "value": "US ↔ Europe", "label": "et au-delà" },
+        "2": { "value": "EN / FR", "label": "bilingue, deux cultures" },
+        "3": { "value": "Des deux côtés", "label": "de la table de négociation" }
+      }
+    },
+    "whoFor": {
+      "eyebrow": "À qui cela s'adresse",
+      "title": "Avec qui je travaille",
+      "items": {
+        "0": {
+          "title": "Producteurs entrant aux États-Unis",
+          "body": "Un premier marché américain en vue, et l'envie de réussir le prix et le premier distributeur du premier coup."
+        },
+        "1": {
+          "title": "Marques en croissance sur plusieurs marchés",
+          "body": "Déjà présentes dans plusieurs pays, et les prochains marchés et circuits exigent un séquençage plus fin que le précédent."
+        },
+        "2": {
+          "title": "À l'arrêt avec un distributeur",
+          "body": "Sur un marché mais à la peine : ventes au ralenti, marge qui fuit, et un partenaire dont vous doutez désormais qu'il convienne."
+        }
+      }
     },
     "positioning": {
       "title": "Un praticien, toujours actif sur le marché.",
@@ -108,7 +134,7 @@
     "diagnosticTeaser": {
       "eyebrow": "Commencez ici",
       "title": "Un regard honnête, avant toute signature",
-      "body": "Parlez-moi de votre marque et de là où vous voulez l'emmener. Nous partirons de votre position réelle — aux États-Unis, en France, au Royaume-Uni ou plus loin — et des questions à trancher avant d'engager un budget.",
+      "body": "Parlez-moi de votre marque et de là où vous voulez l'emmener. Nous partirons de votre position réelle, aux États-Unis, en France, au Royaume-Uni ou plus loin, et des questions à trancher avant d'engager un budget.",
       "cta": "Voir comment ça marche"
     },
     "selectiveBlock": {
@@ -194,14 +220,14 @@
           "body": "Une session de travail pour le parcourir ensemble et convenir de l'ordre des priorités. Si cela appelle un travail plus approfondi, nous en parlerons séparément."
         }
       },
-      "note": "Chaque diagnostic est conçu sur mesure pour une marque et un ensemble de marchés. Il n'y a ni modèle ni exemple à envoyer — un exemple générique ne vous apprendrait rien sur votre propre situation."
+      "note": "Chaque diagnostic est conçu sur mesure pour une marque et un ensemble de marchés. Il n'y a ni modèle ni exemple à envoyer. Un exemple générique ne vous apprendrait rien sur votre propre situation."
     },
     "faq": {
       "title": "Questions qui méritent d'être posées",
       "items": [
         {
           "q": "Qu'est-ce que je reçois concrètement ?",
-          "a": "Un document écrit — la stratégie export, ou les conclusions de l'audit — avec une liste priorisée de ce qu'il faut faire d'abord, classée par impact et à vous d'agir. Puis un appel de travail pour le parcourir ensemble."
+          "a": "Un document écrit, soit la stratégie export, soit les conclusions de l'audit, avec une liste priorisée de ce qu'il faut faire d'abord, classée par impact et à vous d'agir. Puis un appel de travail pour le parcourir ensemble."
         },
         {
           "q": "Combien de temps cela prend-il ?",
@@ -216,7 +242,7 @@
           "a": "Oui. Tout ce que vous me confiez est traité de manière confidentielle, et je signe volontiers un NDA avant d'entrer dans les détails."
         },
         {
-          "q": "Vous occupez un poste commercial senior — n'est-ce pas un conflit ?",
+          "q": "Vous occupez un poste commercial senior. N'est-ce pas un conflit ?",
           "a": "C'est l'essentiel, pas le problème : rester actif sur le marché est ce qui garde ma lecture actuelle plutôt que mémorisée. Je n'accepte qu'un nombre limité de marques, jamais en concurrence avec mon employeur ni entre elles, et la confidentialité va dans les deux sens."
         },
         {
@@ -266,8 +292,8 @@
           "body": "Faites-en un outil à vous. L'interface peut être personnalisée à votre charte interne pour qu'elle ait l'air d'un outil maison."
         }
       },
-      "proof": "L'outil est déjà déployé en interne dans un domaine viticole prestigieux, où il permet à l'équipe commerciale d'aller bien plus loin qu'une simple recherche Google — en révélant des comptes grossistes et grand public en plus grand nombre, et avec une bien plus grande facilité.",
-      "nature": "C'est un outil sur mesure, conçu autour de la façon dont votre entreprise vend réellement, et il fonctionne entièrement dans votre navigateur — rien à installer. De nouvelles fonctionnalités sont développées en continu, si bien qu'il ne cesse de gagner en précision."
+      "proof": "L'outil est déjà déployé en interne dans un domaine viticole prestigieux, où il permet à l'équipe commerciale d'aller bien plus loin qu'une simple recherche Google, en révélant des comptes grossistes et grand public en plus grand nombre et avec une bien plus grande facilité.",
+      "nature": "C'est un outil sur mesure, conçu autour de la façon dont votre entreprise vend réellement, et il fonctionne entièrement dans votre navigateur, sans rien à installer. De nouvelles fonctionnalités sont développées en continu, si bien qu'il ne cesse de gagner en précision."
     },
     "plans": {
       "title": "Deux façons de l'utiliser",
@@ -282,7 +308,7 @@
     },
     "platforms": {
       "title": "Disponible partout où vous travaillez",
-      "body": "Utilisez-le directement dans n'importe quel navigateur — rien à installer. Vos listes vous suivent partout.",
+      "body": "Utilisez-le directement dans n'importe quel navigateur, sans rien à installer. Vos listes vous suivent partout.",
       "browser": "Dans n'importe quel navigateur",
       "comingSoon": "Version mobile native à venir"
     },
@@ -396,7 +422,7 @@
       "p3": "Je conseille un petit nombre de marques parce que le travail est concret et parce que je le mène en parallèle d'un poste à temps plein. Rester actif sur le marché compte : ce que j'apporte à votre marque est actuel plutôt que mémorisé.",
       "linkedin": "Le parcours professionnel complet est sur LinkedIn",
       "linkedinCta": "Voir le profil LinkedIn",
-      "parisCaption": "À l'ombre d'un bouchon — l'une de mes deux caves à Paris."
+      "parisCaption": "À l'ombre d'un bouchon, l'une de mes deux caves à Paris."
     },
     "skills": {
       "title": "Ce que j'apporte",
@@ -462,7 +488,7 @@
       "freeTextSpeakingPlaceholder": "Quelle est l'occasion, le public, et le sujet sur lequel vous aimeriez que j'intervienne ou que je forme ? Plus il y a de contexte, mieux c'est.",
       "consent": "Je souhaite recevoir un diagnostic écrit par e-mail.",
       "consentSpeaking": "Je souhaite que Daley me recontacte à ce sujet.",
-      "speakingSection": "Détails de l'intervention — facultatif, mais utile pour préparer",
+      "speakingSection": "Détails de l'intervention (facultatif, mais utile pour préparer)",
       "eventType": "Type d'intervention",
       "eventTypeOptions": {
         "keynote": "Conférence (keynote)",
@@ -477,13 +503,13 @@
       "eventTimeframe": "Date / période",
       "eventTimeframePlaceholder": "ex. mars 2027, ou une période approximative",
       "eventFormat": "Lieu & format",
-      "eventFormatPlaceholder": "ex. Paris, en présentiel — ou à distance",
+      "eventFormatPlaceholder": "ex. Paris, en présentiel, ou à distance",
       "select": "Choisir…",
       "submit": "Discutons",
       "submitting": "Envoi…",
       "required": "obligatoire",
       "optional": "facultatif",
-      "pricingSection": "Données tarifaires — facultatif, mais utile pour modéliser les chiffres",
+      "pricingSection": "Données tarifaires (facultatif, mais utile pour modéliser les chiffres)",
       "wineNames": "Nom(s) du vin / spiritueux",
       "wineNamesPlaceholder": "ex. Château Margaux 2021, Chablis Premier Cru…",
       "wineStyle": "Style / cépage",
@@ -501,7 +527,7 @@
         "OTHER": "Autre / plusieurs marchés"
       },
       "targetRegion": "État / région / autre(s) marché(s)",
-      "targetRegionPlaceholder": "ex. Californie — ou nommez le(s) marché(s) si « Autre »",
+      "targetRegionPlaceholder": "ex. Californie, ou nommez le(s) marché(s) si « Autre »",
       "exwPrice": "Prix départ cave (par bouteille)",
       "volumeCases": "Volume annuel (caisses)",
       "volumeCasesPlaceholder": "ex. 500",
@@ -518,7 +544,7 @@
     "success": {
       "title": "Merci. C'est bien arrivé.",
       "body": "Je lis chaque message personnellement. Si votre marque correspond à ma façon de travailler, je reviendrai vers vous avec un diagnostic. Si le moment n'est pas le bon, je vous le dirai aussi.",
-      "speakingBody": "Je lis chaque message personnellement. Merci d'avoir pensé à moi — je reviendrai vers vous au sujet de l'intervention. Si le moment n'est pas le bon, je vous le dirai aussi."
+      "speakingBody": "Je lis chaque message personnellement. Merci d'avoir pensé à moi, je reviendrai vers vous au sujet de l'intervention. Si le moment n'est pas le bon, je vous le dirai aussi."
     },
     "errors": {
       "generic": "Une erreur s'est produite. Veuillez réessayer, ou m'écrire directement.",

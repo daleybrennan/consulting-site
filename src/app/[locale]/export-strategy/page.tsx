@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import { Section, CtaBand, Eyebrow } from '@/components/ui';
+import { Section, CtaBand, PageHero, NumberedGrid } from '@/components/ui';
 import vineyard from '../../../../public/vineyard-glass.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
@@ -53,30 +52,13 @@ export default async function ExportStrategyPage({
 function Hero() {
   const t = useTranslations('exportStrategy.hero');
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-surface">
-      <Image
-        src={vineyard}
-        alt=""
-        aria-hidden="true"
-        placeholder="blur"
-        priority
-        sizes="100vw"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_30%]"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"
-      />
-      <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
-        <Eyebrow>{t('eyebrow')}</Eyebrow>
-        <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
-          {t('title')}
-        </h1>
-        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
-          {t('lede')}
-        </p>
-      </div>
-    </section>
+    <PageHero
+      image={vineyard}
+      objectPosition="50% 30%"
+      eyebrow={t('eyebrow')}
+      title={t('title')}
+      lede={t('lede')}
+    />
   );
 }
 
@@ -109,19 +91,15 @@ const COVER_KEYS = [
 
 function Covers() {
   const t = useTranslations('exportStrategy.covers');
+  const items = COVER_KEYS.map((k) => ({
+    title: t(`items.${k}.title`),
+    body: t(`items.${k}.body`),
+  }));
   return (
     <Section tone="panel">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <div className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-        {COVER_KEYS.map((k, i) => (
-          <div key={k} className="reveal border-b border-r border-line bg-surface p-8 md:p-9">
-            <span className="font-display text-2xl text-accent">0{i + 1}</span>
-            <h3 className="mt-3 text-xl">{t(`items.${k}.title`)}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {t(`items.${k}.body`)}
-            </p>
-          </div>
-        ))}
+      <div className="mt-14">
+        <NumberedGrid items={items} variant="sm" cols={3} />
       </div>
     </Section>
   );
@@ -144,18 +122,16 @@ function Markets() {
 function How() {
   const t = useTranslations('exportStrategy.how');
   const steps = ['one', 'two', 'three', 'four'] as const;
+  const items = steps.map((s) => ({
+    title: t(`steps.${s}.title`),
+    body: t(`steps.${s}.body`),
+  }));
   return (
     <Section tone="panel">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <ol className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line md:grid-cols-2">
-        {steps.map((s, i) => (
-          <li key={s} className="reveal border-b border-r border-line bg-surface p-8 md:p-10">
-            <span className="font-display text-3xl text-accent">0{i + 1}</span>
-            <h3 className="mt-3 text-2xl">{t(`steps.${s}.title`)}</h3>
-            <p className="mt-3 text-muted">{t(`steps.${s}.body`)}</p>
-          </li>
-        ))}
-      </ol>
+      <div className="mt-14">
+        <NumberedGrid items={items} variant="lg" cols={2} ordered />
+      </div>
       <p className="reveal mt-8 max-w-2xl text-sm leading-relaxed text-muted">{t('note')}</p>
     </Section>
   );

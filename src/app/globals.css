@@ -107,14 +107,24 @@ body {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
 
-/* Thin uppercase eyebrow label */
+/* Thin uppercase eyebrow label, with a short leading accent rule */
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 500;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
 }
 
 /* On dark sections the burgundy eyebrow is too low-contrast; lift it to a
@@ -125,3 +135,17 @@ body {
 
 /* Constrained reading measure */
 .prose-measure { max-width: var(--container-prose); }
+
+/* Restrained card hover: a small lift, soft shadow, accent-tinted edge.
+   Shared by the numbered grids and the "who this is for" cards. */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 10px 30px -12px rgba(20, 20, 20, 0.18);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hover, .card-hover:hover { transform: none; transition: none; }
+}

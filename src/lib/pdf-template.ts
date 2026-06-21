@@ -8,7 +8,7 @@ const STRINGS: Record<Locale, Record<string, string>> = {
     risks: 'Risk areas worth naming',
     questions: 'Questions worth answering before you commit budget',
     footer:
-      'This is a preliminary read, not the full diagnostic. The resolution — the specific fixes and the order to make them — is the work itself.',
+      'This is a preliminary read, not the full diagnostic. The resolution, the specific fixes and the order to make them, is the work itself.',
     confidential: 'Private & confidential',
   },
   fr: {
@@ -18,7 +18,7 @@ const STRINGS: Record<Locale, Record<string, string>> = {
     risks: 'Zones de risque à nommer',
     questions: 'Questions à trancher avant d’engager un budget',
     footer:
-      'Ceci est une lecture préliminaire, pas le diagnostic complet. La résolution — les correctifs précis et l’ordre dans lequel les appliquer — constitue le travail lui-même.',
+      'Ceci est une lecture préliminaire, pas le diagnostic complet. La résolution, les correctifs précis et l’ordre dans lequel les appliquer, constitue le travail lui-même.',
     confidential: 'Privé & confidentiel',
   },
 };
@@ -110,7 +110,7 @@ export function pitchHtml(
     <h1 class="display">${esc(content.headline)}</h1>
     <p class="lede">${esc(content.intro)}</p>
     <p class="prepared">${esc(s.prepared)} <strong>${esc(lead.company_name)}</strong>${
-      lead.contact_name ? ` — ${esc(lead.contact_name)}` : ''
+      lead.contact_name ? `, ${esc(lead.contact_name)}` : ''
     }</p>
 
     <section>

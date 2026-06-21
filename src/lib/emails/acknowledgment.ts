@@ -22,7 +22,7 @@ export function acknowledgmentEmail({
   if (isSpeaking) {
     if (locale === 'fr') {
       return {
-        subject: `Merci pour votre message — ${companyName}`,
+        subject: `Merci pour votre message : ${companyName}`,
         text: [
           `Bonjour ${firstName},`,
           '',
@@ -38,7 +38,7 @@ export function acknowledgmentEmail({
       };
     }
     return {
-      subject: `Thank you for getting in touch — ${companyName}`,
+      subject: `Thank you for getting in touch: ${companyName}`,
       text: [
         `Hi ${firstName},`,
         '',
@@ -56,11 +56,11 @@ export function acknowledgmentEmail({
 
   if (locale === 'fr') {
     return {
-      subject: `J'ai bien reçu votre demande — ${companyName}`,
+      subject: `J'ai bien reçu votre demande : ${companyName}`,
       text: [
         `Bonjour ${firstName},`,
         '',
-        `Merci — j'ai bien reçu votre demande concernant ${companyName}.`,
+        `Merci, j'ai bien reçu votre demande concernant ${companyName}.`,
         '',
         `Je prépare personnellement un diagnostic tarifaire et vous reviendrai sous peu. Si vous souhaitez ajouter quoi que ce soit entre-temps, il vous suffit de répondre à ce message.`,
         '',
@@ -73,11 +73,11 @@ export function acknowledgmentEmail({
   }
 
   return {
-    subject: `I've received your request — ${companyName}`,
+    subject: `I've received your request: ${companyName}`,
     text: [
       `Hi ${firstName},`,
       '',
-      `Thank you — I've received your request for ${companyName}.`,
+      `Thank you. I've received your request for ${companyName}.`,
       '',
       `I prepare each pricing diagnostic personally and will be in touch shortly. If there's anything you'd like to add in the meantime, just reply to this email.`,
       '',

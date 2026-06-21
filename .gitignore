@@ -10,6 +10,16 @@
 !.yarn/releases
 !.yarn/versions
 
+# prospecting agent runtime log (state JSON under data/ is intentionally tracked)
+/data/harvest.log
+
+# python bytecode (harvest agent)
+__pycache__/
+*.pyc
+
+# supabase CLI temp state (regenerated locally)
+/supabase/.temp/
+
 # testing
 /coverage
 

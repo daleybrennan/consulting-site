@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { Section, Eyebrow } from '@/components/ui';
+import { Section, PageHero, NumberedGrid } from '@/components/ui';
 import cellar from '../../../../public/wine-cellar.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
@@ -53,30 +52,12 @@ export default async function DistributorFinderPage({
 function Hero() {
   const t = useTranslations('distributorFinder.hero');
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-surface">
-      <Image
-        src={cellar}
-        alt=""
-        aria-hidden="true"
-        placeholder="blur"
-        priority
-        sizes="100vw"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40"
-      />
-      <div className="mx-auto max-w-6xl px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-32">
-        <Eyebrow>{t('eyebrow')}</Eyebrow>
-        <h1 className="reveal mt-6 max-w-4xl text-balance text-4xl leading-tight md:text-6xl">
-          {t('title')}
-        </h1>
-        <p className="reveal prose-measure mt-8 max-w-2xl text-lg text-muted-dark md:text-xl">
-          {t('lede')}
-        </p>
-      </div>
-    </section>
+    <PageHero
+      image={cellar}
+      eyebrow={t('eyebrow')}
+      title={t('title')}
+      lede={t('lede')}
+    />
   );
 }
 
@@ -84,6 +65,10 @@ const FEATURE_KEYS = ['0', '1', '2', '3', '4', '5'] as const;
 
 function What() {
   const t = useTranslations('distributorFinder.what');
+  const items = FEATURE_KEYS.map((k) => ({
+    title: t(`items.${k}.title`),
+    body: t(`items.${k}.body`),
+  }));
   return (
     <Section tone="light">
       <div className="grid gap-10 md:grid-cols-[1fr_1.3fr] md:gap-16">
@@ -92,16 +77,8 @@ function What() {
           {t('body')}
         </p>
       </div>
-      <div className="mt-14 grid overflow-hidden rounded-lg border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-        {FEATURE_KEYS.map((k, i) => (
-          <div key={k} className="reveal border-b border-r border-line bg-surface p-8 md:p-9">
-            <span className="font-display text-2xl text-accent">0{i + 1}</span>
-            <h3 className="mt-3 text-xl">{t(`items.${k}.title`)}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {t(`items.${k}.body`)}
-            </p>
-          </div>
-        ))}
+      <div className="mt-14">
+        <NumberedGrid items={items} variant="sm" cols={3} />
       </div>
       <div className="reveal mt-14 max-w-3xl border-l-2 border-accent pl-6">
         <p className="text-lg leading-relaxed text-ink-soft">{t('proof')}</p>
