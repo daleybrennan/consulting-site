@@ -6,7 +6,6 @@ import {
   Section,
   ButtonLink,
   Eyebrow,
-  NoObligationPill,
   PageHero,
   ProofBar,
   NumberedGrid,
@@ -80,6 +79,7 @@ function Hero() {
           {t('secondary')} →
         </a>
       </div>
+      <p className="reveal mt-6 max-w-xl text-sm text-muted-dark">{t('note')}</p>
     </PageHero>
   );
 }
@@ -220,7 +220,6 @@ function DiagnosticTeaser() {
             {t('title')}
           </h2>
           <p className="reveal mt-5 max-w-xl text-lg text-muted">{t('body')}</p>
-          <NoObligationPill />
         </div>
         <div className="reveal md:justify-self-end">
           <ButtonLink href="/export-strategy">{t('cta')}</ButtonLink>

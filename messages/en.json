@@ -75,7 +75,8 @@
       ],
       "lede": "I help premium wine and spirits brands cross borders and grow once they arrive: the pricing ladder, the right distributor, and the order you do things in. The United States is my sharpest focus, whether you are entering it or exporting from it to Europe, though the same judgement travels to France, the UK, and further afield.",
       "cta": "Let's talk",
-      "secondary": "See how it works"
+      "secondary": "See how it works",
+      "note": "Reaching out earns you a written diagnostic: a short, no-obligation read on where your pricing actually lands."
     },
     "proof": {
       "items": {
@@ -140,8 +141,8 @@
     },
     "diagnosticTeaser": {
       "eyebrow": "Start here",
-      "title": "An honest read, before anyone signs anything",
-      "body": "Tell me about your brand and where you want to take it. We'll start with where you actually stand, in the US, France, the UK, or further afield, and the questions worth answering before you commit budget.",
+      "title": "An honest read, with no obligation.",
+      "body": "Tell me about your brand and where you want to take it, and I'll send back a written diagnostic: where your price actually lands in the US, France, the UK, or further afield, the shelf it would join, and the questions worth answering before you commit budget. Prepared personally, with no cost and no obligation.",
       "cta": "See how it works"
     },
     "selectiveBlock": {
@@ -454,7 +455,7 @@
     "hero": {
       "eyebrow": "Let's talk",
       "title": "Tell me about your brand.",
-      "lede": "Tell me a little about your brand and where you're trying to take it. I only work with a handful of brands at a time, so I read every message myself and I'll come back to you if I think I can genuinely help."
+      "lede": "Tell me a little about your brand and where you're trying to take it. I only work with a handful of brands at a time, so I read every message myself. If I can help, you'll get a written diagnostic back: a short, no-obligation read on where your pricing lands and the questions worth answering. If the timing isn't right, I'll tell you that too."
     },
     "form": {
       "contactName": "Your name",
@@ -550,7 +551,7 @@
     },
     "success": {
       "title": "Thank you. It's with me.",
-      "body": "I read every message personally. If your brand is a fit for the way I work, I'll come back to you with a diagnostic. If the timing isn't right, I'll tell you that too.",
+      "body": "I read every message personally. I'll prepare your written diagnostic, a short read on where your pricing lands and the questions worth answering, and send it shortly, with no cost and no obligation. If the timing isn't right, I'll tell you that too.",
       "speakingBody": "I read every message personally. Thank you for thinking of me. I'll come back to you about the engagement. If the timing isn't right, I'll tell you that too."
     },
     "errors": {

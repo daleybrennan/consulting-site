@@ -75,7 +75,8 @@
       ],
       "lede": "J'accompagne les marques de vins et spiritueux premium pour franchir les frontières et se développer une fois arrivées : l'échelle de prix, le bon distributeur, et l'ordre dans lequel on agit. Les États-Unis sont mon terrain de prédilection, que vous cherchiez à y entrer ou à en exporter vers l'Europe, mais ce même savoir-faire vaut pour la France, le Royaume-Uni et au-delà.",
       "cta": "Discutons",
-      "secondary": "Voir comment ça marche"
+      "secondary": "Voir comment ça marche",
+      "note": "Un simple message vous vaut un diagnostic écrit : une lecture brève et sans engagement de l'endroit où votre prix atterrit réellement."
     },
     "proof": {
       "items": {
@@ -140,8 +141,8 @@
     },
     "diagnosticTeaser": {
       "eyebrow": "Commencez ici",
-      "title": "Un regard honnête, avant toute signature",
-      "body": "Parlez-moi de votre marque et de là où vous voulez l'emmener. Nous partirons de votre position réelle, aux États-Unis, en France, au Royaume-Uni ou plus loin, et des questions à trancher avant d'engager un budget.",
+      "title": "Un avis honnête, sans engagement.",
+      "body": "Parlez-moi de votre marque et de là où vous voulez l'emmener, et je vous renverrai un diagnostic écrit : où votre prix atterrit réellement aux États-Unis, en France, au Royaume-Uni ou plus loin, le linéaire qu'il rejoindrait, et les questions à trancher avant d'engager un budget. Préparé personnellement, sans frais ni engagement.",
       "cta": "Voir comment ça marche"
     },
     "selectiveBlock": {
@@ -454,7 +455,7 @@
     "hero": {
       "eyebrow": "Discutons",
       "title": "Parlez-moi de votre marque.",
-      "lede": "Parlez-moi un peu de votre marque et de là où vous voulez l'emmener. Je n'accepte qu'un nombre limité de missions à la fois, donc je lis chaque message moi-même et je reviendrai vers vous si je pense pouvoir vraiment aider."
+      "lede": "Parlez-moi un peu de votre marque et de là où vous voulez l'emmener. Je n'accepte qu'un nombre limité de missions à la fois, donc je lis chaque message moi-même. Si je peux aider, vous recevrez en retour un diagnostic écrit : une lecture brève et sans engagement de l'endroit où votre prix atterrit et des questions à trancher. Si le moment n'est pas le bon, je vous le dirai aussi."
     },
     "form": {
       "contactName": "Votre nom",
@@ -550,7 +551,7 @@
     },
     "success": {
       "title": "Merci. C'est bien arrivé.",
-      "body": "Je lis chaque message personnellement. Si votre marque correspond à ma façon de travailler, je reviendrai vers vous avec un diagnostic. Si le moment n'est pas le bon, je vous le dirai aussi.",
+      "body": "Je lis chaque message personnellement. Je préparerai votre diagnostic écrit, une lecture brève de l'endroit où votre prix atterrit et des questions à trancher, et vous l'enverrai sous peu, sans frais ni engagement. Si le moment n'est pas le bon, je vous le dirai aussi.",
       "speakingBody": "Je lis chaque message personnellement. Merci d'avoir pensé à moi, je reviendrai vers vous au sujet de l'intervention. Si le moment n'est pas le bon, je vous le dirai aussi."
     },
     "errors": {
