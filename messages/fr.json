@@ -17,6 +17,10 @@
       "description": "De la page blanche à la revue complète d'une activité export établie : marque, positionnement culturel, prix et marges, distribution, logistique et circuits, aux États-Unis, en France, au Royaume-Uni et au-delà.",
       "serviceType": "Stratégie export et audit multi-marchés indépendant : marque, positionnement, prix, distribution, logistique et circuits"
     },
+    "firstTime": {
+      "title": "Exporter pour la première fois : par où commencer",
+      "description": "Un guide sans détour pour les producteurs qui pèsent un premier pas à l'export : savoir si l'export est fait pour vous, comment choisir un premier marché, et ce que la réalité du prix en rayon implique avant de vous engager."
+    },
     "distributorFinder": {
       "title": "Prospection de distributeurs & revendeurs pour les domaines",
       "description": "Un outil pour les domaines viticoles : faire émerger et prioriser les bons distributeurs et revendeurs sur chaque marché visé, pour démarrer la prospection avec une liste qui en vaut la peine.",
@@ -101,8 +105,13 @@
         "2": {
           "title": "À l'arrêt avec un distributeur",
           "body": "Sur un marché mais à la peine : ventes au ralenti, marge qui fuit, et un partenaire dont vous doutez désormais qu'il convienne."
+        },
+        "3": {
+          "title": "Vous pesez un premier pas à l'export",
+          "body": "Solide sur votre marché, vous vous demandez si, où et quand vendre à l'étranger, sans miser l'entreprise que vous avez bâtie pour le savoir."
         }
-      }
+      },
+      "firstTimeLink": "Nouveau à l'export ? Par où commencer"
     },
     "positioning": {
       "title": "Un praticien, toujours actif sur le marché.",
@@ -133,7 +142,8 @@
         "1": "Contribution à un quasi-doublement du chiffre d'affaires américain d'un domaine viticole haut de gamme en un an.",
         "2": "Croissance d'un compte de chaîne nationale d'environ sept fois d'une année sur l'autre.",
         "3": "Chiffre d'affaires d'un groupe vinicole européen porté à ×1,9 et marge brute améliorée de onze points.",
-        "4": "Redressement d'une boutique de vins parisienne en difficulté : marge brute passée de 9 % à 34 %, puis cession de l'affaire."
+        "4": "Redressement d'une boutique de vins parisienne en difficulté : marge brute passée de 9 % à 34 %, puis cession de l'affaire.",
+        "5": "Conduit un producteur français sans présence aux États-Unis sur le marché via un importateur national, et y a lancé deux nouvelles marques."
       },
       "note": "Marques et clients gardés anonymes par respect de leur confidentialité.",
       "verify": "Les postes, les dates et les références derrière ces chiffres relèvent du domaine public.",
@@ -147,7 +157,7 @@
     },
     "selectiveBlock": {
       "title": "Volontairement restreint",
-      "body": "Je n'accepte qu'un nombre limité de missions à la fois, parce que le travail est concret et parce que je le mène en parallèle d'un poste commercial à temps plein. Si le moment n'est pas le bon, je vous le dirai."
+      "body": "Je n'accepte qu'un nombre limité de missions à la fois, parce que le travail est concret et parce que je le mène en parallèle d'un poste commercial à temps plein. Si le moment n'est pas le bon, je vous le dirai. Et si votre besoin appelle une spécialité au-delà de la mienne, je peux vous présenter un confrère de confiance de mon réseau qui la possède."
     },
     "speakingCallout": {
       "eyebrow": "Conférences & enseignement",
@@ -163,17 +173,22 @@
       "lede": "Que vous prépariez votre premier marché export ou que vous opériez déjà sur une dizaine, voici une lecture indépendante et concrète de votre position et de là où votre marque perd discrètement de la valeur : marque, prix, partenaires, logistique, et l'adéquation culturelle qui décide de tout."
     },
     "startingPoints": {
-      "title": "Deux points de départ",
+      "title": "D'où vous partez",
       "items": {
-        "scratch": {
-          "title": "Partir de zéro",
-          "body": "Pas encore de présence à l'export, ou un premier marché en ligne de mire. Nous bâtissons la stratégie depuis la base : où aller, dans quel ordre, à quel prix, et via qui."
+        "new": {
+          "title": "Nouveau à l'export",
+          "body": "Pas encore de présence à l'export, les États-Unis étant souvent le Graal. Nous bâtissons la stratégie depuis la base : où aller en premier, à quel prix, et via qui."
         },
-        "established": {
-          "title": "Une activité établie",
-          "body": "Déjà présent sur plusieurs marchés. Nous auditons ce que vous avez bâti, marché par marché, et nommons ce qui fonctionne, ce qui vous coûte, et ce qu'il faut corriger d'abord."
+        "expand": {
+          "title": "Déjà à l'export, prêt à grandir",
+          "body": "Déjà présent sur un ou deux marchés, et pas encore assez. Nous affinons le prix, les partenaires et le séquençage pour ouvrir les États-Unis et faire grandir l'existant."
+        },
+        "audit": {
+          "title": "Présent largement, besoin d'un audit",
+          "body": "Sur de nombreux marchés, les États-Unis parmi eux. Nous auditons ce que vous avez bâti, marché par marché, et nommons ce qui fonctionne, ce qui vous coûte, et ce qu'il faut corriger d'abord."
         }
-      }
+      },
+      "firstTimeLink": "Tout nouveau à l'export ? Commencez par le guide du premier pas"
     },
     "covers": {
       "title": "Ce que nous examinons",
@@ -207,6 +222,12 @@
     "markets": {
       "title": "Où j'interviens",
       "body": "Le focus le plus net porte sur les États-Unis, la France et le Royaume-Uni, où je travaille au plus près. Mais l'export s'arrête rarement là : j'ai aussi travaillé en Amérique latine et au Moyen-Orient, et je suis ravi d'échanger sur tout marché que vous envisagez. Si je ne suis pas la bonne personne pour un marché donné, je vous le dirai."
+    },
+    "orientation": {
+      "eyebrow": "Une première étape plus légère",
+      "title": "Pas prêt pour une stratégie complète ? Commencez par un appel d'orientation.",
+      "body": "Si vous pesez l'export ou ne savez pas par où commencer, nul besoin de démarrer par une mission complète. L'appel d'orientation est une session de travail ciblée pour discuter si le moment est bon et par où commencer : une étape courte et concrète avant tout engagement plus important. Nous convenons des modalités avant que vous ne réserviez.",
+      "cta": "Discutons"
     },
     "how": {
       "title": "Comment ça marche",
@@ -243,7 +264,7 @@
         },
         {
           "q": "Combien cela coûte-t-il ?",
-          "a": "Chaque mission est cadrée sur le brief, donc les honoraires dépendent des marchés et de la profondeur requise. Nous en convenons lors de notre premier appel, avant tout engagement de votre part."
+          "a": "Chaque mission est cadrée sur le brief, donc les honoraires dépendent des marchés et de la profondeur requise. Il existe aussi des points d'entrée plus légers, pour que l'engagement s'ajuste à la question plutôt que de commencer en grand. Nous en convenons lors de notre premier appel, avant tout engagement de votre part."
         },
         {
           "q": "Ce que je partage reste-t-il confidentiel ?",
@@ -256,12 +277,89 @@
         {
           "q": "Quels marchés et quelles langues couvrez-vous ?",
           "a": "Le plus net sur les États-Unis, la France et le Royaume-Uni, avec un travail en Amérique latine, au Moyen-Orient et en Europe du Nord. En français ou en anglais. Si je ne suis pas la bonne personne pour un marché donné, je vous le dirai."
+        },
+        {
+          "q": "Et si mon besoin sort de votre spécialité ?",
+          "a": "Je vous le dirai, et lorsque c'est utile je peux vous présenter un confrère de confiance de mon réseau qui le couvre. L'objectif est de vous orienter vers la bonne personne, que ce soit moi ou non."
         }
       ]
     },
     "cta": {
       "title": "Lançons la conversation",
       "body": "Parlez-moi de votre marque et des marchés que vous envisagez ou où vous êtes déjà présent. Si c'est pertinent, je reviendrai vers vous et nous verrons la suite.",
+      "button": "Discutons"
+    }
+  },
+  "firstTime": {
+    "hero": {
+      "eyebrow": "L'export, dès le départ",
+      "title": "Vous pensez à l'export pour la première fois ?",
+      "lede": "Si vous êtes solide sur votre marché et que vous pesez l'idée de vendre à l'étranger, le plus difficile n'est pas d'expédier le vin. C'est de savoir si l'export est fait pour vous, par quel marché commencer (pour la plupart des producteurs, les États-Unis sont le Graal), et où votre prix atterrira vraiment une fois sur place. Voici comment y réfléchir avant d'engager la moindre caisse."
+    },
+    "questions": {
+      "title": "Les questions à trancher en premier",
+      "items": {
+        "readiness": {
+          "title": "L'export est-il fait pour vous, maintenant ?",
+          "body": "L'export récompense les producteurs aux approvisionnements réguliers, à la marge confortable, et qui ont la patience d'une construction sur plusieurs années. Si votre activité nationale tourne bien et que vous avez du volume disponible, le moment est peut-être venu. Sinon, mieux vaut le savoir tout de suite."
+        },
+        "market": {
+          "title": "Quel marché, et pourquoi ?",
+          "body": "Les États-Unis sont le marché que la plupart des producteurs visent vraiment, et le Graal, mais ils n'ont rien de comparable au Royaume-Uni, au Canada ou à vos voisins en matière de fiscalité, de structure, et de ce qu'un nom inconnu peut espérer. Le premier pas, c'est de choisir délibérément, pas de vendre au premier qui vous écrit."
+        },
+        "size": {
+          "title": "Êtes-vous trop petit ou trop inconnu ?",
+          "body": "Rarement. Un producteur modeste et peu connu peut très bien réussir à l'étranger avec le bon marché, le bon prix et le bon partenaire. La notoriété chez vous n'est pas le critère. L'adéquation, si."
+        },
+        "price": {
+          "title": "Où votre prix va-t-il atterrir ?",
+          "body": "Le prix sur un rayon étranger se décide plusieurs marges, plus le fret, les droits et les taxes, avant d'y arriver. Connaître ce chiffre d'abord vous dit si le combat est gagnable."
+        }
+      }
+    },
+    "reality": {
+      "title": "Ce que la plupart des débutants oublient",
+      "body": "Il est tentant d'imaginer l'export comme la même bouteille, vendue dans un autre pays, à peu près à votre prix plus le transport. Cela ne se passe presque jamais ainsi. Le temps qu'il atteigne un rayon à l'étranger, votre vin a traversé le fret, les droits, les accises, les marges de l'importateur et du distributeur, le détaillant, et le taux de change. Aux États-Unis, cela représente souvent quatre à cinq fois votre prix départ cave. La vraie question n'est pas ce que vous facturez, c'est où votre bouteille atterrit en rayon une fois que toute la chaîne a pris sa part, et si cette position est gagnable pour votre nom. C'est exactement ce qu'un diagnostic rend visible."
+    },
+    "start": {
+      "title": "Une façon mesurée de commencer",
+      "body": "Vous n'avez pas à vous engager dans une stratégie complète pour vous repérer. Deux étapes plus légères viennent d'abord.",
+      "cta": "Demander votre diagnostic gratuit",
+      "items": {
+        "diagnostic": {
+          "title": "Un diagnostic écrit gratuit",
+          "body": "Parlez-moi de votre vin et, si vous les avez, de vos chiffres. Je vous renverrai une lecture écrite de l'endroit où votre prix atterrirait à l'étranger et des questions à trancher. Sans frais, sans engagement."
+        },
+        "orientation": {
+          "title": "Un appel d'orientation",
+          "body": "Une session de travail ciblée pour discuter si l'export est fait pour vous maintenant, et par où commencer : une étape courte et concrète avant tout engagement plus important. Nous convenons des modalités avant que vous ne réserviez."
+        }
+      }
+    },
+    "faq": {
+      "title": "Les inquiétudes qui méritent d'être nommées",
+      "items": [
+        {
+          "q": "Je suis petit et peu connu. L'export en vaut-il seulement la peine ?",
+          "a": "Souvent, oui. Beaucoup de producteurs modestes et peu connus bâtissent une vraie activité export. Ce qui décide, c'est de choisir un marché où votre style et votre prix ont de la place, et un partenaire qui vous vendra vraiment, pas votre notoriété chez vous."
+        },
+        {
+          "q": "Comment éviter de miser sur le mauvais importateur ou distributeur ?",
+          "a": "En accordant le partenaire à votre taille et à votre ambition, et en lisant la relation honnêtement avant de vous engager. Une petite marque noyée dans un grand portefeuille n'est jamais poussée. Le bon partenaire pour deux cents caisses est rarement le bon pour deux mille."
+        },
+        {
+          "q": "Pourrais-je perdre de l'argent en me lançant ?",
+          "a": "Oui, si le calcul du rayon est faux. Si le prix dont la chaîne a besoin force votre départ cave trop bas, l'export peut vous rapporter moins que l'activité que vous avez déjà. Modéliser cela avant d'expédier, c'est tout l'intérêt de commencer par un diagnostic."
+        },
+        {
+          "q": "L'export va-t-il distraire ou affaiblir mon activité nationale ?",
+          "a": "Cela ne devrait pas, si l'on séquence avec soin. Les risques sont de trop étaler l'approvisionnement et de laisser un prix étranger brouiller votre positionnement chez vous. Les deux se maîtrisent une fois nommés, et cela fait partie de ce que nous examinons."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Commencez par une conversation, pas par un engagement",
+      "body": "Dites-moi où vous en êtes et ce que vous pesez. Si l'export n'est pas encore fait pour vous, je vous le dirai aussi.",
       "button": "Discutons"
     }
   },
@@ -480,6 +578,7 @@
       "targetMarketsPlaceholder": "ex. États-Unis : New York, Californie…",
       "stage": "Étape",
       "stageOptions": {
+        "exploring": "J'explore l'export, sans marché précis",
         "pre_entry": "Pas encore aux États-Unis",
         "expanding": "Aux États-Unis, en expansion",
         "underperforming": "Aux États-Unis, en sous-performance"
@@ -518,6 +617,9 @@
       "required": "obligatoire",
       "optional": "facultatif",
       "pricingSection": "Données tarifaires (facultatif, mais utile pour modéliser les chiffres)",
+      "pricingIntro": "Donnez-moi votre prix départ cave (EXW), ou votre prix de rayon sur votre marché national, et je modéliserai où vous atterririez réellement à l'étranger. Pas encore sûr du marché ? Laissez vide et je comparerai les principaux.",
+      "domesticPrice": "Prix de rayon sur votre marché (par bouteille)",
+      "domesticPriceHint": "si vous ne connaissez pas votre EXW",
       "wineNames": "Nom(s) du vin / spiritueux",
       "wineNamesPlaceholder": "ex. Château Margaux 2021, Chablis Premier Cru…",
       "wineStyle": "Style / cépage",
@@ -551,7 +653,7 @@
     },
     "success": {
       "title": "Merci. C'est bien arrivé.",
-      "body": "Je lis chaque message personnellement. Je préparerai votre diagnostic écrit, une lecture brève de l'endroit où votre prix atterrit et des questions à trancher, et vous l'enverrai sous peu, sans frais ni engagement. Si le moment n'est pas le bon, je vous le dirai aussi.",
+      "body": "Je lis chaque message personnellement. Je préparerai votre diagnostic écrit, une lecture brève de l'endroit où votre prix atterrit et des questions à trancher, et je vous l'enverrai par e-mail sous quelques jours, sans frais ni engagement. Si le moment n'est pas le bon, je vous le dirai aussi.",
       "speakingBody": "Je lis chaque message personnellement. Merci d'avoir pensé à moi, je reviendrai vers vous au sujet de l'intervention. Si le moment n'est pas le bon, je vous le dirai aussi."
     },
     "errors": {

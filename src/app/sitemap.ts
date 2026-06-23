@@ -2,7 +2,16 @@ import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
-const PATHS = ['', '/diagnostic', '/advisory', '/speaking', '/about', '/contact'];
+const PATHS = [
+  '',
+  '/export-strategy',
+  '/export-strategy/first-time',
+  '/advisory',
+  '/distributor-finder',
+  '/speaking',
+  '/about',
+  '/contact',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];

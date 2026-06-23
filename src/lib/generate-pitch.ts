@@ -3,7 +3,7 @@ import { getAnthropic, PITCH_MODEL } from '@/lib/anthropic';
 import { pitchHtml } from '@/lib/pdf-template';
 import { htmlToPdf } from '@/lib/render-pdf';
 import { notifyOwner } from '@/lib/notify';
-import { computePricing, money } from '@/lib/pricing-model';
+import { computePricing, estimateExwFromDomesticShelf, money } from '@/lib/pricing-model';
 import type { Lead, PitchContent, Locale } from '@/types/db';
 
 // Markets the EXW→shelf price walk supports (others, incl. 'OTHER', are skipped).
@@ -60,12 +60,116 @@ function formatPricingForContext(
     `EXW converted: ${money(pb.exw, cur)} | CIF: ${money(pb.cif, cur)} | Landed: ${money(pb.landed, cur)}`,
     `Importer-out: ${money(pb.importerOut, cur)} | Front line (trade): ${money(pb.frontline, cur)}`,
     `On-premise list: ${money(pb.onPremiseList, cur)} | Off-premise shelf (incl. tax): ${money(pb.offPremiseShelfInclTax, cur)}`,
-    `Band (off-premise shelf): ${money(b.offPremiseShelf.low, cur)} – ${money(b.offPremiseShelf.high, cur)} (expected ${money(b.offPremiseShelf.expected, cur)})`,
+    `Band (off-premise shelf): ${money(b.offPremiseShelf.low, cur)} to ${money(b.offPremiseShelf.high, cur)} (expected ${money(b.offPremiseShelf.expected, cur)})`,
     `Quantity discount: ${String(pricing.quantityDiscount.legal).toUpperCase()}: ${pricing.quantityDiscount.note || ''}`,
     pricing.warnings.length ? `Warnings: ${pricing.warnings.join(' | ')}` : '',
     pricing.disclaimer,
   ];
   return lines.filter(Boolean).join('\n');
+}
+
+/** Side-by-side landing across the markets we model, for a producer who has
+ *  not yet chosen a target. The teaser must pose which market to enter first
+ *  as a QUESTION, never resolve it. */
+function formatMultiMarketForContext(
+  results: ReturnType<typeof computePricing>[]
+): string {
+  const lines = [
+    'Where the wine would land across the markets we model (per bottle):',
+  ];
+  for (const p of results) {
+    const cur = p.market.currency;
+    const b = p.band;
+    lines.push(
+      `- ${p.market.label}: off-premise shelf ${money(b.offPremiseShelf.expected, cur)} (band ${money(b.offPremiseShelf.low, cur)} to ${money(b.offPremiseShelf.high, cur)}), trade front line ${money(p.expected.perBottle.frontline, cur)}, quantity discount ${String(p.quantityDiscount.legal).toUpperCase()}.`
+    );
+  }
+  lines.push(
+    'Treat the United States as the primary market of interest unless the producer indicates otherwise. Use this to show where they would land in EACH market we model and to pose which market is the right FIRST move as an open question. Do NOT recommend a market or a price; that resolution is the paid work.'
+  );
+  return lines.join('\n');
+}
+
+/** Map a free-text origin country to a home market we hold assumptions for. */
+function homeMarketHint(originCountry: string | null): string | undefined {
+  if (!originCountry) return undefined;
+  const s = originCountry.toLowerCase();
+  if (/(france|french|fran[çc]ais)/.test(s)) return 'FR';
+  if (/(united kingdom|\buk\b|england|britain|british|scotland|wales)/.test(s)) return 'UK';
+  if (/(united states|\busa\b|u\.s\.|america)/.test(s)) return 'US';
+  if (/canada/.test(s)) return 'CA';
+  return undefined;
+}
+
+/** Resolve an ex-cellar price for the walk: explicit EXW, else an estimate
+ *  reversed from a stated domestic shelf price, else none. */
+function resolveExw(
+  lead: Lead
+): { exwPrice: number; exwCurrency: 'EUR' | 'USD' | 'GBP' | 'CAD'; note?: string } | null {
+  if (lead.exw_price != null) {
+    return {
+      exwPrice: lead.exw_price,
+      exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
+    };
+  }
+  if (lead.domestic_price != null) {
+    const currency = (lead.domestic_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD';
+    const est = estimateExwFromDomesticShelf(
+      lead.domestic_price,
+      currency,
+      homeMarketHint(lead.origin_country)
+    );
+    return {
+      exwPrice: est.exwEstimate,
+      exwCurrency: currency,
+      note: `EXW is ESTIMATED (${money(est.exwEstimate, currency)}) from the stated domestic shelf price ${money(lead.domestic_price, currency)}. ${est.warning}`,
+    };
+  }
+  return null;
+}
+
+/** Append a computed price walk to the research findings when we can.
+ *  Walks a single market when one is chosen; otherwise compares all markets we
+ *  model, so the diagnostic still shows numbers for a producer who has not yet
+ *  picked a target. Returns '' (no-op) when no usable price is available. */
+function buildPriceWalkContext(lead: Lead): string {
+  const exw = resolveExw(lead);
+  if (!exw) return '';
+
+  const target = (lead.target_country || '').toUpperCase();
+  const single = PRICING_MARKETS.includes(target as PricingMarket);
+  const head = exw.note ? `\n(${exw.note})` : '';
+
+  try {
+    if (single) {
+      const pricing = computePricing({
+        exwPrice: exw.exwPrice,
+        exwCurrency: exw.exwCurrency,
+        targetMarket: target as PricingMarket,
+        targetRegion: lead.target_region || undefined,
+        volumeCases: lead.volume_cases || undefined,
+      });
+      return '\n\n## COMPUTED PRICE WALK' + head + '\n' + formatPricingForContext(pricing);
+    }
+
+    const results = PRICING_MARKETS.map((m) =>
+      computePricing({
+        exwPrice: exw.exwPrice,
+        exwCurrency: exw.exwCurrency,
+        targetMarket: m,
+        volumeCases: lead.volume_cases || undefined,
+      })
+    );
+    return (
+      '\n\n## COMPUTED PRICE WALK (MULTI-MARKET)' +
+      head +
+      '\n' +
+      formatMultiMarketForContext(results)
+    );
+  } catch {
+    // Non-fatal — continue with research findings only.
+    return '';
+  }
 }
 
 const RESEARCH_SYSTEM = `You are Daley Brennan's research engine. Daley is a current, senior commercial practitioner in the premium wine & spirits industry who advises a small number of brands on US market entry, distribution, and pricing.
@@ -264,25 +368,8 @@ export async function generatePitchReport(leadId: string): Promise<void> {
   try {
     const { findings, sources } = await research(lead);
 
-    // Enrich research findings with computed price walk when pricing data is present.
-    let enrichedFindings = findings;
-    if (
-      lead.exw_price != null &&
-      PRICING_MARKETS.includes(lead.target_country as PricingMarket)
-    ) {
-      try {
-        const pricing = computePricing({
-          exwPrice: lead.exw_price,
-          exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
-          targetMarket: lead.target_country as PricingMarket,
-          targetRegion: lead.target_region || undefined,
-          volumeCases: lead.volume_cases || undefined,
-        });
-        enrichedFindings += '\n\n## COMPUTED PRICE WALK\n' + formatPricingForContext(pricing);
-      } catch {
-        // Non-fatal — continue with research findings only.
-      }
-    }
+    // Enrich research findings with a computed price walk when we can.
+    const enrichedFindings = findings + buildPriceWalkContext(lead);
 
     const content = await structure(lead, enrichedFindings);
 
@@ -387,24 +474,7 @@ export async function regeneratePitchReport(
   try {
     const { findings, sources } = await research(lead);
 
-    let enrichedFindings = findings;
-    if (
-      lead.exw_price != null &&
-      PRICING_MARKETS.includes(lead.target_country as PricingMarket)
-    ) {
-      try {
-        const pricing = computePricing({
-          exwPrice: lead.exw_price,
-          exwCurrency: (lead.exw_currency || 'EUR') as 'EUR' | 'USD' | 'GBP' | 'CAD',
-          targetMarket: lead.target_country as PricingMarket,
-          targetRegion: lead.target_region || undefined,
-          volumeCases: lead.volume_cases || undefined,
-        });
-        enrichedFindings += '\n\n## COMPUTED PRICE WALK\n' + formatPricingForContext(pricing);
-      } catch {
-        // Non-fatal.
-      }
-    }
+    const enrichedFindings = findings + buildPriceWalkContext(lead);
 
     const content = await structure(lead, enrichedFindings, instructions);
     const html = pitchHtml(content, lead, lead.locale);

@@ -216,6 +216,51 @@ export function quantityDiscount(marketCode: string, region: string | null) {
   return { legal: m.quantityDiscountToRetailer, note: m.note };
 }
 
+// ── domestic shelf → ex-cellar estimate ───────────────────────────
+
+export interface DomesticExwEstimate {
+  exwEstimate: number; // approximate ex-cellar price, in the given currency
+  currency: string;
+  homeMarketUsed: string;
+  warning: string;
+}
+
+/**
+ * Approximate an ex-cellar (EXW) price from a known DOMESTIC shelf price
+ * (inclusive of consumer tax) by inverting the home-market retail/wholesale
+ * chain: strip consumer tax, then the retailer margin, then a distributor
+ * margin. No freight, duty, or import margin — this is a domestic sale, not an
+ * import. Deliberately rough: domestic margins and routes vary widely, so the
+ * result is illustrative, not a quoted EXW. Used when a first-time exporter
+ * knows their home shelf price but not their EXW.
+ */
+export function estimateExwFromDomesticShelf(
+  shelfInclTax: number,
+  currency: 'EUR' | 'USD' | 'GBP' | 'CAD',
+  homeMarketHint?: string
+): DomesticExwEstimate {
+  const code = (homeMarketHint || '').toUpperCase();
+  // Default to the French domestic chain when origin is not a market we model.
+  const market: MarketAssumptions =
+    assumptions.markets[code] || assumptions.markets.FR;
+
+  const taxPct = consumerTaxPct(market, null);
+  const offM = market.offPremiseMarginPctOnSell ?? assumptions.defaults.offPremiseMarginPctOnSell;
+  const disM = market.distributorMarginPctOnSell ?? assumptions.defaults.distributorMarginPctOnSell;
+
+  const shelfPreTax     = shelfInclTax / (1 + taxPct);
+  const retailerBuy     = shelfPreTax * (1 - offM); // what the retailer pays
+  const exwEstimate     = retailerBuy * (1 - disM); // producer ex-cellar, approx
+
+  return {
+    exwEstimate: round(exwEstimate),
+    currency,
+    homeMarketUsed: market.label,
+    warning:
+      'Ex-cellar is ESTIMATED from the stated domestic shelf price by reversing a typical retailer margin, distributor margin, and local tax. Domestic margins vary widely, so treat this as illustrative, not a quoted EXW.',
+  };
+}
+
 // ── public entry point ────────────────────────────────────────────
 
 export function computePricing(sub: PricingSubmission): PricingResult {

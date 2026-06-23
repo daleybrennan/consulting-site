@@ -96,6 +96,8 @@ export function ApplicationForm() {
       volume_cases:    get('volume_cases'),
       exw_price:       get('exw_price'),
       exw_currency:    get('exw_currency'),
+      domestic_price:    get('domestic_price'),
+      domestic_currency: get('domestic_currency'),
       channel:         get('channel'),
       tech_sheet_url:  get('tech_sheet_url'),
       // Speaking / training fields
@@ -276,6 +278,7 @@ export function ApplicationForm() {
           <option value="" disabled>
             {t('select')}
           </option>
+          <option value="exploring">{t('stageOptions.exploring')}</option>
           <option value="pre_entry">{t('stageOptions.pre_entry')}</option>
           <option value="expanding">{t('stageOptions.expanding')}</option>
           <option value="underperforming">
@@ -366,6 +369,7 @@ export function ApplicationForm() {
           <p className="text-xs uppercase tracking-[0.12em] text-muted">
             {t('pricingSection')}
           </p>
+          <p className="text-sm leading-relaxed text-muted">{t('pricingIntro')}</p>
 
           <div className="grid gap-6 sm:grid-cols-2">
             <Field label={t('wineNames')} hint={t('optional')}>
@@ -454,6 +458,29 @@ export function ApplicationForm() {
               />
             </Field>
           </div>
+
+          <Field label={t('domesticPrice')} hint={t('domesticPriceHint')}>
+            <div className="flex gap-2">
+              <select
+                name="domestic_currency"
+                defaultValue="EUR"
+                className="rounded-md border border-line bg-paper px-3 py-3 text-ink outline-none transition-colors focus:border-accent"
+              >
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+              </select>
+              <input
+                name="domestic_price"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="0.00"
+                className={`${FIELD_BASE} flex-1`}
+              />
+            </div>
+          </Field>
 
           <div className="grid gap-6 sm:grid-cols-2">
             <Field label={t('channel')} hint={t('optional')}>

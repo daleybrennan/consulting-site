@@ -19,7 +19,7 @@ export type BrandCategory =
   | 'other'
   | 'speaking';
 
-export type Stage = 'pre_entry' | 'expanding' | 'underperforming';
+export type Stage = 'pre_entry' | 'expanding' | 'underperforming' | 'exploring';
 
 export interface Lead {
   id: string;
@@ -55,6 +55,9 @@ export interface Lead {
   exw_currency: string | null;
   channel: string | null;
   tech_sheet_url: string | null;
+  // Domestic shelf price for ex-cellar back-estimate (migration 20260622120000)
+  domestic_price: number | null;
+  domestic_currency: string | null;
   // Speaking / training inquiry fields (migration 20260620225229)
   event_type: string | null;
   event_audience: string | null;

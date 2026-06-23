@@ -17,6 +17,10 @@
       "description": "From a blank page to a full review of an established export business: brand, cultural positioning, pricing and margins, distribution, fulfilment, and channels, across the US, France, the UK, and beyond.",
       "serviceType": "Export strategy and independent multi-market audit: brand, positioning, pricing, distribution, fulfilment, and channels"
     },
+    "firstTime": {
+      "title": "Exporting for the First Time: Where to Begin",
+      "description": "A plain-spoken primer for producers weighing their first export move: whether export is right for you yet, how to choose a first market, and what the price-to-shelf reality means before you commit a case."
+    },
     "distributorFinder": {
       "title": "Distributor & Reseller Finder for Wineries",
       "description": "A tool for wineries to surface and prioritise the right distributors and resellers in each target market, so outreach starts with a shortlist worth working.",
@@ -101,8 +105,13 @@
         "2": {
           "title": "Stalling with a distributor",
           "body": "In a market but flat: soft depletions, leaking margin, and a partner you are no longer sure fits."
+        },
+        "3": {
+          "title": "Weighing your first export move",
+          "body": "Strong at home, and deciding whether, where, and when to sell abroad, without betting the business you have built to find out."
         }
-      }
+      },
+      "firstTimeLink": "New to exporting? Where to begin"
     },
     "positioning": {
       "title": "A practitioner, still active in the market.",
@@ -133,7 +142,8 @@
         "1": "Helped a premium winery roughly double its US revenue in a single year.",
         "2": "Grew one national retail-chain account around sevenfold year on year.",
         "3": "Lifted a European wine group's turnover 1.9× and its gross margin by eleven points.",
-        "4": "Took a struggling Paris wine shop from 9% to 34% gross margin, then sold the business."
+        "4": "Took a struggling Paris wine shop from 9% to 34% gross margin, then sold the business.",
+        "5": "Took a French producer with no US presence into the market through a national importer, and launched two new brands there."
       },
       "note": "Brands and clients kept anonymous out of respect for their confidentiality.",
       "verify": "The roles, dates, and references behind these numbers are a matter of public record.",
@@ -147,7 +157,7 @@
     },
     "selectiveBlock": {
       "title": "Deliberately small",
-      "body": "I take on a limited number of engagements at a time, because the work is hands-on and because I'm doing it alongside a full-time commercial role. If the timing isn't right, I'll say so."
+      "body": "I take on a limited number of engagements at a time, because the work is hands-on and because I'm doing it alongside a full-time commercial role. If the timing isn't right, I'll say so. And if what you need calls for a specialism beyond mine, I can introduce you to a trusted colleague from my network who has it."
     },
     "speakingCallout": {
       "eyebrow": "Speaking & education",
@@ -163,17 +173,22 @@
       "lede": "Whether you're planning your first export market or already running across a dozen, this is an independent, hands-on read of where your brand stands and where it's quietly leaking value: brand, pricing, partners, fulfilment, and the cultural fit that decides it all."
     },
     "startingPoints": {
-      "title": "Two places to start",
+      "title": "Where you're starting from",
       "items": {
-        "scratch": {
-          "title": "Starting from scratch",
-          "body": "No export presence yet, or a first market in your sights. We build the strategy from the ground up: where to go, in what order, at what price, and through whom."
+        "new": {
+          "title": "New to export",
+          "body": "No export presence yet, with the US usually the prize. We build the strategy from the ground up: where to go first, at what price, and through whom."
         },
-        "established": {
-          "title": "An established business",
-          "body": "Already selling across several markets. We audit what you've built, market by market, and name what's working, what's costing you, and what to fix first."
+        "expand": {
+          "title": "Exporting, ready to grow",
+          "body": "Already shipping to a market or two and not yet doing enough. We sharpen the pricing, the partners, and the sequence to open the US and scale what you have."
+        },
+        "audit": {
+          "title": "Exporting widely, need an audit",
+          "body": "Across many markets, the US among them. We audit what you've built, market by market, and name what's working, what's costing you, and what to fix first."
         }
-      }
+      },
+      "firstTimeLink": "Brand new to export? Start with the first-time guide"
     },
     "covers": {
       "title": "What we look at",
@@ -207,6 +222,12 @@
     "markets": {
       "title": "Where I work",
       "body": "The sharpest focus is the United States, France, and the United Kingdom, where I work most closely. But export rarely stops there: I've worked across Latin America and the Middle East too, and I'm glad to talk through any market you're weighing. If I'm not the right person for a given market, I'll tell you."
+    },
+    "orientation": {
+      "eyebrow": "A lighter first step",
+      "title": "Not ready for a full strategy? Start with an orientation call.",
+      "body": "If you are weighing export or unsure where to begin, we don't have to start with a full engagement. An orientation call is a focused working session to talk through whether the timing is right and where to start: a short, practical step before any larger commitment. We agree the terms before you book.",
+      "cta": "Let's talk"
     },
     "how": {
       "title": "How it works",
@@ -243,7 +264,7 @@
         },
         {
           "q": "What does it cost?",
-          "a": "Every engagement is scoped to the brief, so the fee depends on the markets and the depth involved. We agree it on our first call, before you commit to anything."
+          "a": "Every engagement is scoped to the brief, so the fee depends on the markets and the depth involved. There are lighter starting points too, so the commitment can scale to the question rather than starting large. We agree it on our first call, before you commit to anything."
         },
         {
           "q": "Is what I share kept confidential?",
@@ -256,12 +277,89 @@
         {
           "q": "Which markets and languages do you cover?",
           "a": "Sharpest on the United States, France, and the United Kingdom, with work across Latin America, the Middle East, and Northern Europe. In English or French. If I'm not the right person for a given market, I'll tell you."
+        },
+        {
+          "q": "What if my need falls outside your specialism?",
+          "a": "I'll say so, and where it helps I can introduce you to a trusted colleague from my network who covers it. The aim is to get you to the right person, whether or not that is me."
         }
       ]
     },
     "cta": {
       "title": "Start the conversation",
       "body": "Tell me about your brand and the markets you're weighing or already in. If it's a fit, I'll come back to you and we'll take it from there.",
+      "button": "Let's talk"
+    }
+  },
+  "firstTime": {
+    "hero": {
+      "eyebrow": "Export, from the start",
+      "title": "Thinking about export for the first time?",
+      "lede": "If you are strong at home and weighing whether to sell abroad, the hardest part is not shipping the wine. It is knowing whether export is right for you yet, which market to start with (for most producers, the United States is the prize), and where your price will actually land once it gets there. Here is how to think about it before you commit a case."
+    },
+    "questions": {
+      "title": "The questions worth answering first",
+      "items": {
+        "readiness": {
+          "title": "Is export right for you yet?",
+          "body": "Export rewards producers with steady supply, margin headroom, and the patience for a multi-year build. If your domestic business is humming and you have volume to spare, the timing may be right. If not, that is worth knowing now rather than later."
+        },
+        "market": {
+          "title": "Which market, and why?",
+          "body": "The US is the market most producers are really after, and the prize, but it behaves nothing like the UK, Canada, or your neighbours on tax, structure, and what an unknown name can command. The first move is choosing deliberately, not selling to whoever emails first."
+        },
+        "size": {
+          "title": "Are you too small or too unknown?",
+          "body": "Rarely. A modest, little-known producer can do very well abroad with the right market, the right price, and the right partner. Recognition at home is not the gate. Fit is."
+        },
+        "price": {
+          "title": "Where will your price land?",
+          "body": "The number on a foreign shelf is decided several margins, plus freight, duty, and tax, before it gets there. Knowing that number first tells you whether the fight is winnable."
+        }
+      }
+    },
+    "reality": {
+      "title": "The part most first-timers miss",
+      "body": "It is tempting to picture export as the same bottle, sold in another country, at roughly your price plus shipping. It almost never works that way. By the time your wine reaches a shelf abroad, it has passed through freight, duty, excise, importer and distributor margins, the retailer, and the exchange rate. In the US that often means four to five times your ex-cellar price. The real question is not what you charge, it is where your bottle lands on the shelf once the whole chain has taken its share, and whether that position is one your name can win. That is exactly what a diagnostic makes visible."
+    },
+    "start": {
+      "title": "A measured way to begin",
+      "body": "You do not have to commit to a full strategy to get your bearings. Two lighter steps come first.",
+      "cta": "Request your free diagnostic",
+      "items": {
+        "diagnostic": {
+          "title": "A free written diagnostic",
+          "body": "Tell me about your wine and, if you have them, your numbers. I will send back a written read on where your price would land abroad and the questions worth answering. No cost, no obligation."
+        },
+        "orientation": {
+          "title": "An orientation call",
+          "body": "A focused working session to talk through whether export is right for you now, and where to start: a short, practical step before any larger commitment. We agree the terms before you book."
+        }
+      }
+    },
+    "faq": {
+      "title": "The worries worth naming",
+      "items": [
+        {
+          "q": "I'm small and not well known. Is export even worth it?",
+          "a": "Often, yes. Plenty of modest, little-known producers build real export business. What decides it is choosing a market where your style and price have room, and a partner who will actually sell you, not how famous you are at home."
+        },
+        {
+          "q": "How do I avoid backing the wrong importer or distributor?",
+          "a": "By matching the partner to your size and ambition, and by reading the relationship honestly before you commit. A small brand buried in a large book gets no push. The right partner for two hundred cases is rarely the right one for two thousand."
+        },
+        {
+          "q": "Could I lose money getting in?",
+          "a": "You can, if the shelf math is wrong. If the price the chain needs forces your ex-cellar down too far, export can earn you less than the business you already have. Modelling that before you ship is the whole point of starting with a diagnostic."
+        },
+        {
+          "q": "Will export distract from or undercut my domestic business?",
+          "a": "It shouldn't, if it is sequenced with care. The risks are spreading supply too thin and letting a foreign price confuse your home positioning. Both are manageable once they are named, which is part of what we look at."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start with a conversation, not a commitment",
+      "body": "Tell me where you are and what you are weighing. If export is not right for you yet, I will tell you that too.",
       "button": "Let's talk"
     }
   },
@@ -480,6 +578,7 @@
       "targetMarketsPlaceholder": "e.g. US: New York, California…",
       "stage": "Stage",
       "stageOptions": {
+        "exploring": "Exploring export, no specific market yet",
         "pre_entry": "Not yet in the US",
         "expanding": "In the US, expanding",
         "underperforming": "In the US, underperforming"
@@ -518,6 +617,9 @@
       "required": "required",
       "optional": "optional",
       "pricingSection": "Pricing details (optional, but it helps us model the numbers)",
+      "pricingIntro": "Give me your EXW (ex-cellar) price, or your domestic shelf price, and I'll model where you would actually land abroad. Not sure which market yet? Leave it blank and I'll compare the main ones.",
+      "domesticPrice": "Domestic shelf price per bottle",
+      "domesticPriceHint": "if you don't know your EXW",
       "wineNames": "Wine / spirit name(s)",
       "wineNamesPlaceholder": "e.g. Château Margaux 2021, Chablis Premier Cru…",
       "wineStyle": "Style / varietal",
@@ -551,7 +653,7 @@
     },
     "success": {
       "title": "Thank you. It's with me.",
-      "body": "I read every message personally. I'll prepare your written diagnostic, a short read on where your pricing lands and the questions worth answering, and send it shortly, with no cost and no obligation. If the timing isn't right, I'll tell you that too.",
+      "body": "I read every message personally. I'll prepare your written diagnostic, a short read on where your pricing lands and the questions worth answering, and email it to you within a couple of days, with no cost and no obligation. If the timing isn't right, I'll tell you that too.",
       "speakingBody": "I read every message personally. Thank you for thinking of me. I'll come back to you about the engagement. If the timing isn't right, I'll tell you that too."
     },
     "errors": {

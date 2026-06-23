@@ -11,6 +11,7 @@ import {
   NumberedGrid,
 } from '@/components/ui';
 import { RotatingHeadline } from '@/components/RotatingHeadline';
+import { Link } from '@/i18n/navigation';
 import portrait from '../../../public/daley-brennan.jpg';
 import vineyard from '../../../public/vineyard-vista.png';
 
@@ -95,12 +96,12 @@ function Proof() {
 
 function WhoFor() {
   const t = useTranslations('home.whoFor');
-  const keys = ['0', '1', '2'] as const;
+  const keys = ['0', '1', '2', '3'] as const;
   return (
     <Section tone="light">
       <Eyebrow>{t('eyebrow')}</Eyebrow>
       <h2 className="reveal mt-5 max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {keys.map((k) => (
           <div
             key={k}
@@ -117,6 +118,12 @@ function WhoFor() {
           </div>
         ))}
       </div>
+      <Link
+        href="/export-strategy/first-time"
+        className="reveal mt-8 inline-flex items-center gap-2 text-sm text-accent underline-offset-4 transition-colors hover:text-accent-soft hover:underline"
+      >
+        {t('firstTimeLink')} →
+      </Link>
     </Section>
   );
 }
@@ -168,7 +175,7 @@ function Pillars() {
 
 function Results() {
   const t = useTranslations('home.results');
-  const items = ['0', '1', '2', '3', '4'] as const;
+  const items = ['0', '1', '2', '3', '4', '5'] as const;
   return (
     <Section tone="light">
       <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">

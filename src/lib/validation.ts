@@ -34,7 +34,7 @@ export const leadSubmitSchema = z.object({
   target_markets: z.string().trim().max(1000).optional().default(''),
   // Required for export inquiries; not shown (or required) for speaking — see refine below.
   stage: z
-    .enum(['pre_entry', 'expanding', 'underperforming'])
+    .enum(['pre_entry', 'expanding', 'underperforming', 'exploring'])
     .or(z.literal(''))
     .optional()
     .default(''),
@@ -57,6 +57,8 @@ export const leadSubmitSchema = z.object({
   volume_cases:    z.preprocess(v => (v === '' || v == null) ? undefined : v, z.coerce.number().int().min(1).optional()),
   exw_price:       z.preprocess(v => (v === '' || v == null) ? undefined : v, z.coerce.number().positive().optional()),
   exw_currency:    z.enum(['EUR', 'USD', 'GBP', 'CAD', '']).optional().default(''),
+  domestic_price:    z.preprocess(v => (v === '' || v == null) ? undefined : v, z.coerce.number().positive().optional()),
+  domestic_currency: z.enum(['EUR', 'USD', 'GBP', 'CAD', '']).optional().default(''),
   channel:         z.enum(['on', 'off', 'both', '']).optional().default(''),
   tech_sheet_url:  z.string().trim().max(500).optional().default(''),
   // Speaking / training inquiry fields (optional — shown for 'speaking' only)
@@ -107,6 +109,8 @@ export function toLeadRow(input: LeadSubmitInput) {
     volume_cases:    input.volume_cases    ?? null,
     exw_price:       input.exw_price       ?? null,
     exw_currency:    input.exw_currency    || null,
+    domestic_price:    input.domestic_price    ?? null,
+    domestic_currency: input.domestic_currency || null,
     channel:         input.channel         || null,
     tech_sheet_url:  input.tech_sheet_url  || null,
     // Speaking / training fields

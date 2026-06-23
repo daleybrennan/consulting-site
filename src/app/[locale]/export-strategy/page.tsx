@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import { Section, CtaBand, PageHero, NumberedGrid } from '@/components/ui';
+import { Section, CtaBand, PageHero, NumberedGrid, ButtonLink, Eyebrow } from '@/components/ui';
+import { Link } from '@/i18n/navigation';
 import vineyard from '../../../../public/vineyard-glass.jpg';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
@@ -42,6 +43,7 @@ export default async function ExportStrategyPage({
       <StartingPoints />
       <Covers />
       <Markets />
+      <Orientation />
       <How />
       <Faq />
       <Cta />
@@ -64,11 +66,11 @@ function Hero() {
 
 function StartingPoints() {
   const t = useTranslations('exportStrategy.startingPoints');
-  const items = ['scratch', 'established'] as const;
+  const items = ['new', 'expand', 'audit'] as const;
   return (
     <Section tone="light">
       <h2 className="reveal max-w-2xl text-3xl md:text-4xl">{t('title')}</h2>
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
         {items.map((k) => (
           <div key={k} className="reveal rounded-lg border border-line bg-surface p-8 md:p-10">
             <h3 className="text-2xl">{t(`items.${k}.title`)}</h3>
@@ -76,6 +78,12 @@ function StartingPoints() {
           </div>
         ))}
       </div>
+      <Link
+        href="/export-strategy/first-time"
+        className="reveal mt-8 inline-flex items-center gap-2 text-sm text-accent underline-offset-4 transition-colors hover:text-accent-soft hover:underline"
+      >
+        {t('firstTimeLink')} →
+      </Link>
     </Section>
   );
 }
@@ -114,6 +122,26 @@ function Markets() {
         <p className="reveal max-w-xl self-center text-lg leading-relaxed text-muted">
           {t('body')}
         </p>
+      </div>
+    </Section>
+  );
+}
+
+function Orientation() {
+  const t = useTranslations('exportStrategy.orientation');
+  return (
+    <Section tone="dark">
+      <div className="grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-16">
+        <div>
+          <Eyebrow>{t('eyebrow')}</Eyebrow>
+          <h2 className="reveal mt-5 text-balance text-3xl md:text-4xl">
+            {t('title')}
+          </h2>
+          <p className="reveal mt-5 max-w-xl text-lg text-muted-dark">{t('body')}</p>
+        </div>
+        <div className="reveal md:justify-self-end">
+          <ButtonLink href="/contact" variant="accent">{t('cta')}</ButtonLink>
+        </div>
       </div>
     </Section>
   );
