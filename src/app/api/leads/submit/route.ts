@@ -3,7 +3,6 @@ import { leadSubmitSchema, toLeadRow, firstErrorKey } from '@/lib/validation';
 import { verifyTurnstile } from '@/lib/turnstile';
 import { rateLimit, clientIp } from '@/lib/rate-limit';
 import { getServiceClient, isSupabaseConfigured } from '@/lib/supabase/server';
-import { generatePitchReport } from '@/lib/generate-pitch';
 import { notifyOwner } from '@/lib/notify';
 import { sendMail, isMailConfigured, mailBcc } from '@/lib/mailer';
 import { acknowledgmentEmail } from '@/lib/emails/acknowledgment';
@@ -121,8 +120,12 @@ export async function POST(req: Request) {
     payload: { ip },
   });
 
-  // 6. Notify the owner, acknowledge the submitter, and generate the pitch —
-  //    all after the response is sent so the form returns instantly.
+  // 6. Notify the owner and acknowledge the submitter after the response is sent
+  //    so the form returns instantly. The diagnostic itself is NOT generated here:
+  //    on Vercel the request function is capped (60s on Hobby) and the multi-minute
+  //    Opus research + Chromium render is reliably killed mid-run. A separate local
+  //    worker (scripts/run-pending-pitches.ts) claims `new` leads and generates the
+  //    pitch off the request path; a Supabase pg_cron sweep alerts if one is neglected.
   after(async () => {
     // Owner alert (Telegram + email if configured); reply-to = the prospect.
     await notifyOwner('lead_created', {
@@ -155,15 +158,6 @@ export async function POST(req: Request) {
         });
       } catch (err) {
         console.error('[leads/submit] acknowledgment email error', err);
-      }
-    }
-
-    // Speaking / training inquiries have no pricing diagnostic to generate.
-    if (input.brand_category !== 'speaking') {
-      try {
-        await generatePitchReport(data.id);
-      } catch (err) {
-        console.error('[leads/submit] background generation error', err);
       }
     }
   });

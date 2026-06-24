@@ -174,22 +174,41 @@ function buildPriceWalkContext(lead: Lead): string {
 
 const RESEARCH_SYSTEM = `You are Daley Brennan's research engine. Daley is a current, senior commercial practitioner in the premium wine & spirits industry who advises a small number of brands on US market entry, distribution, and pricing.
 
-Your job: research a brand and produce the raw material for a TEASER diagnostic, a short written read that demonstrates Daley's competence and creates desire for a paid engagement, WITHOUT giving away the answers.
+Your job: research a brand and produce the raw material for a free written diagnostic, a short read that demonstrates Daley's competence and creates desire for a paid engagement, WITHOUT giving away the answers.
 
-CRITICAL, this is a teaser by design:
-- Surface the SHAPE of the diagnosis and the questions worth answering. NEVER resolve them.
+CRITICAL, withhold the answer by design:
+- Surface the shape of the diagnosis and the questions worth answering. NEVER resolve them.
 - Name categories of likely risk ("a probable pricing-ladder compression between your ex-cellars price and US shelf", "a likely market-sequencing error given your target states"), but do NOT prescribe the fix.
 - The resolution, the specific fixes and the order to make them, is the paid work. Withhold it.
 - Be specific to THIS brand, category, and target markets, and ground it in how the US trade actually buys right now. Use web search to check the brand, its competitive set, and current market conditions.
 - Never invent facts about the brand. If something is unknown, treat it as a question worth answering, not an assertion.
+- Flag any caveats an advisor would want before sending (data you could not verify, figures that need refreshing, regulatory lines to confirm). These are notes for Daley, kept separate from the client-facing read.
 
 Tone: precise, senior, quietly confident. No hype, no emoji, no sales language. Never use em-dashes; use commas, colons, or periods.`;
 
 function structureSystem(locale: Locale): string {
   const lang = locale === 'fr' ? 'French' : 'English';
-  return `You convert research notes into a structured teaser diagnostic, written entirely in ${lang}.
+  return `You write a free written diagnostic that Daley Brennan sends TO a wine or spirits producer, in ${lang}. Convert the research notes into the structured document.
 
-Hold the teaser discipline: name risks and questions, resolve nothing. Keep each field tight and specific to the brand. 3–4 risk areas, 3–5 questions. No hype, no emoji. Never use em-dashes; use commas, colons, or periods.`;
+Audience and voice: every word of the client-facing fields (headline, intro, positionRead, riskAreas, questions, closing) is addressed directly to the producer, as a senior advisor writing to a business counterpart. It is a finished document the client reads, not a description of your process or a note to Daley.
+
+NEVER write, in any client-facing field:
+- The word "teaser", or any description of the document's purpose or design ("this is a teaser", "what follows names", "the engagement is", "resolving them is the work").
+- Meta-commentary about the document itself ("framed as a question", "not resolved here", "named but not resolved", "everything here is a question").
+- Notes to Daley or about delivery ("before this reaches the brand", "worth confirming", "flag for review").
+- LLM-speak or process language ("could not be verified", "was verifiable from public sources", "in this session", "as of this analysis", "I researched").
+When something cannot be confirmed, either leave it out of the client text or state it as a professional advisory note to the client ("Tariff schedules are subject to revision; confirm the current line before finalising your cost model."), and put the internal caveat in reviewerNotes instead.
+
+Discipline: name the problem and the questions worth answering; resolve nothing. NEVER state the recommended ex-works price, price architecture, channel sequence, target accounts, or which state to enter first; that is the paid strategy. Name the correct regulatory authority for the jurisdiction (e.g. New York State Liquor Authority, not a generic "ABC").
+
+Fields:
+- headline: a clean client-facing title, e.g. "{Company}: US Market-Entry Pricing Diagnostic". Never the words "teaser" or "preliminary".
+- closing: an advisory close that invites the producer to commission the full strategy, plus only client-appropriate caveats stated as professional notes.
+- questions: prompts the producer should be asking themselves before committing budget. 3 to 5.
+- riskAreas: 3 to 4, each a named risk with a short client-facing explanation that stops short of the fix.
+- reviewerNotes: INTERNAL, for Daley only, never shown to the client. The caveats an advisor wants before sending: data not verified, figures built on planning defaults to refresh, regulatory lines to confirm. Plain notes to Daley are fine here.
+
+No hype, no emoji. Never use em-dashes; use commas, colons, or periods.`;
 }
 
 const PITCH_SCHEMA = {
@@ -213,9 +232,46 @@ const PITCH_SCHEMA = {
     },
     questions: { type: 'array', items: { type: 'string' } },
     closing: { type: 'string' },
+    reviewerNotes: { type: 'array', items: { type: 'string' } },
   },
-  required: ['headline', 'intro', 'positionRead', 'riskAreas', 'questions', 'closing'],
+  required: ['headline', 'intro', 'positionRead', 'riskAreas', 'questions', 'closing', 'reviewerNotes'],
 } as const;
+
+// Substrings that must never reach a client-facing field. Lower-cased match.
+// Internal design language, meta-commentary, notes-to-Daley, and LLM-speak.
+const BANNED_CLIENT_PHRASES = [
+  'teaser',
+  'what follows names',
+  'framed as a question',
+  'not resolved here',
+  'named but not resolved',
+  'before this reaches the brand',
+  'reaches the brand',
+  'worth confirming before',
+  'could not be verified',
+  'was verifiable',
+  'not verifiable from public',
+  'in this session',
+  'as of this analysis',
+  'the engagement is',
+  'resolving them is',
+  'this is a teaser',
+];
+
+/** Scan only the client-facing fields for banned language. Returns the hits. */
+function scanClientCopy(content: PitchContent): string[] {
+  const haystack = [
+    content.headline,
+    content.intro,
+    content.positionRead,
+    content.closing,
+    ...content.riskAreas.flatMap((r) => [r.title, r.teaser]),
+    ...content.questions,
+  ]
+    .join('\n')
+    .toLowerCase();
+  return BANNED_CLIENT_PHRASES.filter((p) => haystack.includes(p));
+}
 
 // ---- LLM steps --------------------------------------------------
 
@@ -284,22 +340,53 @@ async function structure(
   const extra = instructions
     ? `\n\nAdditional instructions from Daley (apply these):\n${instructions}`
     : '';
-  const msg = await client.messages.create({
-    model: PITCH_MODEL,
-    max_tokens: 4000,
-    system: structureSystem(lead.locale),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    output_config: { format: { type: 'json_schema', schema: PITCH_SCHEMA } } as any,
-    messages: [
-      {
-        role: 'user',
-        content: `Brand brief:\n${brandBrief(lead)}\n\nResearch notes:\n${findings}\n\nProduce the structured teaser diagnostic.${extra}`,
-      },
-    ],
-  });
-  const text = msg.content.find((b) => b.type === 'text');
-  if (!text || text.type !== 'text') throw new Error('No structured output');
-  return JSON.parse(text.text) as PitchContent;
+
+  async function run(correction?: string): Promise<PitchContent> {
+    const msg = await client.messages.create({
+      model: PITCH_MODEL,
+      max_tokens: 4000,
+      system: structureSystem(lead.locale),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      output_config: { format: { type: 'json_schema', schema: PITCH_SCHEMA } } as any,
+      messages: [
+        {
+          role: 'user',
+          content: `Brand brief:\n${brandBrief(lead)}\n\nResearch notes:\n${findings}\n\nProduce the structured client-facing diagnostic.${extra}${correction ?? ''}`,
+        },
+      ],
+    });
+    const text = msg.content.find((b) => b.type === 'text');
+    if (!text || text.type !== 'text') throw new Error('No structured output');
+    return JSON.parse(text.text) as PitchContent;
+  }
+
+  let content = await run();
+
+  // Guard: client-facing copy must not leak internal design language, meta
+  // commentary, notes to Daley, or LLM-speak. Re-ask once with the specific
+  // offending phrases; if it still leaks, record it in reviewerNotes so Daley
+  // catches it in review rather than shipping it silently.
+  const hits = scanClientCopy(content);
+  if (hits.length) {
+    content = await run(
+      `\n\nThe previous draft put these phrases into client-facing fields, which is not allowed: ${hits
+        .map((h) => `"${h}"`)
+        .join(
+          ', '
+        )}. Rewrite so none of them, or any equivalent internal/process/meta language, appears in headline, intro, positionRead, riskAreas, questions, or closing. Move any genuine caveat into reviewerNotes.`
+    );
+    const stillHits = scanClientCopy(content);
+    if (stillHits.length) {
+      content.reviewerNotes = [
+        `REVIEW BEFORE SENDING: client copy may still contain internal/process language (${stillHits.join(
+          ', '
+        )}). Read the PDF before it goes out.`,
+        ...(content.reviewerNotes ?? []),
+      ];
+    }
+  }
+
+  return content;
 }
 
 // ---- Email draft ------------------------------------------------

@@ -2,7 +2,11 @@ import { sendMail, isMailConfigured } from '@/lib/mailer';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
-type NotifyType = 'lead_created' | 'pitch_generated' | 'pitch_error';
+type NotifyType =
+  | 'lead_created'
+  | 'pitch_generated'
+  | 'pitch_error'
+  | 'worker_stalled';
 
 /**
  * Emails the owner. Non-throwing — a failed notification must never break the
@@ -76,6 +80,7 @@ export async function notifyOwner(
     lead_created: `New application — ${ref.company ?? 'unknown brand'}`,
     pitch_generated: `Pitch ready for review — ${ref.company ?? ''}`.trim(),
     pitch_error: `Pitch generation failed — ${ref.company ?? ''}`.trim(),
+    worker_stalled: `Diagnostic worker behind — ${ref.company ?? 'leads waiting'}`.trim(),
   };
 
   const body = [ref.overview ?? ref.detail ?? '', `Review: ${reviewUrl}`]

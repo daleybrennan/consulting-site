@@ -83,6 +83,10 @@ export interface PitchContent {
   riskAreas: { title: string; teaser: string }[]; // named, NOT resolved
   questions: string[]; // questions worth answering before committing budget
   closing: string;
+  // Internal-only, advisor-facing caveats (data unverified, figures to refresh,
+  // regulatory lines to confirm). Shown in the admin window, NEVER rendered into
+  // the client PDF by pdf-template.ts.
+  reviewerNotes: string[];
 }
 
 export type LocaleKeyed<T> = Partial<Record<Locale, T>>;

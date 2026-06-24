@@ -8,9 +8,9 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ['@sparticuz/chromium', 'puppeteer-core', 'puppeteer'],
   // Next.js output-file tracing can't follow chromium.executablePath() (a runtime
   // string), so the binary directory is excluded from the Lambda by default.
-  // Explicitly include it for the two routes that call htmlToPdf().
+  // Include it for the route that calls htmlToPdf(). Lead submission no longer
+  // renders in-request (generation runs in the local worker), so it is dropped.
   outputFileTracingIncludes: {
-    '/api/leads/submit': ['./node_modules/@sparticuz/chromium/bin/**'],
     '/api/admin/reports/[id]/regenerate': ['./node_modules/@sparticuz/chromium/bin/**'],
   },
   // The diagnostic + audit pages merged into /export-strategy.
