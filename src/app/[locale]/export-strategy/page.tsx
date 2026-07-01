@@ -160,7 +160,6 @@ function How() {
       <div className="mt-14">
         <NumberedGrid items={items} variant="lg" cols={2} ordered />
       </div>
-      <p className="reveal mt-8 max-w-2xl text-sm leading-relaxed text-muted">{t('note')}</p>
     </Section>
   );
 }
