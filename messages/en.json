@@ -367,7 +367,17 @@
     "hero": {
       "eyebrow": "Distributor & reseller finder",
       "title": "Find the right distributors and resellers, market by market.",
-      "lede": "A tool for wineries that takes the guesswork out of who to approach. It surfaces and prioritises the distributors and resellers worth your time in each market, so your outreach starts with a list that's actually worth working."
+      "lede": "A tool for wineries that takes the guesswork out of who to approach. It surfaces and prioritises the distributors and resellers worth your time in each market, so your outreach starts with a list that's actually worth working.",
+      "cta": "Request a demo",
+      "secondary": "Ask a question",
+      "mockupAlt": "The Account Finder tool showing prospective accounts plotted on a map with a filter and location panel.",
+      "settingsAlt": "The Account Finder settings panel: brand-fit ranking, price and rating parameters, and selectable data sources.",
+      "chromeLabel": "account-finder",
+      "lightbox": {
+        "expand": "View full size",
+        "close": "Close",
+        "dialogLabel": "Expanded view of the Account Finder app"
+      }
     },
     "what": {
       "title": "What it does",
@@ -411,6 +421,11 @@
         "title": "Team licence",
         "body": "For commercial teams working markets together: shared access and shared lists across multiple seats."
       }
+    },
+    "walkthrough": {
+      "title": "Want a walkthrough?",
+      "body": "Tell me the markets you're working and I'll show you the kind of shortlist it builds, on a real search.",
+      "button": "Request a demo"
     },
     "platforms": {
       "title": "Available everywhere you work",

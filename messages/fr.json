@@ -367,7 +367,17 @@
     "hero": {
       "eyebrow": "Prospection distributeurs & revendeurs",
       "title": "Trouvez les bons distributeurs et revendeurs, marché par marché.",
-      "lede": "Un outil pour les domaines viticoles qui élimine le tâtonnement sur les portes à frapper. Il fait émerger et priorise les distributeurs et revendeurs qui méritent votre temps sur chaque marché, pour démarrer la prospection avec une liste qui en vaut vraiment la peine."
+      "lede": "Un outil pour les domaines viticoles qui élimine le tâtonnement sur les portes à frapper. Il fait émerger et priorise les distributeurs et revendeurs qui méritent votre temps sur chaque marché, pour démarrer la prospection avec une liste qui en vaut vraiment la peine.",
+      "cta": "Demander une démo",
+      "secondary": "Poser une question",
+      "mockupAlt": "L'outil Account Finder affichant des comptes potentiels positionnés sur une carte, avec un panneau de filtres et de localisation.",
+      "settingsAlt": "Le panneau de réglages d'Account Finder : classement par adéquation de marque, paramètres de prix et de note, et sources de données sélectionnables.",
+      "chromeLabel": "account-finder",
+      "lightbox": {
+        "expand": "Voir en grand",
+        "close": "Fermer",
+        "dialogLabel": "Vue agrandie de l'application Account Finder"
+      }
     },
     "what": {
       "title": "Ce qu'il fait",
@@ -411,6 +421,11 @@
         "title": "Licence équipe",
         "body": "Pour les équipes commerciales qui travaillent les marchés ensemble : accès et listes partagés sur plusieurs postes."
       }
+    },
+    "walkthrough": {
+      "title": "Envie d'une démonstration ?",
+      "body": "Dites-moi les marchés que vous travaillez et je vous montrerai le type de liste courte qu'il construit, sur une vraie recherche.",
+      "button": "Demander une démo"
     },
     "platforms": {
       "title": "Disponible partout où vous travaillez",

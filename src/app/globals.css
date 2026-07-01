@@ -149,3 +149,16 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .card-hover, .card-hover:hover { transform: none; transition: none; }
 }
+
+/* Gentle idle drift for the product mockup layers. Two speeds so stacked
+   layers move independently and read as depth rather than a rigid block. */
+@keyframes af-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+.af-float { animation: af-float 7s ease-in-out infinite; }
+.af-float-slow { animation: af-float 9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .af-float, .af-float-slow { animation: none; }
+}

@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { Section, PageHero, NumberedGrid } from '@/components/ui';
-import cellar from '../../../../public/wine-cellar.jpg';
+import { Section, ButtonLink, Eyebrow, NumberedGrid } from '@/components/ui';
+import { AccountFinderMockup } from '@/components/AccountFinderMockup';
+import appShot from '../../../../public/account-finder-app.png';
+import settingsShot from '../../../../public/account-finder-settings.png';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://daleybrennan.com';
 // External destination for the tool. Falls back to '#' until the live URL is set.
@@ -43,6 +45,7 @@ export default async function DistributorFinderPage({
       <Hero />
       <What />
       <Plans />
+      <Walkthrough />
       <Platforms />
       <Cta />
     </>
@@ -52,12 +55,49 @@ export default async function DistributorFinderPage({
 function Hero() {
   const t = useTranslations('distributorFinder.hero');
   return (
-    <PageHero
-      image={cellar}
-      eyebrow={t('eyebrow')}
-      title={t('title')}
-      lede={t('lede')}
-    />
+    <section className="relative isolate overflow-hidden border-b-2 border-accent/40 bg-ink text-surface">
+      {/* Soft burgundy glow behind the mockup, in place of a photo */}
+      <div
+        aria-hidden="true"
+        className="absolute right-0 top-1/2 -z-10 h-[42rem] w-[42rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-70 blur-3xl"
+        style={{
+          background:
+            'radial-gradient(circle, color-mix(in srgb, var(--accent) 55%, transparent) 0%, transparent 68%)',
+        }}
+      />
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 pb-20 pt-20 md:grid-cols-[1fr_1.05fr] md:gap-12 md:px-10 md:pb-28 md:pt-28">
+        <div>
+          <Eyebrow>{t('eyebrow')}</Eyebrow>
+          <h1 className="reveal mt-6 max-w-xl text-balance text-4xl leading-tight md:text-6xl">
+            {t('title')}
+          </h1>
+          <p className="reveal prose-measure mt-8 max-w-xl text-lg text-muted-dark md:text-xl">
+            {t('lede')}
+          </p>
+          <div className="reveal mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ButtonLink href="/contact" variant="accent">
+              {t('cta')}
+            </ButtonLink>
+            <Link
+              href="/contact"
+              className="text-sm text-muted-dark underline-offset-4 transition-colors hover:text-white hover:underline"
+            >
+              {t('secondary')} →
+            </Link>
+          </div>
+        </div>
+        <AccountFinderMockup
+          app={appShot}
+          settings={settingsShot}
+          appAlt={t('mockupAlt')}
+          settingsAlt={t('settingsAlt')}
+          chromeLabel={t('chromeLabel')}
+          expandLabel={t('lightbox.expand')}
+          closeLabel={t('lightbox.close')}
+          dialogLabel={t('lightbox.dialogLabel')}
+        />
+      </div>
+    </section>
   );
 }
 
@@ -101,6 +141,25 @@ function Plans() {
             <p className="mt-3 text-muted">{t(`${k}.body`)}</p>
           </div>
         ))}
+      </div>
+    </Section>
+  );
+}
+
+function Walkthrough() {
+  const t = useTranslations('distributorFinder.walkthrough');
+  return (
+    <Section tone="light">
+      <div className="reveal card-hover flex flex-col gap-6 rounded-lg border border-line bg-surface-2 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+        <div>
+          <h2 className="text-2xl md:text-3xl">{t('title')}</h2>
+          <p className="mt-3 max-w-xl text-muted">{t('body')}</p>
+        </div>
+        <div className="shrink-0">
+          <ButtonLink href="/contact" variant="accent">
+            {t('button')}
+          </ButtonLink>
+        </div>
       </div>
     </Section>
   );
@@ -157,7 +216,7 @@ function Cta() {
           <span>{t('button')}</span>
           <span aria-hidden="true">→</span>
         </Link>
-        {hasTool && (
+        {hasTool ? (
           <a
             href={TOOL_URL}
             target="_blank"
@@ -166,6 +225,13 @@ function Cta() {
           >
             {t('openTool')} ↗
           </a>
+        ) : (
+          <Link
+            href="/contact"
+            className="text-sm text-muted-dark underline-offset-4 transition-colors hover:text-white hover:underline"
+          >
+            {t('secondary')} →
+          </Link>
         )}
       </div>
     </Section>
